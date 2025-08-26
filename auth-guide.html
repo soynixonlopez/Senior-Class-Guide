@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Auth Tutorial - Guía Completa</title>
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/auth-guide.css" rel="stylesheet">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🔥 Firebase Auth</h2>
+                <p>Guía Completa</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Resumen</span>
+                </a></li>
+                <li><a href="#prerequisites" class="nav-link">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Prerequisitos</span>
+                </a></li>
+                <li><a href="#structure" class="nav-link">
+                    <span class="nav-icon">📁</span>
+                    <span class="nav-text">Estructura</span>
+                </a></li>
+                <li><a href="#firebase-setup" class="nav-link">
+                    <span class="nav-icon">⚙️</span>
+                    <span class="nav-text">Config Firebase</span>
+                </a></li>
+                <li><a href="#config-file" class="nav-link">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-text">Archivo Config</span>
+                </a></li>
+                <li><a href="#auth-logic" class="nav-link">
+                    <span class="nav-icon">🔐</span>
+                    <span class="nav-text">Lógica Auth</span>
+                </a></li>
+                <li><a href="#pages" class="nav-link">
+                    <span class="nav-icon">🌐</span>
+                    <span class="nav-text">Páginas HTML</span>
+                </a></li>
+                <li><a href="#testing" class="nav-link">
+                    <span class="nav-icon">🧪</span>
+                    <span class="nav-text">Pruebas</span>
+                </a></li>
+                <li><a href="#deploy" class="nav-link">
+                    <span class="nav-icon">🚀</span>
+                    <span class="nav-text">Despliegue</span>
+                </a></li>
+                <li><a href="#troubleshooting" class="nav-link">
+                    <span class="nav-icon">🔧</span>
+                    <span class="nav-text">Problemas</span>
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Component -->
+            <div id="header-container"></div>
+            
+            <div class="content">
+                <div class="content-wrapper">
+                <!-- Overview Section -->
+                <section id="overview" class="section">
+                    <h1>🔐 Sistema de Autenticación con Firebase</h1>
+                    <p class="lead">Aprende a implementar un sistema de autenticación completo usando Firebase Authentication con HTML, CSS y JavaScript vanilla.</p>
+                    
+                    <div class="info-box">
+                        <h3>¿Qué aprenderás?</h3>
+                        <ul>
+                            <li>✅ Configurar Firebase Authentication</li>
+                            <li>✅ Implementar registro y login con email/password</li>
+                            <li>✅ Crear páginas protegidas</li>
+                            <li>✅ Manejar sesiones de usuario</li>
+                            <li>✅ Desplegar tu aplicación</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Importante:</strong> Esta guía está diseñada para ser usada con Cursor AI. Los prompts incluidos te ayudarán a generar el código automáticamente.
+                    </div>
+                </section>
+
+                <!-- Prerequisites Section -->
+                <section id="prerequisites" class="section">
+                    <h2>📋 Prerequisitos</h2>
+                    <div class="checklist">
+                        <label><input type="checkbox"> Conocimientos básicos de HTML, CSS y JavaScript</label>
+                        <label><input type="checkbox"> Cuenta de Google (para Firebase)</label>
+                        <label><input type="checkbox"> Editor de código (recomendado: Cursor)</label>
+                        <label><input type="checkbox"> Servidor local para pruebas</label>
+                    </div>
+                </section>
+
+                <!-- Project Structure Section -->
+                <section id="structure" class="section">
+                    <h2>📁 Estructura del Proyecto</h2>
+                    <p>Primero, crearemos la estructura de carpetas necesaria:</p>
+                    
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Estructura de carpetas</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                        </div>
+                        <pre><code>auth-tutorial/
+├── index.html          (Página principal)
+├── login.html          (Página de login)
+├── register.html       (Página de registro)
+├── welcome.html        (Página protegida)
+├── assets/
+│   └── styles.css      (Estilos CSS)
+└── firebase/
+    ├── config.js       (Configuración Firebase)
+    └── auth.js         (Lógica de autenticación)</code></pre>
+                    </div>
+
+                    <div class="prompt-box">
+                        <h4>🤖 Prompt para Cursor:</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                            </div>
+                            <pre><code>Create a new project folder called auth-tutorial with the file structure shown above. Add empty files for each path.</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Firebase Setup Section -->
+                <section id="firebase-setup" class="section">
+                    <h2>🔥 Configuración de Firebase</h2>
+                    
+                    <div class="step-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Crear proyecto Firebase</h3>
+                                <ol>
+                                    <li>Ve a <a href="https://console.firebase.google.com" target="_blank" class="external-link">console.firebase.google.com</a></li>
+                                    <li>Haz clic en "Add project" (Agregar proyecto)</li>
+                                    <li>Ingresa un nombre para tu proyecto</li>
+                                    <li>Sigue los pasos de configuración</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Habilitar Authentication</h3>
+                                <ol>
+                                    <li>En el panel izquierdo, ve a <strong>Build → Authentication</strong></li>
+                                    <li>Haz clic en "Get started"</li>
+                                    <li>Ve a la pestaña <strong>Sign-in method</strong></li>
+                                    <li>Habilita <strong>Email/Password</strong></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Configurar Web App</h3>
+                                <ol>
+                                    <li>Ve a <strong>Project settings → General</strong></li>
+                                    <li>En "Your apps", haz clic en el ícono web (&lt;/&gt;)</li>
+                                    <li>Registra tu app con un nombre</li>
+                                    <li><strong>🔑 Copia la configuración</strong> que aparece</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>🔒 Seguridad:</strong> La API key de Firebase para web es pública por diseño, pero configura los dominios autorizados en Authentication → Settings.
+                    </div>
+                </section>
+
+                <!-- Config File Section -->
+                <section id="config-file" class="section">
+                    <h2>⚙️ Archivo de Configuración</h2>
+                    <p>Crearemos el archivo que conecta nuestra app con Firebase:</p>
+
+                    <div class="prompt-box">
+                        <h4>🤖 Prompt para Cursor:</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                            </div>
+                            <pre><code>Create firebase/config.js that loads the Firebase v10 modular SDK from CDN and exports a configured auth instance. Use placeholders for the config keys and clear comments indicating where to paste real values.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>📄 firebase/config.js</span>
+                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                        </div>
+                        <pre><code>import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+// TODO: Replace with your Firebase web config from the console
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  appId: "YOUR_APP_ID",
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+export { app, auth };</code></pre>
+                    </div>
+                </section>
+
+                <!-- Auth Logic Section -->
+                <section id="auth-logic" class="section">
+                    <h2>🔐 Lógica de Autenticación</h2>
+                    <p>Implementaremos las funciones principales para manejar usuarios:</p>
+
+                    <div class="prompt-box">
+                        <h4>🤖 Prompt para Cursor:</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                            </div>
+                            <pre><code>Create firebase/auth.js that imports { auth } from './config.js' and implements:
+
+- registerWithEmailPassword(email, password)
+- loginWithEmailPassword(email, password)  
+- logoutUser()
+- requireAuth() that redirects to login.html if no user
+- redirectIfAuthenticated() that redirects to welcome.html if user exists
+
+Use Firebase v10 modular imports from CDN. Show basic alert() errors and location.href redirects. Export all functions.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="functions-grid">
+                        <div class="function-card">
+                            <h4>🔑 registerWithEmailPassword</h4>
+                            <p>Registra nuevos usuarios</p>
+                        </div>
+                        <div class="function-card">
+                            <h4>🚪 loginWithEmailPassword</h4>
+                            <p>Inicia sesión de usuarios</p>
+                        </div>
+                        <div class="function-card">
+                            <h4>🚫 logoutUser</h4>
+                            <p>Cierra la sesión actual</p>
+                        </div>
+                        <div class="function-card">
+                            <h4>🛡️ requireAuth</h4>
+                            <p>Protege páginas privadas</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pages Section -->
+                <section id="pages" class="section">
+                    <h2>📄 Páginas HTML</h2>
+                    
+                    <div class="pages-grid">
+                        <div class="page-card">
+                            <h3>🎨 Estilos CSS</h3>
+                            <div class="prompt-box">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                    </div>
+                                    <pre><code>Create css/auth-forms.css with a minimal, modern, centered card layout suitable for forms. Include responsive styles, input/button base styling, and small error text class.</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-card">
+                            <h3>🏠 Página Principal</h3>
+                            <div class="prompt-box">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                    </div>
+                                    <pre><code>Generate index.html using the shared stylesheet and a centered card with title, short description, and two links to login.html and register.html. Keep copy in English.</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-card">
+                            <h3>🔑 Página de Login</h3>
+                            <div class="prompt-box">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                    </div>
+                                    <pre><code>Generate login.html with a form for email and password. Include inline script that imports { loginWithEmailPassword, redirectIfAuthenticated } from './firebase/auth.js'. On submit, prevent default, call loginWithEmailPassword. Also call redirectIfAuthenticated() on load. Show simple error messages.</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-card">
+                            <h3>📝 Página de Registro</h3>
+                            <div class="prompt-box">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                    </div>
+                                    <pre><code>Generate register.html with a form for email/password. Include inline script that imports { registerWithEmailPassword, redirectIfAuthenticated } from './firebase/auth.js'. On submit, call registerWithEmailPassword. Also call redirectIfAuthenticated() on load. Include minimal password hint text.</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-card">
+                            <h3>🎉 Página Protegida</h3>
+                            <div class="prompt-box">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                    </div>
+                                    <pre><code>Generate welcome.html that includes inline script that imports { requireAuth, logoutUser } from './firebase/auth.js' and { auth } from './firebase/config.js'. Call requireAuth() on load, display current user's email using onAuthStateChanged, and include Logout button that calls logoutUser().</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>📝 Ejemplo de estructura HTML:</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Estructura típica en cada página HTML</span>
+                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                            </div>
+                            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;title&gt;Mi App&lt;/title&gt;
+  &lt;link href="css/variables.css" rel="stylesheet"&gt;
+  &lt;link href="css/typography.css" rel="stylesheet"&gt;
+  &lt;link href="css/auth-forms.css" rel="stylesheet"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Tu contenido HTML aquí --&gt;
+  
+  &lt;!-- Scripts al final del body --&gt;
+  &lt;script type="module"&gt;
+    import { auth } from './firebase/config.js';
+    import { loginWithEmailPassword, redirectIfAuthenticated } from './firebase/auth.js';
+    
+    // Tu lógica JavaScript aquí
+    redirectIfAuthenticated();
+    
+    document.getElementById('login-form').addEventListener('submit', async (e) =&gt; {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      await loginWithEmailPassword(email, password);
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testing Section -->
+                <section id="testing" class="section">
+                    <h2>🧪 Pruebas Locales</h2>
+                    <p>Para probar tu aplicación localmente, necesitas un servidor web. <strong>Recomendamos Live Server</strong> por su simplicidad:</p>
+
+                    <div class="server-options">
+                        <div class="server-option">
+                            <h3>⚡ Live Server (Recomendado)</h3>
+                            <div class="step-container">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Instalar extensión</h4>
+                                        <p>En VS Code o Cursor, busca e instala <strong>"Live Server"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Iniciar servidor</h4>
+                                        <p>Clic derecho en <code>index.html</code> → <strong>"Open with Live Server"</strong></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>¡Listo!</h4>
+                                        <p>Se abrirá automáticamente en <code>http://localhost:5500</code></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="server-option">
+                            <h3>🔄 Alternativas</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Python</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>python -m http.server 5500</code></pre>
+                            </div>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Node.js</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>npx http-server -p 5500</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>✅ Ventajas de Live Server:</h4>
+                        <ul>
+                            <li><strong>Recarga automática</strong> - Ve los cambios al instante</li>
+                            <li><strong>Fácil de usar</strong> - Solo un clic derecho</li>
+                            <li><strong>Puerto automático</strong> - No hay conflictos</li>
+                            <li><strong>Integrado</strong> - Funciona dentro del editor</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Deploy Section -->
+                <section id="deploy" class="section">
+                    <h2>🚀 Despliegue con Firebase Hosting</h2>
+                    
+                    <div class="deploy-steps">
+                        <div class="deploy-step">
+                            <h3>1️⃣ Instalar Firebase CLI</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>npm install -g firebase-tools</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="deploy-step">
+                            <h3>2️⃣ Login y configuración</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>firebase login
+firebase init hosting</code></pre>
+                            </div>
+                            <div class="config-note">
+                                <strong>Configuración:</strong>
+                                <ul>
+                                    <li>Public directory: <code>.</code></li>
+                                    <li>Single-page app: <strong>No</strong></li>
+                                    <li>Overwrite index.html: <strong>No</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="deploy-step">
+                            <h3>3️⃣ Desplegar</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>firebase deploy</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting" class="section">
+                    <h2>🔧 Solución de Problemas</h2>
+                    
+                    <div class="problems-grid">
+                        <div class="problem">
+                            <h3>❌ "Firebase is not defined"</h3>
+                            <p><strong>Causa:</strong> Scripts no se cargan correctamente</p>
+                            <p><strong>Solución:</strong> Verifica el orden de carga de scripts</p>
+                        </div>
+
+                        <div class="problem">
+                            <h3>❌ "Module not found"</h3>
+                            <p><strong>Causa:</strong> Problemas con módulos ES6</p>
+                            <p><strong>Solución:</strong> Usa servidor local, no abras archivos directamente</p>
+                        </div>
+
+                        <div class="problem">
+                            <h3>❌ "Firebase config is invalid"</h3>
+                            <p><strong>Causa:</strong> Configuración incorrecta</p>
+                            <p><strong>Solución:</strong> Verifica la config desde Firebase Console</p>
+                        </div>
+
+                        <div class="problem">
+                            <h3>❌ Redirecciones no funcionan</h3>
+                            <p><strong>Causa:</strong> <code>onAuthStateChanged</code> demora</p>
+                            <p><strong>Solución:</strong> Implementa loading state</p>
+                        </div>
+                    </div>
+
+                    <div class="security-tips">
+                        <h4>🛡️ Tips de Seguridad</h4>
+                        <ul>
+                            <li>✅ Configura dominios autorizados</li>
+                            <li>✅ Habilita solo métodos necesarios</li>
+                            <li>✅ Usa variables de entorno en producción</li>
+                            <li>✅ Implementa reglas de seguridad</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Download Section -->
+                <div class="download-section">
+                    <h3>📦 ¿Necesitas el código completo?</h3>
+                    <p>Contacta al instructor para obtener todos los archivos listos para usar</p>
+                    <button class="download-btn" onclick="alert('Contacta al instructor para el ZIP completo 📧')">
+                        📥 Solicitar ZIP Completo
+                    </button>
+                </div>
+                </div>
+                
+                <!-- Footer Component -->
+                <div id="footer-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script>
+    <script src="components/components.js"></script>
+    <script>
+        // Inicializar componentes cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Sistema de Autenticación Firebase', '🔐');
+        });
+    </script>
+</body>
+</html>

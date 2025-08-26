@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD System con Firebase - Guía Completa</title>
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/crud-guide.css" rel="stylesheet">
+</head>
+<body class="has-header">
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>📝 CRUD System</h2>
+                <p>Sistema completo con Firebase</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intro" class="nav-link active"><span class="nav-icon">📚</span><span class="nav-text">Introducción</span></a></li>
+                <li><a href="#what-is-crud" class="nav-link"><span class="nav-icon">❓</span><span class="nav-text">¿Qué es CRUD?</span></a></li>
+                <li><a href="#project-overview" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">Proyecto: Tienda</span></a></li>
+                <li><a href="#setup" class="nav-link"><span class="nav-icon">⚙️</span><span class="nav-text">Configuración</span></a></li>
+                <li><a href="#firestore-rules" class="nav-link"><span class="nav-icon">🔒</span><span class="nav-text">Reglas Firestore</span></a></li>
+                <li><a href="#database-structure" class="nav-link"><span class="nav-icon">🗄️</span><span class="nav-text">Estructura BD</span></a></li>
+                <li><a href="#create-operation" class="nav-link"><span class="nav-icon">➕</span><span class="nav-text">CREATE - Crear</span></a></li>
+                <li><a href="#read-operation" class="nav-link"><span class="nav-icon">👁️</span><span class="nav-text">READ - Leer</span></a></li>
+                <li><a href="#update-operation" class="nav-link"><span class="nav-icon">✏️</span><span class="nav-text">UPDATE - Actualizar</span></a></li>
+                <li><a href="#delete-operation" class="nav-link"><span class="nav-icon">🗑️</span><span class="nav-text">DELETE - Eliminar</span></a></li>
+                <li><a href="#complete-example" class="nav-link"><span class="nav-icon">🏗️</span><span class="nav-text">Ejemplo Completo</span></a></li>
+                <li><a href="#advanced-features" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Funciones Avanzadas</span></a></li>
+                <li><a href="#security-best-practices" class="nav-link"><span class="nav-icon">🛡️</span><span class="nav-text">Seguridad</span></a></li>
+                <li><a href="#testing" class="nav-link"><span class="nav-icon">🧪</span><span class="nav-text">Pruebas</span></a></li>
+                <li><a href="#deployment" class="nav-link"><span class="nav-icon">🌐</span><span class="nav-text">Despliegue</span></a></li>
+                <li><a href="#troubleshooting" class="nav-link"><span class="nav-icon">🔧</span><span class="nav-text">Solución Problemas</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content">
+                <!-- Header Component -->
+                <div id="header-container"></div>
+                
+                <div class="content-wrapper">
+                    <!-- Introducción -->
+                    <section id="intro" class="section">
+                        <h1>🏪 Sistema CRUD con Firebase Firestore</h1>
+                        <p class="lead">
+                            Aprende a crear un sistema completo de gestión de productos con operaciones CRUD 
+                            (Create, Read, Update, Delete) usando Firebase Firestore, HTML, CSS y JavaScript.
+                        </p>
+                        
+                        <div class="info-box">
+                            <h3>🎯 Lo que construiremos</h3>
+                            <p>Un sistema de gestión de productos para una tienda online con:</p>
+                            <ul>
+                                <li><strong>CREATE:</strong> Agregar nuevos productos</li>
+                                <li><strong>READ:</strong> Mostrar lista de productos</li>
+                                <li><strong>UPDATE:</strong> Editar productos existentes</li>
+                                <li><strong>DELETE:</strong> Eliminar productos</li>
+                                <li><strong>SEARCH:</strong> Buscar y filtrar productos</li>
+                                <li><strong>VALIDATION:</strong> Validación de datos</li>
+                            </ul>
+                        </div>
+
+                        <div class="project-preview">
+                            <h3>📱 Vista Previa del Proyecto</h3>
+                            <div class="preview-grid">
+                                <div class="preview-item">
+                                    <h4>📝 Formulario de Producto</h4>
+                                    <p>Interfaz para agregar/editar productos con validación</p>
+                                </div>
+                                <div class="preview-item">
+                                    <h4>📋 Lista de Productos</h4>
+                                    <p>Vista en tarjetas con información completa</p>
+                                </div>
+                                <div class="preview-item">
+                                    <h4>🔍 Sistema de Búsqueda</h4>
+                                    <p>Filtrado en tiempo real por nombre y categoría</p>
+                                </div>
+                                <div class="preview-item">
+                                    <h4>📊 Dashboard Administrativo</h4>
+                                    <p>Estadísticas y gestión avanzada</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ¿Qué es CRUD? -->
+                    <section id="what-is-crud" class="section">
+                        <h2>❓ ¿Qué es CRUD?</h2>
+                        
+                        <div class="crud-explanation">
+                            <p>
+                                <strong>CRUD</strong> es un acrónimo que representa las cuatro operaciones básicas 
+                                que se pueden realizar en cualquier base de datos o sistema de almacenamiento:
+                            </p>
+                            
+                            <div class="crud-operations">
+                                <div class="crud-item create">
+                                    <div class="crud-icon">➕</div>
+                                    <h3>CREATE (Crear)</h3>
+                                    <p>Agregar nuevos registros a la base de datos</p>
+                                    <div class="crud-example">
+                                        <strong>Ejemplo:</strong> Agregar un nuevo producto a la tienda
+                                    </div>
+                                </div>
+                                
+                                <div class="crud-item read">
+                                    <div class="crud-icon">👁️</div>
+                                    <h3>READ (Leer)</h3>
+                                    <p>Consultar y mostrar información existente</p>
+                                    <div class="crud-example">
+                                        <strong>Ejemplo:</strong> Mostrar la lista de productos
+                                    </div>
+                                </div>
+                                
+                                <div class="crud-item update">
+                                    <div class="crud-icon">✏️</div>
+                                    <h3>UPDATE (Actualizar)</h3>
+                                    <p>Modificar registros existentes</p>
+                                    <div class="crud-example">
+                                        <strong>Ejemplo:</strong> Cambiar el precio de un producto
+                                    </div>
+                                </div>
+                                
+                                <div class="crud-item delete">
+                                    <div class="crud-icon">🗑️</div>
+                                    <h3>DELETE (Eliminar)</h3>
+                                    <p>Remover registros de la base de datos</p>
+                                    <div class="crud-example">
+                                        <strong>Ejemplo:</strong> Eliminar un producto descontinuado
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="importance-box">
+                            <h3>🌟 ¿Por qué es importante CRUD?</h3>
+                            <ul>
+                                <li><strong>Fundamento Universal:</strong> Toda aplicación web necesita estas operaciones</li>
+                                <li><strong>Gestión de Datos:</strong> Base para cualquier sistema de información</li>
+                                <li><strong>Experiencia de Usuario:</strong> Permite interacción completa con los datos</li>
+                                <li><strong>Escalabilidad:</strong> Base sólida para funcionalidades avanzadas</li>
+                                <li><strong>Estándar de la Industria:</strong> Patrón reconocido mundialmente</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Proyecto Overview -->
+                    <section id="project-overview" class="section">
+                        <h2>🎯 Proyecto: Sistema de Gestión de Tienda</h2>
+                        
+                        <div class="project-description">
+                            <p>
+                                Vamos a construir un sistema completo de gestión de productos para una tienda online. 
+                                Este proyecto incluirá todas las operaciones CRUD y funcionalidades adicionales.
+                            </p>
+                        </div>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <h3>📦 Gestión de Productos</h3>
+                                <ul>
+                                    <li>Nombre del producto</li>
+                                    <li>Descripción detallada</li>
+                                    <li>Precio y moneda</li>
+                                    <li>Categoría</li>
+                                    <li>Stock disponible</li>
+                                    <li>Estado (activo/inactivo)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h3>🔍 Funcionalidades</h3>
+                                <ul>
+                                    <li>Búsqueda en tiempo real</li>
+                                    <li>Filtros por categoría</li>
+                                    <li>Ordenamiento múltiple</li>
+                                    <li>Paginación de resultados</li>
+                                    <li>Validación de formularios</li>
+                                    <li>Confirmaciones de acciones</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h3>📊 Dashboard</h3>
+                                <ul>
+                                    <li>Total de productos</li>
+                                    <li>Productos por categoría</li>
+                                    <li>Valor total del inventario</li>
+                                    <li>Productos con bajo stock</li>
+                                    <li>Productos más populares</li>
+                                    <li>Estadísticas en tiempo real</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <h3>🛠️ Tecnologías que Usaremos</h3>
+                            <div class="tech-grid">
+                                <div class="tech-item">
+                                    <span class="tech-icon">🌐</span>
+                                    <strong>HTML5</strong>
+                                    <p>Estructura semántica</p>
+                                </div>
+                                <div class="tech-item">
+                                    <span class="tech-icon">🎨</span>
+                                    <strong>CSS3</strong>
+                                    <p>Diseño responsive</p>
+                                </div>
+                                <div class="tech-item">
+                                    <span class="tech-icon">⚡</span>
+                                    <strong>JavaScript ES6+</strong>
+                                    <p>Lógica de aplicación</p>
+                                </div>
+                                <div class="tech-item">
+                                    <span class="tech-icon">🔥</span>
+                                    <strong>Firebase Firestore</strong>
+                                    <p>Base de datos NoSQL</p>
+                                </div>
+                                <div class="tech-item">
+                                    <span class="tech-icon">🔐</span>
+                                    <strong>Firebase Auth</strong>
+                                    <p>Autenticación de usuarios</p>
+                                </div>
+                                <div class="tech-item">
+                                    <span class="tech-icon">🌐</span>
+                                    <strong>Firebase Hosting</strong>
+                                    <p>Despliegue en la nube</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configuración -->
+                    <section id="setup" class="section">
+                        <h2>⚙️ Configuración del Proyecto</h2>
+                        
+                        <div class="setup-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>📁 Creación del Proyecto Paso a Paso</h3>
+                                    
+                                    <h4>🎯 Paso 1.1: Crear la carpeta principal</h4>
+                                    <ol>
+                                        <li>Abre tu explorador de archivos</li>
+                                        <li>Navega al escritorio o donde quieras crear el proyecto</li>
+                                        <li>Clic derecho → "Nueva carpeta"</li>
+                                        <li>Nómbrala: <code>tienda-crud</code></li>
+                                        <li>Entra a la carpeta</li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 1.2: Crear subcarpetas</h4>
+                                    <p>Dentro de <code>tienda-crud</code>, crea estas carpetas:</p>
+                                    <ol>
+                                        <li>Clic derecho → "Nueva carpeta" → <code>css</code></li>
+                                        <li>Clic derecho → "Nueva carpeta" → <code>js</code></li>
+                                        <li>Clic derecho → "Nueva carpeta" → <code>assets</code></li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 1.3: Crear archivos HTML</h4>
+                                    <p>En la carpeta principal <code>tienda-crud</code>, crea estos archivos:</p>
+                                    <ol>
+                                        <li>Clic derecho → "Nuevo" → "Documento de texto"</li>
+                                        <li>Renombra a: <code>index.html</code></li>
+                                        <li>Repite para: <code>add-product.html</code></li>
+                                        <li>Repite para: <code>edit-product.html</code></li>
+                                        <li>Repite para: <code>dashboard.html</code></li>
+                                    </ol>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Importante:</strong> Asegúrate de cambiar la extensión de <code>.txt</code> a <code>.html</code>. 
+                                        Si no ves las extensiones, en Windows: Ver → Extensiones de nombre de archivo ✅
+                                    </div>
+
+                                    <h4>🎯 Paso 1.4: Crear archivos CSS</h4>
+                                    <p>Dentro de la carpeta <code>css</code>:</p>
+                                    <ol>
+                                        <li>Crea: <code>variables.css</code></li>
+                                        <li>Crea: <code>typography.css</code></li>
+                                        <li>Crea: <code>layout.css</code></li>
+                                        <li>Crea: <code>components.css</code></li>
+                                        <li>Crea: <code>forms.css</code></li>
+                                        <li>Crea: <code>dashboard.css</code></li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 1.5: Crear archivos JavaScript</h4>
+                                    <p>Dentro de la carpeta <code>js</code>:</p>
+                                    <ol>
+                                        <li>Crea: <code>firebase-config.js</code></li>
+                                        <li>Crea: <code>auth.js</code></li>
+                                        <li>Crea: <code>crud.js</code></li>
+                                        <li>Crea: <code>validation.js</code></li>
+                                        <li>Crea: <code>utils.js</code></li>
+                                        <li>Crea: <code>dashboard.js</code></li>
+                                    </ol>
+
+                                    <div class="prompt-box">
+                                        <h4>🤖 Prompt para Cursor AI</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                            </div>
+                                            <pre><code>Ayúdame a crear la estructura de carpetas para un proyecto CRUD con Firebase. 
+
+Necesito:
+1. Crear las carpetas: css/, js/, assets/
+2. Crear los archivos HTML: index.html, add-product.html, edit-product.html, dashboard.html
+3. Crear los archivos CSS: variables.css, typography.css, layout.css, components.css, forms.css, dashboard.css
+4. Crear los archivos JS: firebase-config.js, auth.js, crud.js, validation.js, utils.js, dashboard.js
+
+Usa comandos de terminal para crear toda la estructura de una vez.</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <h4>📋 Estructura Final</h4>
+                                    <p>Tu proyecto debe verse así:</p>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📁 Estructura Completa</span>
+                                        </div>
+                                        <pre><code>tienda-crud/
+├── index.html              # Lista de productos
+├── add-product.html        # Agregar producto
+├── edit-product.html       # Editar producto  
+├── dashboard.html          # Panel administrativo
+├── 
+├── css/
+│   ├── variables.css       # Variables CSS
+│   ├── typography.css      # Tipografía
+│   ├── layout.css          # Layout base
+│   ├── components.css      # Componentes
+│   ├── forms.css           # Formularios
+│   └── dashboard.css       # Dashboard
+├── 
+├── js/
+│   ├── firebase-config.js  # Config Firebase
+│   ├── auth.js            # Autenticación
+│   ├── crud.js            # Operaciones CRUD
+│   ├── validation.js      # Validaciones
+│   ├── utils.js           # Utilidades
+│   └── dashboard.js       # Dashboard
+├── 
+└── assets/
+    ├── images/            # Imágenes
+    └── icons/             # Iconos</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>🔥 Configuración Detallada de Firebase</h3>
+                                    
+                                    <h4>🎯 Paso 2.1: Crear Proyecto en Firebase</h4>
+                                    <ol>
+                                        <li>Ve a <a href="https://console.firebase.google.com" target="_blank" class="external-link">Firebase Console</a></li>
+                                        <li>Inicia sesión con tu cuenta de Google</li>
+                                        <li>Clic en <strong>"Crear un proyecto"</strong></li>
+                                        <li>Nombre del proyecto: <code>tienda-crud-[tu-nombre]</code></li>
+                                        <li>Clic <strong>"Continuar"</strong></li>
+                                        <li>Google Analytics: <strong>Desactiva</strong> (para simplicidad)</li>
+                                        <li>Clic <strong>"Crear proyecto"</strong></li>
+                                        <li>Espera a que se cree (1-2 minutos)</li>
+                                        <li>Clic <strong>"Continuar"</strong></li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 2.2: Agregar App Web</h4>
+                                    <ol>
+                                        <li>En el dashboard, clic en el ícono <strong>"&lt;/&gt;"</strong> (Web)</li>
+                                        <li>Nombre de la app: <code>Tienda CRUD</code></li>
+                                        <li><strong>NO</strong> marques "Firebase Hosting" (por ahora)</li>
+                                        <li>Clic <strong>"Registrar app"</strong></li>
+                                        <li><strong>¡IMPORTANTE!</strong> Copia toda la configuración que aparece</li>
+                                        <li>Guárdala en un bloc de notas temporalmente</li>
+                                        <li>Clic <strong>"Continuar a la consola"</strong></li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 2.3: Configurar Firestore Database</h4>
+                                    <ol>
+                                        <li>En el menú lateral, clic <strong>"Firestore Database"</strong></li>
+                                        <li>Clic <strong>"Crear base de datos"</strong></li>
+                                        <li><strong>¡MUY IMPORTANTE!</strong> Selecciona el modo:</li>
+                                    </ol>
+
+                                    <div class="mode-comparison">
+                                        <h4>🔒 Modo Producción vs Modo de Prueba</h4>
+                                        
+                                        <div class="mode-grid">
+                                            <div class="mode-card production">
+                                                <h5>🛡️ Modo Producción (Recomendado)</h5>
+                                                <p><strong>Para:</strong> Proyectos serios, apps reales</p>
+                                                <p><strong>Seguridad:</strong> Alta - Solo usuarios autenticados</p>
+                                                <p><strong>Reglas:</strong> Debes configurar reglas personalizadas</p>
+                                                <p><strong>Ventaja:</strong> Seguro desde el inicio</p>
+                                                <div class="mode-rules">
+                                                    <strong>Reglas automáticas:</strong>
+                                                    <code>allow read, write: if request.auth != null;</code>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mode-card test">
+                                                <h5>🧪 Modo de Prueba</h5>
+                                                <p><strong>Para:</strong> Desarrollo, pruebas rápidas</p>
+                                                <p><strong>Seguridad:</strong> Baja - Cualquiera puede acceder</p>
+                                                <p><strong>Reglas:</strong> Permisivas por 30 días</p>
+                                                <p><strong>Desventaja:</strong> Inseguro, datos públicos</p>
+                                                <div class="mode-rules">
+                                                    <strong>Reglas automáticas:</strong>
+                                                    <code>allow read, write: if request.time < timestamp.date(2024, 3, 1);</code>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="recommendation-box">
+                                        <h4>💡 Recomendación para Estudiantes</h4>
+                                        <p>
+                                            <strong>Selecciona "Modo Producción"</strong> y aprende a configurar reglas desde el inicio. 
+                                            Es mejor aprender la forma correcta desde el principio.
+                                        </p>
+                                    </div>
+
+                                    <ol start="4">
+                                        <li>Selecciona <strong>"Modo producción"</strong></li>
+                                        <li>Clic <strong>"Siguiente"</strong></li>
+                                        <li>Ubicación: Deja la predeterminada (us-central1)</li>
+                                        <li>Clic <strong>"Listo"</strong></li>
+                                        <li>Espera a que se cree la base de datos</li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 2.4: Configurar Authentication</h4>
+                                    <ol>
+                                        <li>En el menú lateral, clic <strong>"Authentication"</strong></li>
+                                        <li>Clic <strong>"Comenzar"</strong></li>
+                                        <li>Ve a la pestaña <strong>"Sign-in method"</strong></li>
+                                        <li>Clic en <strong>"Correo electrónico/contraseña"</strong></li>
+                                        <li>Activa el <strong>primer toggle</strong> (Correo electrónico/contraseña)</li>
+                                        <li><strong>NO</strong> actives el segundo (Vínculo de correo electrónico)</li>
+                                        <li>Clic <strong>"Guardar"</strong></li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 2.5: Crear Usuario Administrador</h4>
+                                    <ol>
+                                        <li>Ve a la pestaña <strong>"Users"</strong></li>
+                                        <li>Clic <strong>"Agregar usuario"</strong></li>
+                                        <li>Email: <code>admin@tienda.com</code></li>
+                                        <li>Contraseña: <code>Admin123!</code> (cámbiala después)</li>
+                                        <li>Clic <strong>"Agregar usuario"</strong></li>
+                                        <li><strong>Anota el UID</strong> que aparece - lo necesitarás</li>
+                                    </ol>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Seguridad:</strong> En un proyecto real, usa contraseñas seguras y 
+                                        nunca compartas credenciales. Esta es solo para desarrollo.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>⚙️ Crear Archivo de Configuración</h3>
+                                    
+                                    <h4>🎯 Paso 3.1: Abrir el archivo</h4>
+                                    <ol>
+                                        <li>Abre VS Code (o tu editor favorito)</li>
+                                        <li>Abre la carpeta <code>tienda-crud</code></li>
+                                        <li>Navega a <code>js/firebase-config.js</code></li>
+                                        <li>Abre el archivo (debe estar vacío)</li>
+                                    </ol>
+
+                                    <h4>🎯 Paso 3.2: Pegar la configuración</h4>
+                                    <p>Copia y pega este código en <code>js/firebase-config.js</code>:</p>
+                                    
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>js/firebase-config.js</span>
+                                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                        </div>
+                                        <pre><code>// Importar Firebase
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+
+// 🔥 CONFIGURACIÓN DE FIREBASE
+// ⚠️ IMPORTANTE: Reemplaza estos valores con los de tu proyecto
+const firebaseConfig = {
+  apiKey: "tu-api-key-aqui",
+  authDomain: "tu-proyecto.firebaseapp.com", 
+  projectId: "tu-proyecto-id",
+  storageBucket: "tu-proyecto.appspot.com",
+  messagingSenderId: "123456789",
+  appId: "tu-app-id-aqui"
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+
+// Inicializar servicios
+const db = getFirestore(app);
+const auth = getAuth(app);
+
+// Exportar para uso en otros archivos
+export { db, auth };
+
+// 🎯 Para debugging - puedes comentar estas líneas después
+console.log("✅ Firebase configurado correctamente");
+console.log("📊 Base de datos:", db);
+console.log("🔐 Autenticación:", auth);</code></pre>
+                                    </div>
+
+                                    <h4>🎯 Paso 3.3: Reemplazar tu configuración</h4>
+                                    <ol>
+                                        <li>Ve a Firebase Console → Configuración del proyecto</li>
+                                        <li>Baja hasta "Tus apps" → Selecciona tu app web</li>
+                                        <li>Clic en "Configuración" (ícono de engranaje)</li>
+                                        <li>Copia cada valor y reemplaza en tu archivo:</li>
+                                    </ol>
+
+                                    <div class="config-mapping">
+                                        <h5>📋 Mapeo de Configuración</h5>
+                                        <div class="mapping-grid">
+                                            <div class="mapping-item">
+                                                <strong>Firebase Console</strong> → <strong>Tu archivo</strong>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>apiKey: "AIza..."</code> → <code>apiKey: "AIza..."</code>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>authDomain: "proyecto.firebaseapp.com"</code> → <code>authDomain: "proyecto.firebaseapp.com"</code>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>projectId: "proyecto-123"</code> → <code>projectId: "proyecto-123"</code>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>storageBucket: "proyecto.appspot.com"</code> → <code>storageBucket: "proyecto.appspot.com"</code>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>messagingSenderId: "123456"</code> → <code>messagingSenderId: "123456"</code>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <code>appId: "1:123:web:abc"</code> → <code>appId: "1:123:web:abc"</code>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="prompt-box">
+                                        <h4>🤖 Prompt para Cursor AI</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                            </div>
+                                            <pre><code>Ayúdame a configurar Firebase para mi proyecto CRUD. 
+
+Tengo esta configuración de Firebase Console:
+[PEGA AQUÍ TU CONFIGURACIÓN DE FIREBASE]
+
+Necesito:
+1. Crear el archivo js/firebase-config.js
+2. Importar los módulos necesarios (app, firestore, auth)
+3. Inicializar los servicios correctamente
+4. Exportar db y auth para usar en otros archivos
+5. Agregar console.logs para verificar que funciona
+
+Usa ES6 modules y la versión 10.12.2 de Firebase.</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <h4>🎯 Paso 3.4: Verificar configuración</h4>
+                                    <ol>
+                                        <li>Guarda el archivo (<code>Ctrl+S</code>)</li>
+                                        <li>Abre <code>index.html</code> en VS Code</li>
+                                        <li>Agrega temporalmente este script al final del <code>&lt;body&gt;</code>:</li>
+                                    </ol>
+
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>Verificación temporal en index.html</span>
+                                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                        </div>
+                                        <pre><code>&lt;script type="module"&gt;
+  import { db, auth } from './js/firebase-config.js';
+  console.log('🔥 Firebase cargado:', { db, auth });
+&lt;/script&gt;</code></pre>
+                                    </div>
+
+                                    <ol start="4">
+                                        <li>Abre <code>index.html</code> con Live Server</li>
+                                        <li>Abre DevTools (F12) → pestaña Console</li>
+                                        <li>Deberías ver: "✅ Firebase configurado correctamente"</li>
+                                        <li>Si hay errores, revisa la configuración</li>
+                                        <li><strong>Elimina el script temporal</strong> después de verificar</li>
+                                    </ol>
+
+                                    <div class="warning-box">
+                                        <strong>⚠️ Problemas comunes:</strong>
+                                        <ul>
+                                            <li><strong>CORS Error:</strong> Usa Live Server, no abras el HTML directamente</li>
+                                            <li><strong>Module Error:</strong> Verifica que uses <code>type="module"</code></li>
+                                            <li><strong>404 Error:</strong> Verifica las rutas de los archivos</li>
+                                            <li><strong>Config Error:</strong> Revisa que copiaste todos los valores correctamente</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Reglas de Firestore -->
+                    <section id="firestore-rules" class="section">
+                        <h2>🔒 Reglas de Seguridad de Firestore</h2>
+                        
+                        <div class="rules-explanation">
+                            <p>
+                                Las reglas de Firestore son <strong>fundamentales</strong> para la seguridad de tu aplicación. 
+                                Determinan quién puede leer y escribir datos en tu base de datos.
+                            </p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h3>⚠️ ¡Muy Importante!</h3>
+                            <p>
+                                <strong>NUNCA</strong> uses reglas como <code>allow read, write: if true;</code> en producción. 
+                                Esto permite que cualquier persona acceda a todos tus datos.
+                            </p>
+                        </div>
+
+                        <div class="rules-sections">
+                            <div class="rule-section">
+                                <h3>🔰 Reglas Básicas para Desarrollo</h3>
+                                <p>Para empezar y hacer pruebas (solo en desarrollo):</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>🔧 Reglas de Desarrollo</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas para la colección 'productos'
+    match /productos/{productId} {
+      // Permitir lectura a usuarios autenticados
+      allow read: if request.auth != null;
+      
+      // Permitir escritura solo a usuarios autenticados
+      allow write: if request.auth != null;
+    }
+    
+    // Reglas para otras colecciones
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="rule-section">
+                                <h3>🛡️ Reglas de Producción Seguras</h3>
+                                <p>Para un entorno de producción más seguro:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>🔒 Reglas de Producción</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas para productos
+    match /productos/{productId} {
+      // Cualquier usuario autenticado puede leer productos
+      allow read: if request.auth != null;
+      
+      // Solo administradores pueden crear/actualizar/eliminar
+      allow create, update, delete: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // Reglas para usuarios (perfil de usuario)
+    match /usuarios/{userId} {
+      // Los usuarios solo pueden leer/escribir su propia información
+      allow read, write: if request.auth != null 
+        && request.auth.uid == userId;
+    }
+    
+    // Reglas para categorías (solo lectura para todos)
+    match /categorias/{categoryId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+    
+    // Reglas para estadísticas (solo administradores)
+    match /estadisticas/{statId} {
+      allow read, write: if request.auth != null 
+        && request.auth.token.admin == true;
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="rule-section">
+                                <h3>🔍 Reglas con Validación de Datos</h3>
+                                <p>Reglas avanzadas que validan la estructura de los datos:</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>✅ Reglas con Validación</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /productos/{productId} {
+      allow read: if request.auth != null;
+      
+      allow create: if request.auth != null 
+        && validateProductData(request.resource.data);
+      
+      allow update: if request.auth != null 
+        && validateProductData(request.resource.data)
+        && resource.data.createdBy == request.auth.uid;
+      
+      allow delete: if request.auth != null 
+        && (resource.data.createdBy == request.auth.uid 
+            || request.auth.token.admin == true);
+    }
+    
+    // Función para validar datos del producto
+    function validateProductData(data) {
+      return data.keys().hasAll(['nombre', 'precio', 'categoria', 'stock']) &&
+             data.nombre is string &&
+             data.nombre.size() > 0 &&
+             data.precio is number &&
+             data.precio > 0 &&
+             data.categoria is string &&
+             data.stock is number &&
+             data.stock >= 0;
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rules-best-practices">
+                            <h3>💡 Mejores Prácticas para Reglas</h3>
+                            <div class="practices-grid">
+                                <div class="practice-item">
+                                    <h4>🔐 Principio de Menor Privilegio</h4>
+                                    <p>Otorga solo los permisos mínimos necesarios</p>
+                                </div>
+                                <div class="practice-item">
+                                    <h4>✅ Validación de Datos</h4>
+                                    <p>Valida estructura y tipos de datos en las reglas</p>
+                                </div>
+                                <div class="practice-item">
+                                    <h4>👤 Autenticación Requerida</h4>
+                                    <p>Siempre verifica que el usuario esté autenticado</p>
+                                </div>
+                                <div class="practice-item">
+                                    <h4>🧪 Pruebas de Reglas</h4>
+                                    <p>Usa el simulador de Firebase para probar reglas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Estructura de Base de Datos -->
+                    <section id="database-structure" class="section">
+                        <h2>🗄️ Estructura de la Base de Datos</h2>
+                        
+                        <div class="db-explanation">
+                            <p>
+                                Firestore es una base de datos NoSQL que organiza los datos en 
+                                <strong>colecciones</strong> y <strong>documentos</strong>. 
+                                Vamos a diseñar una estructura eficiente para nuestro sistema de productos.
+                            </p>
+                        </div>
+
+                        <div class="db-structure">
+                            <h3>📋 Colecciones Principales</h3>
+                            
+                            <div class="collection-item">
+                                <h4>📦 Colección: productos</h4>
+                                <p>Almacena toda la información de los productos de la tienda.</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>📄 Documento de Producto</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>{
+  "id": "prod_001",
+  "nombre": "Laptop Gaming Pro",
+  "descripcion": "Laptop para gaming con procesador Intel i7, 16GB RAM, RTX 3070",
+  "precio": 1299.99,
+  "moneda": "USD",
+  "categoria": "electronica",
+  "subcategoria": "laptops",
+  "stock": 15,
+  "stockMinimo": 5,
+  "activo": true,
+  "destacado": false,
+  "tags": ["gaming", "laptop", "intel", "nvidia"],
+  "especificaciones": {
+    "procesador": "Intel Core i7-11800H",
+    "ram": "16GB DDR4",
+    "almacenamiento": "512GB SSD",
+    "grafica": "NVIDIA RTX 3070",
+    "pantalla": "15.6\" Full HD 144Hz"
+  },
+  "imagenes": [
+    "https://ejemplo.com/imagen1.jpg",
+    "https://ejemplo.com/imagen2.jpg"
+  ],
+  "fechaCreacion": "2024-01-15T10:30:00Z",
+  "fechaActualizacion": "2024-01-20T14:45:00Z",
+  "creadoPor": "admin_user_id",
+  "actualizadoPor": "admin_user_id"
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="collection-item">
+                                <h4>📂 Colección: categorias</h4>
+                                <p>Define las categorías disponibles para organizar productos.</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>📄 Documento de Categoría</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>{
+  "id": "electronica",
+  "nombre": "Electrónica",
+  "descripcion": "Dispositivos electrónicos y tecnología",
+  "icono": "💻",
+  "color": "#3b82f6",
+  "activa": true,
+  "orden": 1,
+  "subcategorias": [
+    {
+      "id": "laptops",
+      "nombre": "Laptops",
+      "descripcion": "Computadoras portátiles"
+    },
+    {
+      "id": "smartphones",
+      "nombre": "Smartphones",
+      "descripcion": "Teléfonos inteligentes"
+    }
+  ]
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="collection-item">
+                                <h4>👥 Colección: usuarios</h4>
+                                <p>Información adicional de los usuarios registrados.</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>📄 Documento de Usuario</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>{
+  "uid": "user_123",
+  "email": "usuario@ejemplo.com",
+  "nombre": "Juan Pérez",
+  "rol": "admin", // "admin", "editor", "viewer"
+  "activo": true,
+  "fechaRegistro": "2024-01-10T08:00:00Z",
+  "ultimoAcceso": "2024-01-25T16:30:00Z",
+  "permisos": {
+    "productos": {
+      "crear": true,
+      "leer": true,
+      "actualizar": true,
+      "eliminar": true
+    },
+    "categorias": {
+      "crear": true,
+      "leer": true,
+      "actualizar": true,
+      "eliminar": false
+    }
+  }
+}</code></pre>
+                                </div>
+                            </div>
+
+                            <div class="collection-item">
+                                <h4>📊 Colección: estadisticas</h4>
+                                <p>Métricas y estadísticas del sistema.</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>📄 Documento de Estadísticas</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>{
+  "fecha": "2024-01-25",
+  "totalProductos": 156,
+  "productosActivos": 142,
+  "productosPorCategoria": {
+    "electronica": 45,
+    "ropa": 38,
+    "hogar": 29,
+    "deportes": 30,
+    "otros": 14
+  },
+  "valorInventario": 45670.50,
+  "productosStockBajo": 8,
+  "ventasDelDia": 12,
+  "ingresoDelDia": 2450.75
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="db-best-practices">
+                            <h3>💡 Mejores Prácticas para Firestore</h3>
+                            <div class="practices-list">
+                                <div class="practice">
+                                    <h4>🏷️ Nombres Descriptivos</h4>
+                                    <p>Usa nombres claros para colecciones y campos (productos, no prods)</p>
+                                </div>
+                                <div class="practice">
+                                    <h4>📏 Documentos Pequeños</h4>
+                                    <p>Mantén documentos bajo 1MB, divide datos grandes en subcolecciones</p>
+                                </div>
+                                <div class="practice">
+                                    <h4>🔍 Campos Indexables</h4>
+                                    <p>Diseña campos pensando en las consultas que harás</p>
+                                </div>
+                                <div class="practice">
+                                    <h4>⏰ Timestamps</h4>
+                                    <p>Incluye fechas de creación y actualización en todos los documentos</p>
+                                </div>
+                                <div class="practice">
+                                    <h4>🗂️ Estructura Consistente</h4>
+                                    <p>Mantén la misma estructura en todos los documentos de una colección</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Component -->
+                    <div id="footer-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script>
+    <script src="components/components.js"></script>
+    <script>
+        // Inicializar componentes cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Sistema CRUD Firebase', '📝');
+        });
+
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '✅ Copiado';
+                button.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                    button.style.background = 'var(--accent)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

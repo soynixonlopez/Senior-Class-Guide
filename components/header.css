@@ -1,0 +1,101 @@
+/* IT CLASS SENIORS - Header Component */
+
+.guide-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.header-left {
+  flex: 0 0 auto;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  border: 1px solid var(--border);
+}
+
+.back-btn:hover {
+  color: var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+.back-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.back-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.header-right {
+  flex: 0 0 auto;
+}
+
+.logout-btn {
+  background: var(--error);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-header {
+    padding: 1rem;
+  }
+  
+  .header-content {
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-left {
+    flex: 0 0 auto;
+  }
+  
+  .header-right {
+    flex: 0 0 auto;
+  }
+  
+  .back-text {
+    display: none;
+  }
+}
