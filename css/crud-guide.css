@@ -1,9 +1,21 @@
 /* IT CLASS SENIORS - Estilos específicos para crud-guide.html */
 
+/* Base - Prevenir desbordamiento */
+* {
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* Secciones */
 .section {
   margin-bottom: 3rem;
   scroll-margin-top: 2rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Info Boxes */
@@ -286,6 +298,9 @@
   padding: 2rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border);
+  max-width: 100%;
+  overflow-x: hidden;
+  word-wrap: break-word;
 }
 
 .step-content h3 {
@@ -312,6 +327,8 @@
   margin: 1rem 0;
   overflow: hidden;
   box-shadow: var(--shadow);
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 .code-header {
@@ -352,6 +369,9 @@
   font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   font-size: 0.875rem;
   line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .code-block code {
@@ -640,7 +660,7 @@
   }
   
   .tech-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
   
   .practices-grid {
@@ -648,6 +668,10 @@
   }
   
   .preview-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .mode-grid {
     grid-template-columns: 1fr;
   }
   
@@ -669,6 +693,68 @@
   .copy-btn {
     align-self: flex-end;
   }
+  
+  .code-block pre {
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    overflow-x: auto;
+    white-space: pre;
+    word-break: normal;
+  }
+  
+  .mapping-grid {
+    gap: 0.25rem;
+  }
+  
+  .mapping-item {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    word-break: break-all;
+  }
+}
+
+/* Mejoras adicionales para prevenir desbordamiento */
+@media (max-width: 480px) {
+  .content-wrapper {
+    padding: 1rem;
+  }
+  
+  .step-content {
+    padding: 1rem;
+  }
+  
+  .feature-card, .crud-item, .tech-item {
+    padding: 1rem;
+  }
+  
+  .code-block pre {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .preview-grid {
+    gap: 1rem;
+  }
+  
+  .step {
+    gap: 1rem;
+  }
+}
+
+/* Utilidades para contenido largo */
+.text-break {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.no-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Print styles */

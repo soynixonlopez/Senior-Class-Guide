@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto ImgBB con Firestore - Guía Completa</title>
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/imgbb-guide.css" rel="stylesheet">
+</head>
+<body class="has-header">
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>📸 ImgBB Project</h2>
+                <p>Subida de imágenes con Firebase</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intro" class="nav-link active"><span class="nav-icon">📚</span><span class="nav-text">Introducción</span></a></li>
+                <li><a href="#what-is-imgbb" class="nav-link"><span class="nav-icon">❓</span><span class="nav-text">¿Qué es ImgBB?</span></a></li>
+                <li><a href="#project-overview" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">Proyecto: Galería</span></a></li>
+                <li><a href="#setup-imgbb" class="nav-link"><span class="nav-icon">🔑</span><span class="nav-text">Configurar ImgBB</span></a></li>
+                <li><a href="#setup-firebase" class="nav-link"><span class="nav-icon">🔥</span><span class="nav-text">Configurar Firebase</span></a></li>
+                <li><a href="#project-structure" class="nav-link"><span class="nav-icon">📁</span><span class="nav-text">Estructura Proyecto</span></a></li>
+                <li><a href="#upload-system" class="nav-link"><span class="nav-icon">⬆️</span><span class="nav-text">Sistema de Subida</span></a></li>
+                <li><a href="#firestore-save" class="nav-link"><span class="nav-icon">💾</span><span class="nav-text">Guardar en Firestore</span></a></li>
+                <li><a href="#image-gallery" class="nav-link"><span class="nav-icon">🖼️</span><span class="nav-text">Galería de Imágenes</span></a></li>
+                <li><a href="#advanced-features" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Funciones Avanzadas</span></a></li>
+                <li><a href="#security" class="nav-link"><span class="nav-icon">🔒</span><span class="nav-text">Seguridad</span></a></li>
+                <li><a href="#deployment" class="nav-link"><span class="nav-icon">🌐</span><span class="nav-text">Despliegue</span></a></li>
+                <li><a href="#troubleshooting" class="nav-link"><span class="nav-icon">🔧</span><span class="nav-text">Solución Problemas</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content">
+                <!-- Header Component -->
+                <div id="header-container"></div>
+                
+                <div class="content-wrapper">
+                    <!-- Introducción -->
+                    <section id="intro" class="section">
+                        <h1>📸 Proyecto de Galería con ImgBB y Firestore</h1>
+                        <p class="lead">
+                            Aprende a crear un sistema completo de subida y gestión de imágenes usando 
+                            ImgBB como servicio de hosting de imágenes y Firebase Firestore para almacenar 
+                            metadatos y URLs.
+                        </p>
+                        
+                        <div class="project-demo">
+                            <h3>🎬 Vista Previa del Proyecto Final</h3>
+                            <div class="demo-grid">
+                                <div class="demo-item">
+                                    <div class="demo-screenshot">
+                                        <div class="demo-placeholder">
+                                            <span class="demo-icon">📤</span>
+                                            <p>Zona de Subida</p>
+                                        </div>
+                                    </div>
+                                    <h4>Subida de Imágenes</h4>
+                                    <p>Drag & drop o click para seleccionar</p>
+                                </div>
+                                <div class="demo-item">
+                                    <div class="demo-screenshot">
+                                        <div class="demo-placeholder">
+                                            <span class="demo-icon">🖼️</span>
+                                            <p>Galería</p>
+                                        </div>
+                                    </div>
+                                    <h4>Galería Responsive</h4>
+                                    <p>Vista en grid con lightbox</p>
+                                </div>
+                                <div class="demo-item">
+                                    <div class="demo-screenshot">
+                                        <div class="demo-placeholder">
+                                            <span class="demo-icon">📊</span>
+                                            <p>Dashboard</p>
+                                        </div>
+                                    </div>
+                                    <h4>Panel de Control</h4>
+                                    <p>Gestión y estadísticas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="features-overview">
+                            <h3>✨ Características del Proyecto</h3>
+                            <div class="features-list">
+                                <div class="feature-item">
+                                    <span class="feature-icon">📤</span>
+                                    <div class="feature-content">
+                                        <h4>Subida de Imágenes</h4>
+                                        <p>Drag & drop, validación de archivos, preview antes de subir</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">☁️</span>
+                                    <div class="feature-content">
+                                        <h4>Hosting en ImgBB</h4>
+                                        <p>Almacenamiento gratuito, CDN rápido, URLs permanentes</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔥</span>
+                                    <div class="feature-content">
+                                        <h4>Base de Datos Firestore</h4>
+                                        <p>Metadatos, categorías, tiempo real, búsqueda</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🖼️</span>
+                                    <div class="feature-content">
+                                        <h4>Galería Interactiva</h4>
+                                        <p>Grid responsive, lightbox, filtros, paginación</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔍</span>
+                                    <div class="feature-content">
+                                        <h4>Búsqueda y Filtros</h4>
+                                        <p>Por nombre, fecha, categoría, etiquetas</p>
+                                    </div>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📱</span>
+                                    <div class="feature-content">
+                                        <h4>100% Responsive</h4>
+                                        <p>Funciona perfectamente en móviles y tablets</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ¿Qué es ImgBB? -->
+                    <section id="what-is-imgbb" class="section">
+                        <h2>❓ ¿Qué es ImgBB?</h2>
+                        
+                        <div class="service-explanation">
+                            <div class="service-info">
+                                <p>
+                                    <strong>ImgBB</strong> es un servicio gratuito de hosting de imágenes que 
+                                    permite subir imágenes y obtener URLs directas para usarlas en aplicaciones web.
+                                </p>
+                                
+                                <div class="service-benefits">
+                                    <h3>🌟 Ventajas de ImgBB</h3>
+                                    <div class="benefits-grid">
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">💰</span>
+                                            <h4>Completamente Gratuito</h4>
+                                            <p>No requiere tarjeta de crédito ni pagos</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">⚡</span>
+                                            <h4>CDN Rápido</h4>
+                                            <p>Entrega rápida de imágenes globalmente</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">🔗</span>
+                                            <h4>URLs Permanentes</h4>
+                                            <p>Los enlaces no expiran nunca</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">📏</span>
+                                            <h4>Sin Límites de Ancho de Banda</h4>
+                                            <p>Tus imágenes pueden ser vistas ilimitadamente</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">🛠️</span>
+                                            <h4>API Sencilla</h4>
+                                            <p>Fácil de integrar en cualquier proyecto</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <span class="benefit-icon">📱</span>
+                                            <h4>Múltiples Formatos</h4>
+                                            <p>Soporta JPG, PNG, GIF, WebP y más</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-box">
+                                <h3>📊 ImgBB vs Otras Opciones</h3>
+                                <div class="comparison-table">
+                                    <div class="comparison-header">
+                                        <div class="comparison-cell">Servicio</div>
+                                        <div class="comparison-cell">Precio</div>
+                                        <div class="comparison-cell">Límites</div>
+                                        <div class="comparison-cell">API</div>
+                                        <div class="comparison-cell">Estudiantes</div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="comparison-cell"><strong>ImgBB</strong></div>
+                                        <div class="comparison-cell">✅ Gratis</div>
+                                        <div class="comparison-cell">32MB por imagen</div>
+                                        <div class="comparison-cell">✅ Simple</div>
+                                        <div class="comparison-cell">✅ Perfecto</div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="comparison-cell">Cloudinary</div>
+                                        <div class="comparison-cell">💰 Freemium</div>
+                                        <div class="comparison-cell">25 créditos/mes</div>
+                                        <div class="comparison-cell">⚡ Compleja</div>
+                                        <div class="comparison-cell">⚠️ Limitado</div>
+                                    </div>
+                                    <div class="comparison-row">
+                                        <div class="comparison-cell">Firebase Storage</div>
+                                        <div class="comparison-cell">💰 Freemium</div>
+                                        <div class="comparison-cell">5GB gratis</div>
+                                        <div class="comparison-cell">🔥 Firebase</div>
+                                        <div class="comparison-cell">✅ Bueno</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="why-imgbb">
+                            <h3>🤔 ¿Por qué elegimos ImgBB para este proyecto?</h3>
+                            <div class="reasons-list">
+                                <div class="reason-item">
+                                    <span class="reason-number">1</span>
+                                    <div class="reason-content">
+                                        <h4>Ideal para Estudiantes</h4>
+                                        <p>No requiere tarjeta de crédito ni configuración compleja</p>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span class="reason-number">2</span>
+                                    <div class="reason-content">
+                                        <h4>Enfoque en el Aprendizaje</h4>
+                                        <p>Te permite concentrarte en la lógica de la aplicación</p>
+                                    </div>
+                                </div>
+                                <div class="reason-item">
+                                    <span class="reason-number">3</span>
+                                    <div class="reason-content">
+                                        <h4>Producción Ready</h4>
+                                        <p>Funciona perfectamente para proyectos reales</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Proyecto Overview -->
+                    <section id="project-overview" class="section">
+                        <h2>🎯 Proyecto: Galería de Imágenes Personal</h2>
+                        
+                        <div class="project-description">
+                            <p>
+                                Vamos a construir una galería de imágenes completa donde los usuarios pueden 
+                                subir fotos, organizarlas por categorías y visualizarlas en una interfaz moderna 
+                                y responsive.
+                            </p>
+                        </div>
+
+                        <div class="project-flow">
+                            <h3>🔄 Flujo del Proyecto</h3>
+                            <div class="flow-steps">
+                                <div class="flow-step">
+                                    <div class="step-icon">1️⃣</div>
+                                    <div class="step-content">
+                                        <h4>Usuario Selecciona Imagen</h4>
+                                        <p>Drag & drop o click para elegir archivo</p>
+                                    </div>
+                                </div>
+                                <div class="flow-arrow">➡️</div>
+                                <div class="flow-step">
+                                    <div class="step-icon">2️⃣</div>
+                                    <div class="step-content">
+                                        <h4>Validación y Preview</h4>
+                                        <p>Verificar formato y mostrar preview</p>
+                                    </div>
+                                </div>
+                                <div class="flow-arrow">➡️</div>
+                                <div class="flow-step">
+                                    <div class="step-icon">3️⃣</div>
+                                    <div class="step-content">
+                                        <h4>Subir a ImgBB</h4>
+                                        <p>Enviar imagen via API y obtener URL</p>
+                                    </div>
+                                </div>
+                                <div class="flow-arrow">➡️</div>
+                                <div class="flow-step">
+                                    <div class="step-icon">4️⃣</div>
+                                    <div class="step-content">
+                                        <h4>Guardar en Firestore</h4>
+                                        <p>Almacenar URL y metadatos</p>
+                                    </div>
+                                </div>
+                                <div class="flow-arrow">➡️</div>
+                                <div class="flow-step">
+                                    <div class="step-icon">5️⃣</div>
+                                    <div class="step-content">
+                                        <h4>Mostrar en Galería</h4>
+                                        <p>Actualizar UI en tiempo real</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tech-architecture">
+                            <h3>🏗️ Arquitectura Técnica</h3>
+                            <div class="architecture-diagram">
+                                <div class="arch-layer">
+                                    <h4>🎨 Frontend (Tu Aplicación)</h4>
+                                    <div class="arch-components">
+                                        <span class="arch-component">HTML5</span>
+                                        <span class="arch-component">CSS3</span>
+                                        <span class="arch-component">JavaScript ES6+</span>
+                                        <span class="arch-component">Drag & Drop API</span>
+                                    </div>
+                                </div>
+                                <div class="arch-arrow">⬇️</div>
+                                <div class="arch-layer">
+                                    <h4>☁️ Servicios Externos</h4>
+                                    <div class="arch-services">
+                                        <div class="arch-service">
+                                            <span class="service-icon">📸</span>
+                                            <strong>ImgBB API</strong>
+                                            <p>Hosting de imágenes</p>
+                                        </div>
+                                        <div class="arch-service">
+                                            <span class="service-icon">🔥</span>
+                                            <strong>Firestore</strong>
+                                            <p>Base de datos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="arch-arrow">⬇️</div>
+                                <div class="arch-layer">
+                                    <h4>💾 Almacenamiento</h4>
+                                    <div class="arch-storage">
+                                        <div class="storage-item">
+                                            <strong>Imágenes:</strong> Servidores ImgBB (CDN Global)
+                                        </div>
+                                        <div class="storage-item">
+                                            <strong>Metadatos:</strong> Firebase Firestore (NoSQL)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-features">
+                            <h3>📋 Funcionalidades Detalladas</h3>
+                            <div class="features-detailed">
+                                <div class="feature-category">
+                                    <h4>📤 Sistema de Subida</h4>
+                                    <ul>
+                                        <li>Drag & Drop visual</li>
+                                        <li>Selector de archivos tradicional</li>
+                                        <li>Preview antes de subir</li>
+                                        <li>Validación de formato (JPG, PNG, GIF, WebP)</li>
+                                        <li>Validación de tamaño (máx. 32MB)</li>
+                                        <li>Barra de progreso</li>
+                                        <li>Manejo de errores</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-category">
+                                    <h4>🗃️ Gestión de Datos</h4>
+                                    <ul>
+                                        <li>Título y descripción personalizados</li>
+                                        <li>Categorías (Naturaleza, Personas, Arquitectura, etc.)</li>
+                                        <li>Etiquetas (tags) personalizadas</li>
+                                        <li>Fecha de subida automática</li>
+                                        <li>Información del archivo (tamaño, formato)</li>
+                                        <li>URLs de diferentes tamaños</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-category">
+                                    <h4>🖼️ Galería</h4>
+                                    <ul>
+                                        <li>Grid responsive (1-4 columnas según pantalla)</li>
+                                        <li>Lazy loading para mejor performance</li>
+                                        <li>Lightbox para vista completa</li>
+                                        <li>Filtros por categoría</li>
+                                        <li>Búsqueda por texto</li>
+                                        <li>Ordenamiento (fecha, nombre, tamaño)</li>
+                                        <li>Paginación o scroll infinito</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-category">
+                                    <h4>⚡ Funciones Avanzadas</h4>
+                                    <ul>
+                                        <li>Edición de metadatos</li>
+                                        <li>Eliminación de imágenes</li>
+                                        <li>Compartir enlaces directos</li>
+                                        <li>Exportar lista de URLs</li>
+                                        <li>Estadísticas de uso</li>
+                                        <li>Modo oscuro/claro</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configurar ImgBB -->
+                    <section id="setup-imgbb" class="section">
+                        <h2>🔑 Configurar ImgBB - Paso a Paso</h2>
+                        
+                        <div class="setup-intro">
+                            <p>
+                                Para usar ImgBB necesitas obtener una API Key gratuita. 
+                                Este proceso es súper sencillo y toma menos de 2 minutos.
+                            </p>
+                        </div>
+
+                        <div class="setup-steps">
+                            <div class="setup-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>📝 Crear Cuenta en ImgBB</h3>
+                                    <ol>
+                                        <li>Ve a <a href="https://imgbb.com" target="_blank" class="external-link">ImgBB.com</a></li>
+                                        <li>Clic en <strong>"Sign Up"</strong> (esquina superior derecha)</li>
+                                        <li>Puedes registrarte con:
+                                            <ul>
+                                                <li>📧 Email y contraseña</li>
+                                                <li>🔗 Google Account</li>
+                                                <li>📘 Facebook Account</li>
+                                            </ul>
+                                        </li>
+                                        <li>Completa el registro y verifica tu email</li>
+                                    </ol>
+                                    
+                                    <div class="tip-box">
+                                        <h4>💡 Tip para Estudiantes</h4>
+                                        <p>Usa tu email de estudiante para mantener todo organizado</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setup-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>🔑 Obtener API Key</h3>
+                                    <ol>
+                                        <li>Una vez logueado, ve a <a href="https://api.imgbb.com/" target="_blank" class="external-link">api.imgbb.com</a></li>
+                                        <li>Clic en <strong>"Get API Key"</strong></li>
+                                        <li>Se generará automáticamente tu API Key</li>
+                                        <li><strong>¡IMPORTANTE!</strong> Copia y guarda tu API Key en un lugar seguro</li>
+                                        <li>Se ve algo así: <code>a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6</code></li>
+                                    </ol>
+
+                                    <div class="api-key-example">
+                                        <h4>📋 Ejemplo de API Key</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>🔑 Tu API Key</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code>a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6</code></pre>
+                                        </div>
+                                        <p class="warning">⚠️ Esta es solo un ejemplo. Usa tu propia API Key.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setup-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>🧪 Probar la API Key</h3>
+                                    <p>Vamos a hacer una prueba rápida para verificar que tu API Key funciona:</p>
+                                    
+                                    <div class="test-api">
+                                        <h4>🔬 Test con cURL (Opcional)</h4>
+                                        <p>Si tienes cURL instalado, puedes probar esto en tu terminal:</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>Terminal</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code>curl -X POST "https://api.imgbb.com/1/upload" \
+  -F "key=TU_API_KEY_AQUI" \
+  -F "image=https://via.placeholder.com/300x200/3b82f6/ffffff?text=Test"</code></pre>
+                                        </div>
+                                        <p>Si funciona, verás una respuesta JSON con la información de la imagen.</p>
+                                    </div>
+
+                                    <div class="web-test">
+                                        <h4>🌐 Test desde el Navegador</h4>
+                                        <p>También puedes probar directamente desde tu aplicación web. Crearemos el código para esto más adelante.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="api-limits">
+                            <h3>📊 Límites de la API Gratuita</h3>
+                            <div class="limits-grid">
+                                <div class="limit-item">
+                                    <span class="limit-icon">📏</span>
+                                    <h4>Tamaño de Imagen</h4>
+                                    <p><strong>Máximo:</strong> 32 MB por imagen</p>
+                                </div>
+                                <div class="limit-item">
+                                    <span class="limit-icon">⏱️</span>
+                                    <h4>Rate Limit</h4>
+                                    <p><strong>Límite:</strong> Sin límite oficial documentado</p>
+                                </div>
+                                <div class="limit-item">
+                                    <span class="limit-icon">🗂️</span>
+                                    <h4>Formatos Soportados</h4>
+                                    <p><strong>Tipos:</strong> JPG, PNG, GIF, WebP, BMP</p>
+                                </div>
+                                <div class="limit-item">
+                                    <span class="limit-icon">💾</span>
+                                    <h4>Almacenamiento</h4>
+                                    <p><strong>Tiempo:</strong> Permanente (no expira)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="security-note">
+                            <h3>🔒 Nota de Seguridad</h3>
+                            <div class="security-content">
+                                <div class="security-warning">
+                                    <h4>⚠️ Protege tu API Key</h4>
+                                    <ul>
+                                        <li>No la compartas públicamente</li>
+                                        <li>No la subas a repositorios públicos de GitHub</li>
+                                        <li>En producción, usa variables de entorno</li>
+                                        <li>Para este proyecto educativo, está bien tenerla en el código</li>
+                                    </ul>
+                                </div>
+                                <div class="security-tip">
+                                    <h4>💡 Para Proyectos Reales</h4>
+                                    <p>
+                                        En aplicaciones de producción, siempre maneja las API Keys desde el backend 
+                                        para mayor seguridad. Para este proyecto educativo, usaremos JavaScript 
+                                        del lado del cliente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configurar Firebase -->
+                    <section id="setup-firebase" class="section">
+                        <h2>🔥 Configurar Firebase para el Proyecto</h2>
+                        
+                        <div class="firebase-intro">
+                            <p>
+                                Usaremos Firebase Firestore para almacenar los metadatos de nuestras imágenes 
+                                (URLs, títulos, categorías, fechas, etc.). Si ya tienes experiencia con Firebase 
+                                del proyecto CRUD, este proceso será familiar.
+                            </p>
+                        </div>
+
+                        <div class="firebase-quick-setup">
+                            <h3>⚡ Configuración Rápida (Si ya usaste Firebase)</h3>
+                            <div class="quick-steps">
+                                <div class="quick-step">
+                                    <span class="quick-icon">1️⃣</span>
+                                    <p>Usa el mismo proyecto Firebase del CRUD anterior</p>
+                                </div>
+                                <div class="quick-step">
+                                    <span class="quick-icon">2️⃣</span>
+                                    <p>Crea una nueva colección llamada <code>imagenes</code></p>
+                                </div>
+                                <div class="quick-step">
+                                    <span class="quick-icon">3️⃣</span>
+                                    <p>Copia tu configuración existente</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="firebase-detailed-setup">
+                            <h3>📋 Configuración Detallada (Para Nuevos Usuarios)</h3>
+                            
+                            <div class="firebase-step">
+                                <h4>🎯 Paso 1: Crear Proyecto Firebase</h4>
+                                <ol>
+                                    <li>Ve a <a href="https://console.firebase.google.com" target="_blank" class="external-link">Firebase Console</a></li>
+                                    <li>Clic en <strong>"Crear un proyecto"</strong></li>
+                                    <li>Nombre: <code>galeria-imgbb-[tu-nombre]</code></li>
+                                    <li>Google Analytics: <strong>Desactivar</strong> (para simplicidad)</li>
+                                    <li>Clic <strong>"Crear proyecto"</strong></li>
+                                </ol>
+                            </div>
+
+                            <div class="firebase-step">
+                                <h4>🌐 Paso 2: Configurar App Web</h4>
+                                <ol>
+                                    <li>En el dashboard, clic en <strong>"&lt;/&gt;"</strong> (Web)</li>
+                                    <li>Nombre de la app: <code>Galería ImgBB</code></li>
+                                    <li>Clic <strong>"Registrar app"</strong></li>
+                                    <li>Copia la configuración (la necesitaremos después)</li>
+                                </ol>
+                            </div>
+
+                            <div class="firebase-step">
+                                <h4>🗄️ Paso 3: Configurar Firestore</h4>
+                                <ol>
+                                    <li>En el menú lateral, clic <strong>"Firestore Database"</strong></li>
+                                    <li>Clic <strong>"Crear base de datos"</strong></li>
+                                    <li>Selecciona <strong>"Modo de producción"</strong></li>
+                                    <li>Ubicación: Deja la predeterminada</li>
+                                    <li>Clic <strong>"Listo"</strong></li>
+                                </ol>
+                            </div>
+
+                            <div class="firebase-step">
+                                <h4>🔐 Paso 4: Configurar Authentication</h4>
+                                <ol>
+                                    <li>En el menú lateral, clic <strong>"Authentication"</strong></li>
+                                    <li>Clic <strong>"Comenzar"</strong></li>
+                                    <li>Ve a <strong>"Sign-in method"</strong></li>
+                                    <li>Activa <strong>"Correo electrónico/contraseña"</strong></li>
+                                    <li>Crea un usuario administrador</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="firestore-structure">
+                            <h3>🏗️ Estructura de Datos en Firestore</h3>
+                            <p>Así organizaremos la información de nuestras imágenes:</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📄 Documento de Imagen en Firestore</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>{
+  "id": "img_001",
+  "titulo": "Atardecer en la playa",
+  "descripcion": "Hermoso atardecer capturado en la costa",
+  "categoria": "naturaleza",
+  "tags": ["playa", "atardecer", "mar", "paisaje"],
+  "imgbb": {
+    "url": "https://i.ibb.co/abc123/imagen.jpg",
+    "thumb": "https://i.ibb.co/abc123/imagen_thumb.jpg",
+    "medium": "https://i.ibb.co/abc123/imagen_medium.jpg",
+    "delete_url": "https://ibb.co/abc123/delete/xyz789"
+  },
+  "archivo": {
+    "nombre": "atardecer-playa.jpg",
+    "tamaño": 2048576,
+    "tipo": "image/jpeg",
+    "dimensiones": {
+      "ancho": 1920,
+      "alto": 1080
+    }
+  },
+  "fechas": {
+    "subida": "2024-01-25T14:30:00Z",
+    "actualizacion": "2024-01-25T14:30:00Z"
+  },
+  "usuario": {
+    "uid": "user123",
+    "email": "usuario@ejemplo.com",
+    "nombre": "Juan Pérez"
+  },
+  "estadisticas": {
+    "vistas": 0,
+    "likes": 0,
+    "compartidas": 0
+  },
+  "privacidad": {
+    "publico": true,
+    "visible_en_galeria": true
+  }
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="firestore-rules">
+                            <h3>🔒 Reglas de Seguridad para Firestore</h3>
+                            <p>Configuración de reglas para la colección de imágenes:</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>🛡️ Reglas de Firestore</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Reglas para la colección de imágenes
+    match /imagenes/{imageId} {
+      // Lectura: usuarios autenticados pueden leer imágenes públicas
+      allow read: if request.auth != null && resource.data.privacidad.publico == true;
+      
+      // Lectura propia: usuarios pueden leer sus propias imágenes
+      allow read: if request.auth != null && request.auth.uid == resource.data.usuario.uid;
+      
+      // Escritura: usuarios autenticados pueden crear imágenes
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.usuario.uid &&
+        validateImageData(request.resource.data);
+      
+      // Actualización: solo el propietario puede actualizar
+      allow update: if request.auth != null && 
+        request.auth.uid == resource.data.usuario.uid &&
+        validateImageData(request.resource.data);
+      
+      // Eliminación: solo el propietario puede eliminar
+      allow delete: if request.auth != null && 
+        request.auth.uid == resource.data.usuario.uid;
+    }
+    
+    // Función de validación
+    function validateImageData(data) {
+      return data.keys().hasAll(['titulo', 'imgbb', 'archivo', 'fechas', 'usuario']) &&
+             data.titulo is string &&
+             data.titulo.size() > 0 &&
+             data.imgbb.url is string &&
+             data.archivo.nombre is string &&
+             data.usuario.uid is string;
+    }
+  }
+}</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Component -->
+                    <div id="footer-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script>
+    <script src="components/components.js"></script>
+    <script>
+        // Inicializar componentes cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Proyecto ImgBB Firebase', '📸');
+        });
+
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '✅ Copiado';
+                button.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                    button.style.background = 'var(--accent)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
