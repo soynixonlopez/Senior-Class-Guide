@@ -144,6 +144,29 @@
                 <section id="firebase-setup" class="section">
                     <h2>🔥 Configuración de Firebase</h2>
                     
+                    <div class="env-security-notice">
+                        <h3>🔐 Seguridad de Credenciales</h3>
+                        <p>
+                            <strong>¡IMPORTANTE!</strong> En esta guía aprenderás a manejar las credenciales de Firebase 
+                            de forma segura usando variables de entorno (.env). Nunca pongas credenciales directamente 
+                            en tu código fuente.
+                        </p>
+                        <div class="security-benefits">
+                            <div class="security-item">
+                                <span class="security-icon">🔒</span>
+                                <span>Protege tus credenciales</span>
+                            </div>
+                            <div class="security-item">
+                                <span class="security-icon">👥</span>
+                                <span>Facilita trabajo en equipo</span>
+                            </div>
+                            <div class="security-item">
+                                <span class="security-icon">🌍</span>
+                                <span>Diferentes entornos</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="step-container">
                         <div class="step">
                             <div class="step-number">1</div>
@@ -192,16 +215,101 @@
 
                 <!-- Config File Section -->
                 <section id="config-file" class="section">
-                    <h2>⚙️ Archivo de Configuración</h2>
-                    <p>Crearemos el archivo que conecta nuestra app con Firebase:</p>
+                    <h2>⚙️ Archivo de Configuración con Variables de Entorno</h2>
+                    <p>Crearemos el archivo que conecta nuestra app con Firebase usando variables de entorno para mayor seguridad:</p>
 
-                    <div class="prompt-box">
-                        <h4>🤖 Prompt para Cursor:</h4>
-                        <div class="code-block">
-                            <div class="code-header">
-                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                    <div class="env-setup-steps">
+                        <h3>📁 Paso 1: Crear archivos de variables de entorno</h3>
+                        
+                        <div class="env-file-setup">
+                            <h4>📄 Crear archivo .env</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📄 .env (raíz del proyecto)</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code># Configuración de Firebase
+FIREBASE_API_KEY=tu_api_key_real
+FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+FIREBASE_PROJECT_ID=tu-proyecto-id
+FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=123456789
+FIREBASE_APP_ID=1:123456789:web:abcdef123456
+
+# Configuración del entorno
+NODE_ENV=development</code></pre>
                             </div>
-                            <pre><code>Create firebase/config.js that loads the Firebase v10 modular SDK from CDN and exports a configured auth instance. Use placeholders for the config keys and clear comments indicating where to paste real values.</code></pre>
+                        </div>
+
+                        <div class="env-file-setup">
+                            <h4>📄 Crear archivo .env.example</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📄 .env.example</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code># Configuración de Firebase
+FIREBASE_API_KEY=your_firebase_api_key
+FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+FIREBASE_APP_ID=your_app_id
+
+# Configuración del entorno
+NODE_ENV=development</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="env-file-setup">
+                            <h4>🚫 Actualizar .gitignore</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📄 .gitignore</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code># Variables de entorno
+.env
+.env.local
+.env.production
+
+# Dependencias
+node_modules/
+
+# Archivos de build
+dist/
+build/
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-step">
+                        <h3>⚙️ Paso 2: Crear archivo de configuración</h3>
+                        
+                        <div class="prompt-box">
+                            <h4>🤖 Prompt para Cursor:</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar Prompt</button>
+                                </div>
+                                <pre><code>Crea firebase/config.js que:
+
+1. Cargue el Firebase v10 modular SDK desde CDN
+2. Lea las variables de entorno de forma segura
+3. Exporte una instancia de auth configurada
+4. Incluya validación de variables requeridas
+5. Maneje errores de configuración
+6. Tenga comentarios explicativos para estudiantes
+
+IMPORTANTE: Para frontend, crear un sistema que lea las variables de forma segura.</code></pre>
+                            </div>
                         </div>
                     </div>
 

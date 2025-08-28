@@ -27,16 +27,17 @@
             <ul class="nav-links">
                 <li><a href="#intro" class="nav-link active"><span class="nav-icon">📚</span><span class="nav-text">Introducción</span></a></li>
                 <li><a href="#what-is-imgbb" class="nav-link"><span class="nav-icon">❓</span><span class="nav-text">¿Qué es ImgBB?</span></a></li>
-                <li><a href="#project-overview" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">Proyecto: Galería</span></a></li>
+
                 <li><a href="#setup-imgbb" class="nav-link"><span class="nav-icon">🔑</span><span class="nav-text">Configurar ImgBB</span></a></li>
                 <li><a href="#setup-firebase" class="nav-link"><span class="nav-icon">🔥</span><span class="nav-text">Configurar Firebase</span></a></li>
-                <li><a href="#project-structure" class="nav-link"><span class="nav-icon">📁</span><span class="nav-text">Estructura Proyecto</span></a></li>
+                <li><a href="#project-structure" class="nav-link"><span class="nav-icon">📁</span><span class="nav-text">Estructura y Archivos</span></a></li>
                 <li><a href="#upload-system" class="nav-link"><span class="nav-icon">⬆️</span><span class="nav-text">Sistema de Subida</span></a></li>
                 <li><a href="#firestore-save" class="nav-link"><span class="nav-icon">💾</span><span class="nav-text">Guardar en Firestore</span></a></li>
                 <li><a href="#image-gallery" class="nav-link"><span class="nav-icon">🖼️</span><span class="nav-text">Galería de Imágenes</span></a></li>
                 <li><a href="#advanced-features" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Funciones Avanzadas</span></a></li>
                 <li><a href="#security" class="nav-link"><span class="nav-icon">🔒</span><span class="nav-text">Seguridad</span></a></li>
                 <li><a href="#deployment" class="nav-link"><span class="nav-icon">🌐</span><span class="nav-text">Despliegue</span></a></li>
+                <li><a href="#error-prevention" class="nav-link"><span class="nav-icon">🚨</span><span class="nav-text">Prevención de Errores</span></a></li>
                 <li><a href="#troubleshooting" class="nav-link"><span class="nav-icon">🔧</span><span class="nav-text">Solución Problemas</span></a></li>
             </ul>
         </nav>
@@ -54,8 +55,43 @@
                         <p class="lead">
                             Aprende a crear un sistema completo de subida y gestión de imágenes usando 
                             ImgBB como servicio de hosting de imágenes y Firebase Firestore para almacenar 
-                            metadatos y URLs.
+                            metadatos y URLs. Esta guía está diseñada específicamente para estudiantes con 
+                            pasos detallados y prompts de Cursor para facilitar el desarrollo.
                         </p>
+
+                        <div class="learning-objectives">
+                            <h3>🎯 ¿Qué vas a aprender?</h3>
+                            <div class="objectives-grid">
+                                <div class="objective-item">
+                                    <span class="objective-icon">📤</span>
+                                    <div class="objective-content">
+                                        <h4>Sistema de Subida de Imágenes</h4>
+                                        <p>Implementar drag & drop, validación de archivos y preview de imágenes</p>
+                                    </div>
+                                </div>
+                                <div class="objective-item">
+                                    <span class="objective-icon">🔗</span>
+                                    <div class="objective-content">
+                                        <h4>Integración con APIs Externas</h4>
+                                        <p>Conectar tu aplicación con ImgBB API para hosting de imágenes</p>
+                                    </div>
+                                </div>
+                                <div class="objective-item">
+                                    <span class="objective-icon">🔥</span>
+                                    <div class="objective-content">
+                                        <h4>Base de Datos en Tiempo Real</h4>
+                                        <p>Usar Firestore para almacenar metadatos y sincronizar en tiempo real</p>
+                                    </div>
+                                </div>
+                                <div class="objective-item">
+                                    <span class="objective-icon">🎨</span>
+                                    <div class="objective-content">
+                                        <h4>Interfaz Moderna y Responsive</h4>
+                                        <p>Crear una galería atractiva que funcione en todos los dispositivos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="project-demo">
                             <h3>🎬 Vista Previa del Proyecto Final</h3>
@@ -144,14 +180,45 @@
 
                     <!-- ¿Qué es ImgBB? -->
                     <section id="what-is-imgbb" class="section">
-                        <h2>❓ ¿Qué es ImgBB?</h2>
+                        <h2>❓ ¿Qué es ImgBB y por qué es importante?</h2>
                         
                         <div class="service-explanation">
                             <div class="service-info">
-                                <p>
-                                    <strong>ImgBB</strong> es un servicio gratuito de hosting de imágenes que 
-                                    permite subir imágenes y obtener URLs directas para usarlas en aplicaciones web.
-                                </p>
+                                <div class="concept-box">
+                                    <h3>💡 Concepto Fundamental</h3>
+                                    <p>
+                                        <strong>ImgBB</strong> es un servicio gratuito de hosting de imágenes que actúa como un 
+                                        "almacén en la nube" para tus fotos. Imagínalo como un Google Drive específicamente 
+                                        diseñado para imágenes, donde puedes subir una foto y obtener una URL (enlace) 
+                                        que puedes usar en tu aplicación web.
+                                    </p>
+                                </div>
+
+                                <div class="why-important">
+                                    <h3>🤔 ¿Por qué no guardar imágenes directamente en mi servidor?</h3>
+                                    <div class="importance-grid">
+                                        <div class="importance-item">
+                                            <span class="importance-icon">💰</span>
+                                            <h4>Costo</h4>
+                                            <p>Las imágenes ocupan mucho espacio y el almacenamiento cuesta dinero</p>
+                                        </div>
+                                        <div class="importance-item">
+                                            <span class="importance-icon">⚡</span>
+                                            <h4>Velocidad</h4>
+                                            <p>ImgBB tiene CDN global, las imágenes cargan más rápido</p>
+                                        </div>
+                                        <div class="importance-item">
+                                            <span class="importance-icon">🔧</span>
+                                            <h4>Mantenimiento</h4>
+                                            <p>No necesitas preocuparte por backups o gestión de archivos</p>
+                                        </div>
+                                        <div class="importance-item">
+                                            <span class="importance-icon">📱</span>
+                                            <h4>Escalabilidad</h4>
+                                            <p>Soporta millones de imágenes sin afectar tu aplicación</p>
+                                        </div>
+                                    </div>
+                                </div>
                                 
                                 <div class="service-benefits">
                                     <h3>🌟 Ventajas de ImgBB</h3>
@@ -253,168 +320,79 @@
                         </div>
                     </section>
 
-                    <!-- Proyecto Overview -->
-                    <section id="project-overview" class="section">
-                        <h2>🎯 Proyecto: Galería de Imágenes Personal</h2>
-                        
-                        <div class="project-description">
-                            <p>
-                                Vamos a construir una galería de imágenes completa donde los usuarios pueden 
-                                subir fotos, organizarlas por categorías y visualizarlas en una interfaz moderna 
-                                y responsive.
-                            </p>
-                        </div>
-
-                        <div class="project-flow">
-                            <h3>🔄 Flujo del Proyecto</h3>
-                            <div class="flow-steps">
-                                <div class="flow-step">
-                                    <div class="step-icon">1️⃣</div>
-                                    <div class="step-content">
-                                        <h4>Usuario Selecciona Imagen</h4>
-                                        <p>Drag & drop o click para elegir archivo</p>
-                                    </div>
-                                </div>
-                                <div class="flow-arrow">➡️</div>
-                                <div class="flow-step">
-                                    <div class="step-icon">2️⃣</div>
-                                    <div class="step-content">
-                                        <h4>Validación y Preview</h4>
-                                        <p>Verificar formato y mostrar preview</p>
-                                    </div>
-                                </div>
-                                <div class="flow-arrow">➡️</div>
-                                <div class="flow-step">
-                                    <div class="step-icon">3️⃣</div>
-                                    <div class="step-content">
-                                        <h4>Subir a ImgBB</h4>
-                                        <p>Enviar imagen via API y obtener URL</p>
-                                    </div>
-                                </div>
-                                <div class="flow-arrow">➡️</div>
-                                <div class="flow-step">
-                                    <div class="step-icon">4️⃣</div>
-                                    <div class="step-content">
-                                        <h4>Guardar en Firestore</h4>
-                                        <p>Almacenar URL y metadatos</p>
-                                    </div>
-                                </div>
-                                <div class="flow-arrow">➡️</div>
-                                <div class="flow-step">
-                                    <div class="step-icon">5️⃣</div>
-                                    <div class="step-content">
-                                        <h4>Mostrar en Galería</h4>
-                                        <p>Actualizar UI en tiempo real</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tech-architecture">
-                            <h3>🏗️ Arquitectura Técnica</h3>
-                            <div class="architecture-diagram">
-                                <div class="arch-layer">
-                                    <h4>🎨 Frontend (Tu Aplicación)</h4>
-                                    <div class="arch-components">
-                                        <span class="arch-component">HTML5</span>
-                                        <span class="arch-component">CSS3</span>
-                                        <span class="arch-component">JavaScript ES6+</span>
-                                        <span class="arch-component">Drag & Drop API</span>
-                                    </div>
-                                </div>
-                                <div class="arch-arrow">⬇️</div>
-                                <div class="arch-layer">
-                                    <h4>☁️ Servicios Externos</h4>
-                                    <div class="arch-services">
-                                        <div class="arch-service">
-                                            <span class="service-icon">📸</span>
-                                            <strong>ImgBB API</strong>
-                                            <p>Hosting de imágenes</p>
-                                        </div>
-                                        <div class="arch-service">
-                                            <span class="service-icon">🔥</span>
-                                            <strong>Firestore</strong>
-                                            <p>Base de datos</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="arch-arrow">⬇️</div>
-                                <div class="arch-layer">
-                                    <h4>💾 Almacenamiento</h4>
-                                    <div class="arch-storage">
-                                        <div class="storage-item">
-                                            <strong>Imágenes:</strong> Servidores ImgBB (CDN Global)
-                                        </div>
-                                        <div class="storage-item">
-                                            <strong>Metadatos:</strong> Firebase Firestore (NoSQL)
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-features">
-                            <h3>📋 Funcionalidades Detalladas</h3>
-                            <div class="features-detailed">
-                                <div class="feature-category">
-                                    <h4>📤 Sistema de Subida</h4>
-                                    <ul>
-                                        <li>Drag & Drop visual</li>
-                                        <li>Selector de archivos tradicional</li>
-                                        <li>Preview antes de subir</li>
-                                        <li>Validación de formato (JPG, PNG, GIF, WebP)</li>
-                                        <li>Validación de tamaño (máx. 32MB)</li>
-                                        <li>Barra de progreso</li>
-                                        <li>Manejo de errores</li>
-                                    </ul>
-                                </div>
-                                <div class="feature-category">
-                                    <h4>🗃️ Gestión de Datos</h4>
-                                    <ul>
-                                        <li>Título y descripción personalizados</li>
-                                        <li>Categorías (Naturaleza, Personas, Arquitectura, etc.)</li>
-                                        <li>Etiquetas (tags) personalizadas</li>
-                                        <li>Fecha de subida automática</li>
-                                        <li>Información del archivo (tamaño, formato)</li>
-                                        <li>URLs de diferentes tamaños</li>
-                                    </ul>
-                                </div>
-                                <div class="feature-category">
-                                    <h4>🖼️ Galería</h4>
-                                    <ul>
-                                        <li>Grid responsive (1-4 columnas según pantalla)</li>
-                                        <li>Lazy loading para mejor performance</li>
-                                        <li>Lightbox para vista completa</li>
-                                        <li>Filtros por categoría</li>
-                                        <li>Búsqueda por texto</li>
-                                        <li>Ordenamiento (fecha, nombre, tamaño)</li>
-                                        <li>Paginación o scroll infinito</li>
-                                    </ul>
-                                </div>
-                                <div class="feature-category">
-                                    <h4>⚡ Funciones Avanzadas</h4>
-                                    <ul>
-                                        <li>Edición de metadatos</li>
-                                        <li>Eliminación de imágenes</li>
-                                        <li>Compartir enlaces directos</li>
-                                        <li>Exportar lista de URLs</li>
-                                        <li>Estadísticas de uso</li>
-                                        <li>Modo oscuro/claro</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
                     <!-- Configurar ImgBB -->
                     <section id="setup-imgbb" class="section">
-                        <h2>🔑 Configurar ImgBB - Paso a Paso</h2>
+                        <h2>🔑 Configurar ImgBB - Guía Detallada para Estudiantes</h2>
                         
                         <div class="setup-intro">
                             <p>
-                                Para usar ImgBB necesitas obtener una API Key gratuita. 
-                                Este proceso es súper sencillo y toma menos de 2 minutos.
+                                Para usar ImgBB necesitas obtener una API Key gratuita. Esta sección te guiará paso a paso 
+                                con instrucciones específicas y prompts de Cursor para facilitar tu trabajo.
                             </p>
+                            <div class="time-estimate">
+                                <span class="time-icon">⏱️</span>
+                                <strong>Tiempo estimado:</strong> 5-10 minutos
+                            </div>
+                        </div>
+
+                        <div class="env-importance">
+                            <h3>🔐 Importancia de las Variables de Entorno (.env)</h3>
+                            <div class="env-explanation">
+                                <p>
+                                    Antes de empezar, es crucial entender por qué <strong>NUNCA</strong> debes poner 
+                                    tus API keys directamente en el código. Las variables de entorno son la forma 
+                                    segura de manejar credenciales sensibles.
+                                </p>
+                                
+                                <div class="env-benefits">
+                                    <div class="env-benefit">
+                                        <span class="env-icon">🔒</span>
+                                        <div>
+                                            <h4>Seguridad</h4>
+                                            <p>Las credenciales no aparecen en tu código fuente</p>
+                                        </div>
+                                    </div>
+                                    <div class="env-benefit">
+                                        <span class="env-icon">🌍</span>
+                                        <div>
+                                            <h4>Entornos Múltiples</h4>
+                                            <p>Diferentes credenciales para desarrollo y producción</p>
+                                        </div>
+                                    </div>
+                                    <div class="env-benefit">
+                                        <span class="env-icon">👥</span>
+                                        <div>
+                                            <h4>Trabajo en Equipo</h4>
+                                            <p>Cada desarrollador usa sus propias credenciales</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-box">
+                            <h3>🤖 Prompt para Cursor - Configuración con Variables de Entorno</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Copia este prompt en Cursor</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Ayúdame a configurar ImgBB para mi proyecto de galería de imágenes usando variables de entorno. Necesito:
+
+1. Crear archivo .env para almacenar credenciales de forma segura
+2. Crear archivo .env.example como plantilla
+3. Configurar .gitignore para proteger el archivo .env
+4. Crear funciones para cargar variables de entorno
+5. Implementar configuración para desarrollo y producción
+6. Crear funciones para subir imágenes a ImgBB usando las variables
+7. Implementar manejo de errores completo
+
+IMPORTANTE: 
+- Usar variables de entorno para API keys
+- Incluir validación de variables requeridas
+- Documentar cómo configurar las variables
+- Usar JavaScript moderno (ES6+) y mejores prácticas</code></pre>
+                            </div>
                         </div>
 
                         <div class="setup-steps">
@@ -422,22 +400,46 @@
                                 <div class="step-number">1</div>
                                 <div class="step-content">
                                     <h3>📝 Crear Cuenta en ImgBB</h3>
-                                    <ol>
-                                        <li>Ve a <a href="https://imgbb.com" target="_blank" class="external-link">ImgBB.com</a></li>
-                                        <li>Clic en <strong>"Sign Up"</strong> (esquina superior derecha)</li>
-                                        <li>Puedes registrarte con:
-                                            <ul>
-                                                <li>📧 Email y contraseña</li>
-                                                <li>🔗 Google Account</li>
-                                                <li>📘 Facebook Account</li>
-                                            </ul>
-                                        </li>
-                                        <li>Completa el registro y verifica tu email</li>
-                                    </ol>
+                                    <div class="detailed-instructions">
+                                        <h4>🔍 Instrucciones Detalladas:</h4>
+                                        <ol>
+                                            <li><strong>Abrir ImgBB:</strong> Ve a <a href="https://imgbb.com" target="_blank" class="external-link">https://imgbb.com</a></li>
+                                            <li><strong>Localizar el botón:</strong> En la esquina superior derecha, busca el botón azul que dice <code>"Sign Up"</code></li>
+                                            <li><strong>Seleccionar método de registro:</strong>
+                                                <div class="registration-options">
+                                                    <div class="option-item">
+                                                        <span class="option-icon">📧</span>
+                                                        <strong>Email y contraseña</strong> - Recomendado para estudiantes
+                                                    </div>
+                                                    <div class="option-item">
+                                                        <span class="option-icon">🔗</span>
+                                                        <strong>Google Account</strong> - Más rápido si tienes Gmail
+                                                    </div>
+                                                    <div class="option-item">
+                                                        <span class="option-icon">📘</span>
+                                                        <strong>Facebook Account</strong> - Si prefieres usar Facebook
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li><strong>Completar datos:</strong> Llena los campos requeridos (username, email, password)</li>
+                                            <li><strong>Verificar email:</strong> Revisa tu bandeja de entrada y haz clic en el enlace de verificación</li>
+                                        </ol>
+                                    </div>
                                     
                                     <div class="tip-box">
-                                        <h4>💡 Tip para Estudiantes</h4>
-                                        <p>Usa tu email de estudiante para mantener todo organizado</p>
+                                        <h4>💡 Tips Importantes</h4>
+                                        <ul>
+                                            <li><strong>Email:</strong> Usa tu email de estudiante para mantener todo organizado</li>
+                                            <li><strong>Username:</strong> Elige un nombre relacionado con tu proyecto (ej: "galeria-estudiante-2024")</li>
+                                            <li><strong>Contraseña:</strong> Usa una contraseña segura que recuerdes fácilmente</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="screenshot-placeholder">
+                                        <div class="placeholder-content">
+                                            <span class="placeholder-icon">📸</span>
+                                            <p>Captura de pantalla: Página de registro de ImgBB</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -445,25 +447,78 @@
                             <div class="setup-step">
                                 <div class="step-number">2</div>
                                 <div class="step-content">
-                                    <h3>🔑 Obtener API Key</h3>
-                                    <ol>
-                                        <li>Una vez logueado, ve a <a href="https://api.imgbb.com/" target="_blank" class="external-link">api.imgbb.com</a></li>
-                                        <li>Clic en <strong>"Get API Key"</strong></li>
-                                        <li>Se generará automáticamente tu API Key</li>
-                                        <li><strong>¡IMPORTANTE!</strong> Copia y guarda tu API Key en un lugar seguro</li>
-                                        <li>Se ve algo así: <code>a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6</code></li>
-                                    </ol>
+                                    <h3>🔑 Obtener API Key - Proceso Detallado</h3>
+                                    <div class="detailed-instructions">
+                                        <h4>🔍 Pasos Específicos:</h4>
+                                        <ol>
+                                            <li><strong>Iniciar sesión:</strong> Asegúrate de estar logueado en ImgBB</li>
+                                            <li><strong>Ir a la API:</strong> Ve directamente a <a href="https://api.imgbb.com/" target="_blank" class="external-link">https://api.imgbb.com/</a></li>
+                                            <li><strong>Buscar el botón:</strong> Localiza el botón verde que dice <code>"Get API Key"</code></li>
+                                            <li><strong>Hacer clic:</strong> Haz clic en el botón y espera unos segundos</li>
+                                            <li><strong>Copiar la key:</strong> Aparecerá una cadena de texto de 32 caracteres - ¡Esta es tu API Key!</li>
+                                            <li><strong>Guardar inmediatamente:</strong> Copia la key y pégala en un archivo de texto temporal</li>
+                                        </ol>
+                                    </div>
+
+                                    <div class="api-key-guide">
+                                        <h4>📝 ¿Cómo guardar tu API Key?</h4>
+                                        <div class="storage-methods">
+                                            <div class="method-item">
+                                                <span class="method-icon">📄</span>
+                                                <div class="method-content">
+                                                    <strong>Archivo de texto temporal:</strong>
+                                                    <p>Crea un archivo llamado <code>api-keys.txt</code> en tu escritorio</p>
+                                                </div>
+                                            </div>
+                                            <div class="method-item">
+                                                <span class="method-icon">📱</span>
+                                                <div class="method-content">
+                                                    <strong>Notas del móvil:</strong>
+                                                    <p>Guárdala en las notas de tu teléfono como respaldo</p>
+                                                </div>
+                                            </div>
+                                            <div class="method-item">
+                                                <span class="method-icon">🔐</span>
+                                                <div class="method-content">
+                                                    <strong>Gestor de contraseñas:</strong>
+                                                    <p>Si usas uno, guárdala ahí para mayor seguridad</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <div class="api-key-example">
-                                        <h4>📋 Ejemplo de API Key</h4>
+                                        <h4>📋 Formato de la API Key</h4>
                                         <div class="code-block">
                                             <div class="code-header">
-                                                <span>🔑 Tu API Key</span>
-                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                <span>🔑 Ejemplo de API Key (NO uses esta)</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar formato</button>
                                             </div>
                                             <pre><code>a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6</code></pre>
                                         </div>
-                                        <p class="warning">⚠️ Esta es solo un ejemplo. Usa tu propia API Key.</p>
+                                        <div class="warning-box">
+                                            <p><strong>⚠️ IMPORTANTE:</strong> Esta es solo un ejemplo del formato. Tu API Key será diferente y única.</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="cursor-prompt-box">
+                                        <h4>🤖 Prompt para Cursor - Crear archivo de configuración</h4>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>📋 Copia este prompt en Cursor después de obtener tu API Key</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code>Ayúdame a crear un archivo de configuración para mi API Key de ImgBB. Necesito:
+
+1. Crear un archivo config.js con la API Key de ImgBB
+2. Implementar una función para hacer peticiones a la API de ImgBB
+3. Agregar manejo de errores básico
+4. Incluir comentarios explicativos para estudiantes
+
+Mi API Key de ImgBB es: [PEGA_TU_API_KEY_AQUÍ]
+
+Usa buenas prácticas de JavaScript y código limpio.</code></pre>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -542,6 +597,205 @@
                                         para mayor seguridad. Para este proyecto educativo, usaremos JavaScript 
                                         del lado del cliente.
                                     </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="env-setup-section">
+                            <h3>📁 Configurar Variables de Entorno (.env)</h3>
+                            <p>Una vez que tengas tu API Key, vamos a configurarla de forma segura usando variables de entorno:</p>
+                            
+                            <div class="env-steps">
+                                <div class="env-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>📄 Crear archivo .env</h4>
+                                        <p>En la raíz de tu proyecto, crea un archivo llamado <code>.env</code></p>
+                                        <div class="cursor-prompt-box">
+                                            <div class="code-block">
+                                                <div class="code-header">
+                                                    <span>📋 Contenido del archivo .env</span>
+                                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                </div>
+                                                <pre><code># Configuración de ImgBB
+IMGBB_API_KEY=tu_api_key_real_aqui
+
+# Configuración de Firebase (la añadiremos después)
+FIREBASE_API_KEY=
+FIREBASE_AUTH_DOMAIN=
+FIREBASE_PROJECT_ID=
+FIREBASE_STORAGE_BUCKET=
+FIREBASE_MESSAGING_SENDER_ID=
+FIREBASE_APP_ID=
+
+# Configuración del entorno
+NODE_ENV=development</code></pre>
+                                            </div>
+                                        </div>
+                                        <div class="warning-box">
+                                            <p><strong>⚠️ IMPORTANTE:</strong> Reemplaza <code>tu_api_key_real_aqui</code> con tu API Key real de ImgBB</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="env-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>📄 Crear archivo .env.example</h4>
+                                        <p>Crea un archivo <code>.env.example</code> como plantilla para otros desarrolladores:</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>📋 Contenido del archivo .env.example</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code># Configuración de ImgBB
+IMGBB_API_KEY=tu_api_key_de_imgbb
+
+# Configuración de Firebase
+FIREBASE_API_KEY=tu_firebase_api_key
+FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+FIREBASE_PROJECT_ID=tu-proyecto-id
+FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=123456789
+FIREBASE_APP_ID=1:123456789:web:abcdef123456
+
+# Configuración del entorno
+NODE_ENV=development</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="env-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>🚫 Configurar .gitignore</h4>
+                                        <p>Crea o actualiza tu archivo <code>.gitignore</code> para proteger tus credenciales:</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>📋 Añadir al archivo .gitignore</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code># Variables de entorno
+.env
+.env.local
+.env.production
+
+# Dependencias
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/</code></pre>
+                                        </div>
+                                        <div class="tip-box">
+                                            <h4>💡 ¿Por qué .gitignore?</h4>
+                                            <p>El archivo .gitignore evita que Git suba tus credenciales a repositorios públicos como GitHub, protegiendo tus API keys.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="env-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>⚙️ Cargar Variables en JavaScript</h4>
+                                        <p>Para proyectos frontend, necesitas una forma de cargar las variables de entorno:</p>
+                                        
+                                        <div class="env-options">
+                                            <div class="env-option">
+                                                <h5>🌐 Opción 1: Para proyectos web estáticos</h5>
+                                                <div class="cursor-prompt-box">
+                                                    <div class="code-block">
+                                                        <div class="code-header">
+                                                            <span>🤖 Prompt para config.js</span>
+                                                            <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                        </div>
+                                                        <pre><code>Crea un archivo js/config.js para manejar variables de entorno en el frontend:
+
+1. Crear objeto de configuración que lea variables del entorno
+2. Implementar fallbacks para desarrollo local
+3. Añadir validación de variables requeridas
+4. Crear función para verificar que todas las variables estén configuradas
+5. Incluir modo de desarrollo vs producción
+6. Documentar cómo usar cada variable
+
+IMPORTANTE: Para frontend, las variables deben ser expuestas de forma segura.</code></pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="env-option">
+                                                <h5>📦 Opción 2: Con bundler (Vite, Webpack, etc.)</h5>
+                                                <p>Si usas un bundler moderno, puedes cargar variables automáticamente:</p>
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>📋 Ejemplo con Vite</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>// En tu archivo JavaScript
+const config = {
+  imgbbApiKey: import.meta.env.VITE_IMGBB_API_KEY,
+  firebaseConfig: {
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    // ... otras variables
+  }
+};
+
+// Validar que las variables estén configuradas
+if (!config.imgbbApiKey) {
+  throw new Error('VITE_IMGBB_API_KEY no está configurada');
+}</code></pre>
+                                                </div>
+                                                <div class="tip-box">
+                                                    <h4>💡 Nota sobre Vite</h4>
+                                                    <p>Con Vite, las variables deben empezar con <code>VITE_</code> para ser accesibles en el frontend.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="env-best-practices">
+                                <h3>✅ Mejores Prácticas para Variables de Entorno</h3>
+                                <div class="practices-grid">
+                                    <div class="practice-item">
+                                        <span class="practice-icon">🔐</span>
+                                        <div>
+                                            <h4>Nunca hardcodees credenciales</h4>
+                                            <p>Siempre usa variables de entorno para API keys, contraseñas y URLs</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <span class="practice-icon">📝</span>
+                                        <div>
+                                            <h4>Documenta las variables</h4>
+                                            <p>Mantén actualizado el archivo .env.example con todas las variables necesarias</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <span class="practice-icon">🔄</span>
+                                        <div>
+                                            <h4>Diferentes entornos</h4>
+                                            <p>Usa diferentes valores para desarrollo, testing y producción</p>
+                                        </div>
+                                    </div>
+                                    <div class="practice-item">
+                                        <span class="practice-icon">✅</span>
+                                        <div>
+                                            <h4>Valida las variables</h4>
+                                            <p>Verifica que todas las variables requeridas estén configuradas al iniciar</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -722,6 +976,824 @@ service cloud.firestore {
     }
   }
 }</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Estructura del Proyecto -->
+                    <section id="project-structure" class="section">
+                        <h2>📁 Estructura del Proyecto y Archivos Necesarios</h2>
+                        
+                        <div class="structure-intro">
+                            <p>
+                                Antes de empezar a programar, es crucial organizar correctamente los archivos del proyecto. 
+                                Esta sección te guiará paso a paso para crear la estructura completa con todos los archivos necesarios.
+                            </p>
+                            <div class="time-estimate">
+                                <span class="time-icon">⏱️</span>
+                                <strong>Tiempo estimado:</strong> 15-20 minutos
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-box">
+                            <h3>🤖 Prompt Principal para Cursor - Crear Proyecto Completo</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Copia este prompt en Cursor para crear todo el proyecto</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Ayúdame a crear un proyecto completo de galería de imágenes con ImgBB y Firebase. Necesito:
+
+ESTRUCTURA DEL PROYECTO:
+- HTML principal con interfaz moderna y responsive
+- CSS organizado en módulos (variables, layout, componentes)
+- JavaScript modular para manejo de imágenes y Firebase
+- Configuración de Firebase
+- Sistema de subida con drag & drop
+- Galería con filtros y búsqueda
+- Integración con ImgBB API
+
+CARACTERÍSTICAS TÉCNICAS:
+- HTML5 semántico
+- CSS Grid y Flexbox
+- JavaScript ES6+ (async/await, modules)
+- Firebase v9+ (modular SDK)
+- Responsive design (mobile-first)
+- Accesibilidad básica
+- Manejo de errores completo
+
+FUNCIONALIDADES:
+1. Subida de imágenes (drag & drop + selector)
+2. Preview antes de subir
+3. Validación de archivos
+4. Integración con ImgBB API
+5. Almacenamiento en Firestore
+6. Galería responsive con lightbox
+7. Filtros por categoría
+8. Búsqueda por texto
+9. Eliminación de imágenes
+
+Crea todos los archivos necesarios con código completo y comentarios explicativos.</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="project-tree">
+                            <h3>🌳 Estructura de Archivos del Proyecto</h3>
+                            <div class="file-tree">
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>📂 Estructura de carpetas y archivos</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                    </div>
+                                    <pre><code>galeria-imgbb/
+├── 📄 index.html              # Página principal
+├── 📂 css/
+│   ├── 📄 variables.css       # Variables CSS (colores, tamaños)
+│   ├── 📄 reset.css          # Reset/normalize CSS
+│   ├── 📄 layout.css         # Layout principal y grid
+│   ├── 📄 components.css     # Componentes reutilizables
+│   ├── 📄 gallery.css        # Estilos de la galería
+│   └── 📄 responsive.css     # Media queries
+├── 📂 js/
+│   ├── 📄 config.js          # Configuración Firebase e ImgBB
+│   ├── 📄 firebase.js        # Funciones de Firebase
+│   ├── 📄 imgbb.js           # Funciones de ImgBB API
+│   ├── 📄 upload.js          # Sistema de subida
+│   ├── 📄 gallery.js         # Lógica de la galería
+│   ├── 📄 utils.js           # Funciones auxiliares
+│   └── 📄 main.js            # Archivo principal
+├── 📂 assets/
+│   ├── 📂 icons/             # Iconos SVG
+│   └── 📂 images/            # Imágenes del proyecto
+├── 📄 README.md              # Documentación del proyecto
+└── 📄 .gitignore             # Archivos a ignorar en Git</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="file-creation-steps">
+                            <h3>📝 Pasos para Crear la Estructura</h3>
+                            
+                            <div class="creation-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>🗂️ Crear Carpeta Principal</h4>
+                                    <div class="detailed-instructions">
+                                        <ol>
+                                            <li><strong>Crear carpeta:</strong> En tu escritorio, crea una carpeta llamada <code>galeria-imgbb</code></li>
+                                            <li><strong>Abrir en Cursor:</strong> Arrastra la carpeta a Cursor o usa File → Open Folder</li>
+                                            <li><strong>Verificar:</strong> Asegúrate de que Cursor muestre la carpeta en el explorador lateral</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="creation-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>📄 Crear Archivo HTML Principal</h4>
+                                    <div class="cursor-prompt-box">
+                                        <h5>🤖 Prompt para Cursor</h5>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>📋 Crear index.html</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code>Crea un archivo index.html para mi galería de imágenes con ImgBB. Incluye:
+
+1. HTML5 semántico con estructura clara
+2. Meta tags para responsive y SEO
+3. Enlaces a archivos CSS (en carpeta css/)
+4. Scripts de JavaScript (en carpeta js/)
+5. Estructura principal:
+   - Header con título y navegación
+   - Zona de subida (drag & drop)
+   - Filtros y búsqueda
+   - Galería de imágenes
+   - Modal/lightbox para vista completa
+   - Footer
+
+6. Elementos para Firebase y ImgBB
+7. Comentarios explicativos
+8. Accesibilidad básica (alt, aria-labels)
+
+Usa clases CSS descriptivas y estructura semántica.</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="creation-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>🎨 Crear Archivos CSS</h4>
+                                    <div class="css-files">
+                                        <div class="css-file-item">
+                                            <h5>📄 variables.css</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para variables.css</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea un archivo css/variables.css con variables CSS personalizadas para mi galería. Incluye:
+
+1. Paleta de colores moderna (primarios, secundarios, neutros)
+2. Tipografía (tamaños, pesos, familias)
+3. Espaciados y márgenes
+4. Breakpoints para responsive
+5. Sombras y efectos
+6. Transiciones y animaciones
+7. Bordes y border-radius
+8. Z-index organizados
+
+Usa una paleta profesional y moderna, con buen contraste para accesibilidad.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="css-file-item">
+                                            <h5>📄 layout.css</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para layout.css</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea css/layout.css para el layout principal de mi galería. Incluye:
+
+1. Reset CSS básico
+2. Layout principal con CSS Grid
+3. Header fijo/sticky
+4. Área principal de contenido
+5. Sidebar para filtros (opcional)
+6. Footer
+7. Layout de la galería (CSS Grid responsive)
+8. Zona de subida destacada
+9. Contenedores y wrappers
+10. Espaciado y alineación
+
+Usa CSS Grid y Flexbox, mobile-first approach.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="css-file-item">
+                                            <h5>📄 components.css</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para components.css</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea css/components.css con componentes reutilizables:
+
+1. Botones (primarios, secundarios, con iconos)
+2. Cards para las imágenes
+3. Modal/lightbox
+4. Formularios y inputs
+5. Zona de drag & drop
+6. Filtros y tags
+7. Barra de búsqueda
+8. Loading spinners
+9. Alertas y notificaciones
+10. Tooltips
+
+Incluye estados hover, focus, active y disabled.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="creation-step">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h4>⚙️ Crear Archivos JavaScript</h4>
+                                    <div class="js-files">
+                                        <div class="js-file-item">
+                                            <h5>📄 config.js</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para config.js</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea js/config.js con la configuración del proyecto:
+
+1. Configuración de Firebase (firebaseConfig object)
+2. API Key de ImgBB 
+3. URLs de las APIs
+4. Constantes del proyecto (límites de archivo, formatos permitidos)
+5. Configuración de la galería (imágenes por página, etc.)
+6. Mensajes de error y éxito
+7. Configuración de validación
+
+IMPORTANTE: Deja placeholders para las API keys reales que el estudiante debe llenar.
+Incluye comentarios explicativos sobre cada configuración.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="js-file-item">
+                                            <h5>📄 firebase.js</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para firebase.js</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea js/firebase.js con funciones para Firebase Firestore:
+
+1. Inicialización de Firebase (import modular v9+)
+2. Función para guardar imagen en Firestore
+3. Función para obtener todas las imágenes
+4. Función para obtener imágenes con filtros
+5. Función para eliminar imagen
+6. Función para actualizar metadatos
+7. Listener para cambios en tiempo real
+8. Manejo de errores específicos de Firebase
+9. Funciones de autenticación básica
+
+Usa async/await, manejo de errores completo y comentarios explicativos.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="js-file-item">
+                                            <h5>📄 imgbb.js</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para imgbb.js</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Crea js/imgbb.js para manejar la API de ImgBB:
+
+1. Función principal para subir imagen a ImgBB
+2. Función para preparar FormData
+3. Función para validar archivo (tamaño, tipo)
+4. Función para redimensionar imagen (opcional)
+5. Manejo de respuesta de ImgBB
+6. Extracción de URLs (original, thumb, medium)
+7. Manejo de errores específicos de ImgBB
+8. Función para eliminar imagen de ImgBB (si disponible)
+9. Utilidades para trabajar con archivos
+
+Usa fetch API, async/await y manejo completo de errores.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quick-setup">
+                            <h3>⚡ Setup Rápido con un Solo Prompt</h3>
+                            <p>Si prefieres crear todo de una vez, usa este prompt completo:</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>🚀 Prompt Completo para Todo el Proyecto</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea un proyecto completo de galería de imágenes con ImgBB y Firebase. 
+
+CREAR ESTOS ARCHIVOS:
+
+1. index.html - Página principal con:
+   - Header con título
+   - Zona de drag & drop para subir imágenes
+   - Filtros y búsqueda
+   - Galería responsive
+   - Modal lightbox
+   - Footer
+
+2. css/variables.css - Variables CSS modernas
+3. css/layout.css - Layout principal y responsive
+4. css/components.css - Componentes (botones, cards, modal)
+5. css/gallery.css - Estilos específicos de galería
+
+6. js/config.js - Configuración Firebase e ImgBB (con placeholders)
+7. js/firebase.js - Funciones Firestore (CRUD, tiempo real)
+8. js/imgbb.js - Integración con ImgBB API
+9. js/upload.js - Sistema de subida con drag & drop
+10. js/gallery.js - Lógica de galería, filtros, búsqueda
+11. js/main.js - Inicialización y eventos principales
+
+CARACTERÍSTICAS:
+- HTML5 semántico
+- CSS Grid/Flexbox responsive
+- JavaScript ES6+ modular
+- Firebase v9+ modular SDK
+- Drag & drop funcional
+- Validación de archivos
+- Preview de imágenes
+- Lightbox modal
+- Filtros y búsqueda
+- Tiempo real con Firestore
+- Manejo completo de errores
+- Comentarios explicativos
+- Accesibilidad básica
+
+Crea código completo, funcional y bien comentado para estudiantes.</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="common-errors">
+                            <h3>🚨 Errores Comunes al Crear la Estructura</h3>
+                            <div class="error-list">
+                                <div class="error-item">
+                                    <span class="error-icon">❌</span>
+                                    <div class="error-content">
+                                        <h4>Rutas de archivos incorrectas</h4>
+                                        <p><strong>Error:</strong> <code>&lt;link href="variables.css"&gt;</code></p>
+                                        <p><strong>Correcto:</strong> <code>&lt;link href="css/variables.css"&gt;</code></p>
+                                    </div>
+                                </div>
+                                <div class="error-item">
+                                    <span class="error-icon">❌</span>
+                                    <div class="error-content">
+                                        <h4>Archivos CSS en orden incorrecto</h4>
+                                        <p><strong>Orden correcto:</strong> variables.css → reset.css → layout.css → components.css</p>
+                                    </div>
+                                </div>
+                                <div class="error-item">
+                                    <span class="error-icon">❌</span>
+                                    <div class="error-content">
+                                        <h4>Olvidar crear carpetas</h4>
+                                        <p>Crear las carpetas <code>css/</code>, <code>js/</code> y <code>assets/</code> antes de los archivos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Prevención de Errores Comunes -->
+                    <section id="error-prevention" class="section">
+                        <h2>🚨 Prevención de Errores Comunes y Soluciones</h2>
+                        
+                        <div class="error-prevention-intro">
+                            <p>
+                                Esta sección te ayudará a evitar los errores más comunes que cometen los estudiantes 
+                                al desarrollar proyectos con ImgBB y Firebase, junto con sus soluciones.
+                            </p>
+                        </div>
+
+                        <div class="error-categories">
+                            <div class="error-category">
+                                <h3>🔑 Errores con API Keys</h3>
+                                <div class="error-solutions">
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>API Key inválida o expirada</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Síntomas:</strong></p>
+                                            <ul>
+                                                <li>Error 401 Unauthorized</li>
+                                                <li>Mensaje: "Invalid API key"</li>
+                                                <li>Las imágenes no se suben</li>
+                                            </ul>
+                                            <p><strong>Causas comunes:</strong></p>
+                                            <ul>
+                                                <li>API Key copiada incorrectamente</li>
+                                                <li>Espacios extra al copiar</li>
+                                                <li>Usar la API Key de ejemplo de la guía</li>
+                                                <li>Cuenta de ImgBB suspendida</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para verificar API Key</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a verificar y solucionar problemas con mi API Key de ImgBB:
+
+1. Crear una función de prueba para verificar si la API Key funciona
+2. Implementar manejo de errores específicos para API Key inválida
+3. Mostrar mensajes de error claros al usuario
+4. Agregar validación de formato de API Key
+
+Mi API Key actual es: [PEGA_TU_API_KEY_AQUÍ]
+
+Incluye console.log para debugging y comentarios explicativos.</code></pre>
+                                                </div>
+                                            </div>
+                                            <div class="manual-steps">
+                                                <p><strong>Pasos manuales:</strong></p>
+                                                <ol>
+                                                    <li>Ve a <a href="https://api.imgbb.com/" target="_blank">api.imgbb.com</a></li>
+                                                    <li>Genera una nueva API Key</li>
+                                                    <li>Copia la key completa (32 caracteres)</li>
+                                                    <li>Reemplaza en tu código</li>
+                                                    <li>Prueba con una imagen pequeña</li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>API Key expuesta en código público</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Problema:</strong> Subir API Key a GitHub público</p>
+                                            <p><strong>Riesgos:</strong> Otros pueden usar tu API Key</p>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución para Proyectos Reales</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para variables de entorno</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a implementar variables de entorno para proteger mi API Key de ImgBB:
+
+1. Crear archivo .env para variables de entorno
+2. Configurar .gitignore para excluir .env
+3. Crear archivo .env.example con placeholders
+4. Modificar el código para usar process.env
+5. Documentar cómo configurar las variables
+
+Incluye instrucciones para desarrollo y producción.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="error-category">
+                                <h3>🔥 Errores con Firebase</h3>
+                                <div class="error-solutions">
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>Reglas de Firestore muy restrictivas</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Síntomas:</strong></p>
+                                            <ul>
+                                                <li>Error: "Missing or insufficient permissions"</li>
+                                                <li>No se pueden leer/escribir documentos</li>
+                                                <li>Funciona en modo test pero no en producción</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para reglas de Firestore</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a configurar reglas de Firestore para mi galería de imágenes:
+
+1. Crear reglas que permitan lectura pública de imágenes
+2. Permitir escritura solo a usuarios autenticados
+3. Validar estructura de datos antes de escribir
+4. Implementar reglas de seguridad básicas
+5. Incluir reglas para desarrollo y producción
+
+Explica cada regla con comentarios detallados.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>Configuración de Firebase incorrecta</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Síntomas:</strong></p>
+                                            <ul>
+                                                <li>Error: "Firebase App named '[DEFAULT]' already exists"</li>
+                                                <li>Error: "No Firebase App '[DEFAULT]' has been created"</li>
+                                                <li>Funciones de Firebase no definidas</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para configurar Firebase correctamente</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a configurar Firebase v9+ correctamente para mi proyecto:
+
+1. Configurar inicialización de Firebase una sola vez
+2. Implementar importaciones modulares correctas
+3. Crear funciones helper para Firestore
+4. Manejar errores de inicialización
+5. Verificar que todas las dependencias estén instaladas
+
+Usa la sintaxis modular de Firebase v9+ y mejores prácticas.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="error-category">
+                                <h3>📤 Errores en Subida de Imágenes</h3>
+                                <div class="error-solutions">
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>Archivo demasiado grande o formato no soportado</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Síntomas:</strong></p>
+                                            <ul>
+                                                <li>Error 413: Request Entity Too Large</li>
+                                                <li>Error 400: Bad Request</li>
+                                                <li>Imagen no se sube sin mensaje de error</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para validación de archivos</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a implementar validación completa de archivos para subida de imágenes:
+
+1. Validar tipo de archivo (MIME type y extensión)
+2. Validar tamaño de archivo (máx 32MB para ImgBB)
+3. Validar dimensiones de imagen
+4. Comprimir imagen si es necesario
+5. Mostrar mensajes de error específicos
+6. Implementar preview antes de subir
+7. Barra de progreso durante la subida
+
+Incluye validación tanto en cliente como mensajes claros para el usuario.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>CORS (Cross-Origin) errors</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Síntomas:</strong></p>
+                                            <ul>
+                                                <li>Error en consola: "blocked by CORS policy"</li>
+                                                <li>Funciona en desarrollo pero no en producción</li>
+                                                <li>Requests fallan sin respuesta</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="explanation-box">
+                                                <p><strong>¿Por qué pasa esto?</strong></p>
+                                                <p>CORS es una medida de seguridad del navegador. ImgBB permite CORS, pero algunos servidores de desarrollo no.</p>
+                                            </div>
+                                            <div class="manual-steps">
+                                                <p><strong>Soluciones:</strong></p>
+                                                <ol>
+                                                    <li><strong>Desarrollo:</strong> Usa Live Server o similar (no abras el HTML directamente)</li>
+                                                    <li><strong>Producción:</strong> Sube a un hosting real (Netlify, Vercel, GitHub Pages)</li>
+                                                    <li><strong>Local:</strong> Usa Python: <code>python -m http.server 8000</code></li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="error-category">
+                                <h3>🎨 Errores de Interfaz y UX</h3>
+                                <div class="error-solutions">
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>Galería no responsive o se rompe en móviles</h4>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para CSS responsive</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a crear CSS completamente responsive para mi galería de imágenes:
+
+1. Grid de imágenes que se adapte a cualquier pantalla
+2. Breakpoints para móvil, tablet y desktop
+3. Imágenes que mantengan proporción
+4. Navegación touch-friendly para móviles
+5. Modal/lightbox responsive
+6. Botones y controles adaptados para touch
+7. Tipografía escalable
+
+Usa CSS Grid, Flexbox y mobile-first approach.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="error-solution">
+                                        <div class="error-header">
+                                            <span class="error-badge">❌ Error Común</span>
+                                            <h4>Falta de feedback al usuario</h4>
+                                        </div>
+                                        <div class="error-details">
+                                            <p><strong>Problemas:</strong></p>
+                                            <ul>
+                                                <li>Usuario no sabe si la imagen se está subiendo</li>
+                                                <li>No hay mensajes de error claros</li>
+                                                <li>No hay confirmación de éxito</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-box">
+                                            <h5>✅ Solución</h5>
+                                            <div class="cursor-prompt-box">
+                                                <div class="code-block">
+                                                    <div class="code-header">
+                                                        <span>🤖 Prompt para feedback de usuario</span>
+                                                        <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                                    </div>
+                                                    <pre><code>Ayúdame a implementar feedback completo para el usuario en mi galería:
+
+1. Loading spinner durante subida
+2. Barra de progreso con porcentaje
+3. Notificaciones toast para éxito/error
+4. Estados de carga en botones
+5. Placeholder mientras cargan imágenes
+6. Mensajes de error específicos y útiles
+7. Confirmaciones para acciones destructivas
+
+Incluye animaciones suaves y UX intuitiva.</code></pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="debugging-tips">
+                            <h3>🔍 Tips de Debugging</h3>
+                            <div class="tips-grid">
+                                <div class="tip-item">
+                                    <span class="tip-icon">🛠️</span>
+                                    <div class="tip-content">
+                                        <h4>Usa las Developer Tools</h4>
+                                        <p>F12 → Console para ver errores JavaScript</p>
+                                        <p>Network tab para ver requests fallidos</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <span class="tip-icon">📝</span>
+                                    <div class="tip-content">
+                                        <h4>Console.log es tu amigo</h4>
+                                        <p>Añade logs en cada paso importante</p>
+                                        <p>Verifica que las variables tengan los valores esperados</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <span class="tip-icon">🔄</span>
+                                    <div class="tip-content">
+                                        <h4>Prueba paso a paso</h4>
+                                        <p>No implementes todo de una vez</p>
+                                        <p>Prueba cada función por separado</p>
+                                    </div>
+                                </div>
+                                <div class="tip-item">
+                                    <span class="tip-icon">📖</span>
+                                    <div class="tip-content">
+                                        <h4>Lee los mensajes de error</h4>
+                                        <p>Los errores suelen ser específicos</p>
+                                        <p>Googlea el mensaje exacto si no lo entiendes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testing-checklist">
+                            <h3>✅ Checklist de Pruebas</h3>
+                            <div class="checklist-content">
+                                <div class="checklist-section">
+                                    <h4>🔧 Configuración</h4>
+                                    <div class="checklist-items">
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> API Key de ImgBB válida
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Configuración de Firebase correcta
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Reglas de Firestore configuradas
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Todos los archivos CSS y JS enlazados
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="checklist-section">
+                                    <h4>📤 Subida de Imágenes</h4>
+                                    <div class="checklist-items">
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Drag & drop funciona
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Selector de archivos funciona
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Validación de tipos de archivo
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Validación de tamaño
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Preview antes de subir
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Barra de progreso
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="checklist-section">
+                                    <h4>🖼️ Galería</h4>
+                                    <div class="checklist-items">
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Imágenes se muestran correctamente
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Responsive en móviles
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Lightbox/modal funciona
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Filtros funcionan
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Búsqueda funciona
+                                        </label>
+                                        <label class="checklist-item">
+                                            <input type="checkbox"> Eliminación de imágenes
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>

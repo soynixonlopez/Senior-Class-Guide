@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Bases de Datos - IT CLASS SENIORS</title>
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/database-guide.css" rel="stylesheet">
+</head>
+<body class="has-header">
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🗄️ Bases de Datos</h2>
+                <p>Guía Completa para Estudiantes</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intro" class="nav-link active"><span class="nav-icon">📚</span><span class="nav-text">Introducción</span></a></li>
+                <li><a href="#what-is-database" class="nav-link"><span class="nav-icon">❓</span><span class="nav-text">¿Qué es una BD?</span></a></li>
+                <li><a href="#sql-vs-nosql" class="nav-link"><span class="nav-icon">⚖️</span><span class="nav-text">SQL vs NoSQL</span></a></li>
+                <li><a href="#technologies" class="nav-link"><span class="nav-icon">🛠️</span><span class="nav-text">Tecnologías Populares</span></a></li>
+                <li><a href="#firestore-intro" class="nav-link"><span class="nav-icon">🔥</span><span class="nav-text">Firestore</span></a></li>
+                <li><a href="#project-setup" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Proyecto: Biblioteca</span></a></li>
+                <li><a href="#data-modeling" class="nav-link"><span class="nav-icon">🏗️</span><span class="nav-text">Modelado de Datos</span></a></li>
+                <li><a href="#implementation" class="nav-link"><span class="nav-icon">💻</span><span class="nav-text">Implementación</span></a></li>
+                <li><a href="#advanced-queries" class="nav-link"><span class="nav-icon">🔍</span><span class="nav-text">Consultas Avanzadas</span></a></li>
+                <li><a href="#security-rules" class="nav-link"><span class="nav-icon">🔒</span><span class="nav-text">Reglas de Seguridad</span></a></li>
+                <li><a href="#optimization" class="nav-link"><span class="nav-icon">⚡</span><span class="nav-text">Optimización</span></a></li>
+                <li><a href="#best-practices" class="nav-link"><span class="nav-icon">✅</span><span class="nav-text">Mejores Prácticas</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content">
+                <!-- Header Component -->
+                <div id="header-container"></div>
+                
+                <div class="content-wrapper">
+                    <!-- Introducción -->
+                    <section id="intro" class="section">
+                        <h1>🗄️ Guía Completa de Bases de Datos</h1>
+                        <p class="lead">
+                            Aprende todo sobre bases de datos: desde conceptos fundamentales hasta la implementación 
+                            de un proyecto real con Firestore. Esta guía está diseñada para estudiantes que quieren 
+                            entender profundamente cómo funcionan las bases de datos modernas.
+                        </p>
+
+                        <div class="learning-path">
+                            <h3>🎯 Tu Ruta de Aprendizaje</h3>
+                            <div class="path-steps">
+                                <div class="path-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Conceptos Fundamentales</h4>
+                                        <p>Entiende qué son las bases de datos y por qué son esenciales</p>
+                                    </div>
+                                </div>
+                                <div class="path-arrow">→</div>
+                                <div class="path-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>SQL vs NoSQL</h4>
+                                        <p>Aprende las diferencias y cuándo usar cada tipo</p>
+                                    </div>
+                                </div>
+                                <div class="path-arrow">→</div>
+                                <div class="path-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Tecnologías del Mercado</h4>
+                                        <p>Conoce las herramientas más utilizadas por empresas</p>
+                                    </div>
+                                </div>
+                                <div class="path-arrow">→</div>
+                                <div class="path-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Proyecto Práctico</h4>
+                                        <p>Construye un sistema de biblioteca con Firestore</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-preview">
+                            <h3>🎬 Proyecto Final: Sistema de Biblioteca Digital</h3>
+                            <p>Al final de esta guía habrás creado un sistema completo que incluye:</p>
+                            <div class="preview-features">
+                                <div class="feature-preview">
+                                    <span class="feature-icon">📚</span>
+                                    <span>Gestión de libros (CRUD completo)</span>
+                                </div>
+                                <div class="feature-preview">
+                                    <span class="feature-icon">👥</span>
+                                    <span>Sistema de usuarios y autores</span>
+                                </div>
+                                <div class="feature-preview">
+                                    <span class="feature-icon">🔍</span>
+                                    <span>Búsquedas y filtros avanzados</span>
+                                </div>
+                                <div class="feature-preview">
+                                    <span class="feature-icon">📊</span>
+                                    <span>Estadísticas y reportes</span>
+                                </div>
+                                <div class="feature-preview">
+                                    <span class="feature-icon">🔐</span>
+                                    <span>Seguridad y permisos</span>
+                                </div>
+                                <div class="feature-preview">
+                                    <span class="feature-icon">⚡</span>
+                                    <span>Tiempo real y optimización</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prerequisites">
+                            <h3>📋 Requisitos Previos</h3>
+                            <div class="req-list">
+                                <div class="req-item">
+                                    <span class="req-status completed">✅</span>
+                                    <span>Conocimientos básicos de HTML, CSS y JavaScript</span>
+                                </div>
+                                <div class="req-item">
+                                    <span class="req-status completed">✅</span>
+                                    <span>Haber completado la guía de Firebase Auth (recomendado)</span>
+                                </div>
+                                <div class="req-item">
+                                    <span class="req-status optional">📖</span>
+                                    <span>Experiencia con la guía de CRUD (opcional pero útil)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ¿Qué es una Base de Datos? -->
+                    <section id="what-is-database" class="section">
+                        <h2>❓ ¿Qué es una Base de Datos?</h2>
+                        
+                        <div class="concept-explanation">
+                            <div class="main-concept">
+                                <h3>💡 Definición Simple</h3>
+                                <p>
+                                    Una <strong>base de datos</strong> es como un archivero digital súper organizado 
+                                    donde puedes guardar, buscar y organizar información de manera eficiente. 
+                                    Imagínalo como una biblioteca gigante donde cada libro tiene su lugar exacto 
+                                    y puedes encontrar cualquier información en segundos.
+                                </p>
+                            </div>
+
+                            <div class="real-world-examples">
+                                <h3>🌍 Ejemplos del Mundo Real</h3>
+                                <div class="examples-grid">
+                                    <div class="example-item">
+                                        <div class="example-icon">📱</div>
+                                        <h4>Instagram</h4>
+                                        <p>Guarda millones de fotos, usuarios, comentarios y likes</p>
+                                    </div>
+                                    <div class="example-item">
+                                        <div class="example-icon">🛒</div>
+                                        <h4>Amazon</h4>
+                                        <p>Almacena productos, precios, inventario y pedidos</p>
+                                    </div>
+                                    <div class="example-item">
+                                        <div class="example-icon">🎵</div>
+                                        <h4>Spotify</h4>
+                                        <p>Organiza canciones, artistas, playlists y preferencias</p>
+                                    </div>
+                                    <div class="example-item">
+                                        <div class="example-icon">🏦</div>
+                                        <h4>Bancos</h4>
+                                        <p>Manejan cuentas, transacciones y historiales</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="why-important">
+                                <h3>🤔 ¿Por qué son tan importantes?</h3>
+                                <div class="importance-reasons">
+                                    <div class="reason-item">
+                                        <span class="reason-icon">🚀</span>
+                                        <div class="reason-content">
+                                            <h4>Velocidad</h4>
+                                            <p>Pueden buscar entre millones de registros en milisegundos</p>
+                                        </div>
+                                    </div>
+                                    <div class="reason-item">
+                                        <span class="reason-icon">🔒</span>
+                                        <div class="reason-content">
+                                            <h4>Seguridad</h4>
+                                            <p>Protegen la información con múltiples capas de seguridad</p>
+                                        </div>
+                                    </div>
+                                    <div class="reason-item">
+                                        <span class="reason-icon">🔄</span>
+                                        <div class="reason-content">
+                                            <h4>Consistencia</h4>
+                                            <p>Mantienen los datos organizados y sin duplicados</p>
+                                        </div>
+                                    </div>
+                                    <div class="reason-item">
+                                        <span class="reason-icon">👥</span>
+                                        <div class="reason-content">
+                                            <h4>Colaboración</h4>
+                                            <p>Permiten que múltiples usuarios accedan simultáneamente</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="analogy-section">
+                                <h3>📚 Analogía: Base de Datos = Biblioteca</h3>
+                                <div class="analogy-comparison">
+                                    <div class="analogy-side">
+                                        <h4>🏛️ Biblioteca Física</h4>
+                                        <ul>
+                                            <li><strong>Libros:</strong> Información física</li>
+                                            <li><strong>Estantes:</strong> Organización por categorías</li>
+                                            <li><strong>Catálogo:</strong> Índice para encontrar libros</li>
+                                            <li><strong>Bibliotecario:</strong> Ayuda a encontrar información</li>
+                                            <li><strong>Reglas:</strong> Quién puede tomar qué libros</li>
+                                        </ul>
+                                    </div>
+                                    <div class="analogy-arrow">↔️</div>
+                                    <div class="analogy-side">
+                                        <h4>💻 Base de Datos</h4>
+                                        <ul>
+                                            <li><strong>Registros:</strong> Información digital</li>
+                                            <li><strong>Tablas/Colecciones:</strong> Organización lógica</li>
+                                            <li><strong>Índices:</strong> Búsqueda rápida</li>
+                                            <li><strong>Sistema de Gestión:</strong> Software que maneja todo</li>
+                                            <li><strong>Permisos:</strong> Control de acceso a datos</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SQL vs NoSQL -->
+                    <section id="sql-vs-nosql" class="section">
+                        <h2>⚖️ SQL vs NoSQL: La Gran Diferencia</h2>
+                        
+                        <div class="comparison-intro">
+                            <p>
+                                Existen dos grandes familias de bases de datos: <strong>SQL (relacionales)</strong> 
+                                y <strong>NoSQL (no relacionales)</strong>. Cada una tiene sus fortalezas y se adapta 
+                                mejor a diferentes tipos de proyectos.
+                            </p>
+                        </div>
+
+                        <div class="sql-explanation">
+                            <h3>🗃️ Bases de Datos SQL (Relacionales)</h3>
+                            <div class="db-type-content">
+                                <div class="db-description">
+                                    <p>
+                                        Las bases de datos SQL son como hojas de cálculo súper poderosas. 
+                                        Organizan la información en <strong>tablas</strong> con filas y columnas, 
+                                        y pueden relacionar información entre diferentes tablas.
+                                    </p>
+                                </div>
+
+                                <div class="sql-example">
+                                    <h4>📊 Ejemplo Visual: Tienda Online</h4>
+                                    <div class="tables-example">
+                                        <div class="table-demo">
+                                            <h5>👤 Tabla: Usuarios</h5>
+                                            <table class="demo-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Nombre</th>
+                                                        <th>Email</th>
+                                                        <th>Ciudad</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Juan Pérez</td>
+                                                        <td>juan@email.com</td>
+                                                        <td>Madrid</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>2</td>
+                                                        <td>Ana García</td>
+                                                        <td>ana@email.com</td>
+                                                        <td>Barcelona</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="table-demo">
+                                            <h5>🛍️ Tabla: Pedidos</h5>
+                                            <table class="demo-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Usuario_ID</th>
+                                                        <th>Producto</th>
+                                                        <th>Precio</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>101</td>
+                                                        <td>1</td>
+                                                        <td>Laptop</td>
+                                                        <td>€899</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>102</td>
+                                                        <td>2</td>
+                                                        <td>Móvil</td>
+                                                        <td>€599</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <p class="relationship-note">
+                                        <strong>🔗 Relación:</strong> El Usuario_ID conecta ambas tablas, 
+                                        permitiendo saber qué usuario hizo qué pedido.
+                                    </p>
+                                </div>
+
+                                <div class="sql-characteristics">
+                                    <h4>✅ Características de SQL</h4>
+                                    <div class="characteristics-grid">
+                                        <div class="char-item">
+                                            <span class="char-icon">📏</span>
+                                            <div>
+                                                <strong>Estructura Fija</strong>
+                                                <p>Las columnas están definidas desde el inicio</p>
+                                            </div>
+                                        </div>
+                                        <div class="char-item">
+                                            <span class="char-icon">🔗</span>
+                                            <div>
+                                                <strong>Relaciones</strong>
+                                                <p>Conecta información entre tablas</p>
+                                            </div>
+                                        </div>
+                                        <div class="char-item">
+                                            <span class="char-icon">🛡️</span>
+                                            <div>
+                                                <strong>ACID</strong>
+                                                <p>Garantiza consistencia y confiabilidad</p>
+                                            </div>
+                                        </div>
+                                        <div class="char-item">
+                                            <span class="char-icon">📝</span>
+                                            <div>
+                                                <strong>SQL Language</strong>
+                                                <p>Lenguaje estándar para consultas</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nosql-explanation">
+                            <h3>🗂️ Bases de Datos NoSQL (No Relacionales)</h3>
+                            <div class="db-type-content">
+                                <div class="db-description">
+                                    <p>
+                                        Las bases de datos NoSQL son más flexibles. En lugar de tablas, 
+                                        pueden usar <strong>documentos</strong> (como archivos JSON), 
+                                        <strong>grafos</strong>, <strong>columnas</strong> o <strong>clave-valor</strong>.
+                                    </p>
+                                </div>
+
+                                <div class="nosql-types">
+                                    <h4>🎯 Tipos de NoSQL</h4>
+                                    <div class="nosql-types-grid">
+                                        <div class="nosql-type">
+                                            <div class="type-icon">📄</div>
+                                            <h5>Documentos</h5>
+                                            <p>Como archivos JSON</p>
+                                            <span class="example">Ej: MongoDB, Firestore</span>
+                                        </div>
+                                        <div class="nosql-type">
+                                            <div class="type-icon">🔑</div>
+                                            <h5>Clave-Valor</h5>
+                                            <p>Pares simples</p>
+                                            <span class="example">Ej: Redis, DynamoDB</span>
+                                        </div>
+                                        <div class="nosql-type">
+                                            <div class="type-icon">📊</div>
+                                            <h5>Columnas</h5>
+                                            <p>Columnas flexibles</p>
+                                            <span class="example">Ej: Cassandra</span>
+                                        </div>
+                                        <div class="nosql-type">
+                                            <div class="type-icon">🕸️</div>
+                                            <h5>Grafos</h5>
+                                            <p>Conexiones complejas</p>
+                                            <span class="example">Ej: Neo4j</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="firestore-example">
+                                    <h4>🔥 Ejemplo: Firestore (Documentos)</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Usuario en Firestore</span>
+                                        </div>
+                                        <pre><code>{
+  "id": "user_001",
+  "nombre": "Juan Pérez",
+  "email": "juan@email.com",
+  "perfil": {
+    "edad": 25,
+    "ciudad": "Madrid",
+    "intereses": ["tecnología", "deportes", "música"]
+  },
+  "pedidos": [
+    {
+      "id": "pedido_101",
+      "producto": "Laptop",
+      "precio": 899,
+      "fecha": "2024-01-15"
+    }
+  ],
+  "configuracion": {
+    "notificaciones": true,
+    "tema": "oscuro"
+  }
+}</code></pre>
+                                    </div>
+                                    <p class="flexibility-note">
+                                        <strong>🎨 Flexibilidad:</strong> Cada documento puede tener campos diferentes. 
+                                        Un usuario puede tener 5 campos y otro 10, sin problema.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-table">
+                            <h3>⚖️ Comparación Directa</h3>
+                            <div class="comparison-grid">
+                                <div class="comparison-header">
+                                    <div class="comparison-cell header">Aspecto</div>
+                                    <div class="comparison-cell header sql">SQL</div>
+                                    <div class="comparison-cell header nosql">NoSQL</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">📊 Estructura</div>
+                                    <div class="comparison-cell">Tablas con filas y columnas</div>
+                                    <div class="comparison-cell">Documentos, clave-valor, grafos</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">🔧 Flexibilidad</div>
+                                    <div class="comparison-cell">Estructura fija (esquema)</div>
+                                    <div class="comparison-cell">Estructura flexible</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">📏 Escalabilidad</div>
+                                    <div class="comparison-cell">Vertical (más potencia)</div>
+                                    <div class="comparison-cell">Horizontal (más servidores)</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">🔗 Relaciones</div>
+                                    <div class="comparison-cell">Excelente con JOINs</div>
+                                    <div class="comparison-cell">Limitadas, datos anidados</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">⚡ Velocidad</div>
+                                    <div class="comparison-cell">Consultas complejas</div>
+                                    <div class="comparison-cell">Lecturas/escrituras simples</div>
+                                </div>
+                                
+                                <div class="comparison-row">
+                                    <div class="comparison-cell aspect">💰 Costo</div>
+                                    <div class="comparison-cell">Servidores potentes</div>
+                                    <div class="comparison-cell">Escalado distribuido</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="when-to-use">
+                            <h3>🎯 ¿Cuándo usar cada una?</h3>
+                            <div class="use-cases">
+                                <div class="use-case sql">
+                                    <h4>🗃️ Usa SQL cuando:</h4>
+                                    <ul>
+                                        <li>✅ Necesitas relaciones complejas entre datos</li>
+                                        <li>✅ Los datos tienen estructura consistente</li>
+                                        <li>✅ Requieres transacciones ACID estrictas</li>
+                                        <li>✅ Tienes consultas complejas con múltiples condiciones</li>
+                                        <li>✅ El equipo conoce SQL</li>
+                                    </ul>
+                                    <div class="examples">
+                                        <strong>📝 Ejemplos:</strong> Sistemas bancarios, ERP, CRM, e-commerce tradicional
+                                    </div>
+                                </div>
+                                
+                                <div class="use-case nosql">
+                                    <h4>🗂️ Usa NoSQL cuando:</h4>
+                                    <ul>
+                                        <li>✅ Los datos son flexibles o cambian frecuentemente</li>
+                                        <li>✅ Necesitas escalar a millones de usuarios</li>
+                                        <li>✅ Priorizas velocidad sobre consistencia estricta</li>
+                                        <li>✅ Trabajas con datos no estructurados</li>
+                                        <li>✅ Desarrollo ágil y rápido</li>
+                                    </ul>
+                                    <div class="examples">
+                                        <strong>📱 Ejemplos:</strong> Redes sociales, IoT, aplicaciones móviles, análisis de big data
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tecnologías Populares -->
+                    <section id="technologies" class="section">
+                        <h2>🛠️ Tecnologías de Bases de Datos Más Utilizadas</h2>
+                        
+                        <div class="tech-intro">
+                            <p>
+                                El mundo de las bases de datos es vasto y hay muchas opciones. Aquí te mostramos 
+                                las tecnologías más populares en el mercado actual, organizadas por categoría.
+                            </p>
+                        </div>
+
+                        <div class="sql-technologies">
+                            <h3>🗃️ Bases de Datos SQL (Relacionales)</h3>
+                            <div class="tech-grid">
+                                <div class="tech-card popular">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🐘</div>
+                                        <div class="tech-info">
+                                            <h4>PostgreSQL</h4>
+                                            <span class="tech-badge popular">Más Popular</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos open-source más avanzada del mundo</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Completamente gratuita</li>
+                                                <li>Muy robusta y confiable</li>
+                                                <li>Excelente para aplicaciones complejas</li>
+                                                <li>Gran comunidad</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Instagram, Spotify, Netflix, Airbnb
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🐬</div>
+                                        <div class="tech-info">
+                                            <h4>MySQL</h4>
+                                            <span class="tech-badge common">Muy Común</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Una de las bases de datos más utilizadas del mundo</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Fácil de aprender y usar</li>
+                                                <li>Excelente rendimiento</li>
+                                                <li>Amplia compatibilidad</li>
+                                                <li>Documentación extensa</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Facebook, YouTube, Twitter, Wikipedia
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card enterprise">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🏢</div>
+                                        <div class="tech-info">
+                                            <h4>Oracle Database</h4>
+                                            <span class="tech-badge enterprise">Enterprise</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>La base de datos empresarial más potente</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Extremadamente potente</li>
+                                                <li>Máxima seguridad</li>
+                                                <li>Soporte empresarial 24/7</li>
+                                                <li>Maneja datos masivos</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Bancos, gobiernos, grandes corporaciones
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card cloud">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">☁️</div>
+                                        <div class="tech-info">
+                                            <h4>SQL Server</h4>
+                                            <span class="tech-badge cloud">Microsoft</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos de Microsoft para el ecosistema .NET</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Integración perfecta con Microsoft</li>
+                                                <li>Herramientas visuales excelentes</li>
+                                                <li>Buena para aplicaciones .NET</li>
+                                                <li>Soporte empresarial</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Empresas que usan tecnologías Microsoft
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nosql-technologies">
+                            <h3>🗂️ Bases de Datos NoSQL</h3>
+                            <div class="tech-grid">
+                                <div class="tech-card popular">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🍃</div>
+                                        <div class="tech-info">
+                                            <h4>MongoDB</h4>
+                                            <span class="tech-badge popular">Líder NoSQL</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos de documentos más popular del mundo</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Muy fácil de usar para desarrolladores</li>
+                                                <li>Escalabilidad horizontal excelente</li>
+                                                <li>Flexible y rápida</li>
+                                                <li>Gran ecosistema</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Uber, Airbnb, Netflix, eBay
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card firebase">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🔥</div>
+                                        <div class="tech-info">
+                                            <h4>Firestore</h4>
+                                            <span class="tech-badge firebase">Google</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos NoSQL de Google para aplicaciones web y móviles</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Tiempo real automático</li>
+                                                <li>Escalado automático</li>
+                                                <li>Integración con Firebase</li>
+                                                <li>Perfecta para principiantes</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Startups, aplicaciones móviles, prototipos
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card enterprise">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">⚡</div>
+                                        <div class="tech-info">
+                                            <h4>DynamoDB</h4>
+                                            <span class="tech-badge enterprise">AWS</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos clave-valor de Amazon, súper rápida</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Latencia de milisegundos</li>
+                                                <li>Escalado automático</li>
+                                                <li>Integración con AWS</li>
+                                                <li>Manejo de tráfico masivo</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Amazon, Samsung, Snapchat, Lyft
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tech-card specialized">
+                                    <div class="tech-header">
+                                        <div class="tech-logo">🚀</div>
+                                        <div class="tech-info">
+                                            <h4>Redis</h4>
+                                            <span class="tech-badge specialized">Caché</span>
+                                        </div>
+                                    </div>
+                                    <div class="tech-description">
+                                        <p>Base de datos en memoria, extremadamente rápida</p>
+                                        <div class="tech-pros">
+                                            <strong>✅ Ventajas:</strong>
+                                            <ul>
+                                                <li>Velocidad increíble</li>
+                                                <li>Perfecta para caché</li>
+                                                <li>Sesiones de usuario</li>
+                                                <li>Datos temporales</li>
+                                            </ul>
+                                        </div>
+                                        <div class="tech-usage">
+                                            <strong>🏢 Usada por:</strong> Twitter, GitHub, Pinterest, Stack Overflow
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="market-trends">
+                            <h3>📊 Tendencias del Mercado 2024</h3>
+                            <div class="trends-container">
+                                <div class="trend-item">
+                                    <div class="trend-icon">📈</div>
+                                    <div class="trend-content">
+                                        <h4>Crecimiento de NoSQL</h4>
+                                        <p>Las bases NoSQL crecen 25% anual, especialmente para aplicaciones modernas</p>
+                                    </div>
+                                </div>
+                                <div class="trend-item">
+                                    <div class="trend-icon">☁️</div>
+                                    <div class="trend-content">
+                                        <h4>Cloud-First</h4>
+                                        <p>85% de nuevos proyectos eligen servicios en la nube como Firebase, AWS, Azure</p>
+                                    </div>
+                                </div>
+                                <div class="trend-item">
+                                    <div class="trend-icon">🔄</div>
+                                    <div class="trend-content">
+                                        <h4>Tiempo Real</h4>
+                                        <p>Aplicaciones demandan actualizaciones instantáneas, favoreciendo Firestore, Socket.io</p>
+                                    </div>
+                                </div>
+                                <div class="trend-item">
+                                    <div class="trend-icon">🤖</div>
+                                    <div class="trend-content">
+                                        <h4>IA y Machine Learning</h4>
+                                        <p>Bases vectoriales como Pinecone crecen para aplicaciones de IA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="salary-info">
+                            <h3>💰 Oportunidades Laborales</h3>
+                            <div class="salary-grid">
+                                <div class="salary-item">
+                                    <h4>🗃️ Desarrollador SQL</h4>
+                                    <div class="salary-range">€25,000 - €45,000</div>
+                                    <p>PostgreSQL, MySQL, SQL Server</p>
+                                </div>
+                                <div class="salary-item">
+                                    <h4>🗂️ Desarrollador NoSQL</h4>
+                                    <div class="salary-range">€30,000 - €55,000</div>
+                                    <p>MongoDB, Firestore, DynamoDB</p>
+                                </div>
+                                <div class="salary-item">
+                                    <h4>🏗️ Arquitecto de Datos</h4>
+                                    <div class="salary-range">€50,000 - €80,000</div>
+                                    <p>Diseño de sistemas complejos</p>
+                                </div>
+                                <div class="salary-item">
+                                    <h4>☁️ Cloud Database Expert</h4>
+                                    <div class="salary-range">€45,000 - €70,000</div>
+                                    <p>AWS, Google Cloud, Azure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Introducción a Firestore -->
+                    <section id="firestore-intro" class="section">
+                        <h2>🔥 Firestore: Nuestra Elección para Aprender</h2>
+                        
+                        <div class="firestore-why">
+                            <h3>🤔 ¿Por qué elegimos Firestore?</h3>
+                            <p>
+                                Para esta guía hemos elegido <strong>Firestore</strong> porque es perfecta para estudiantes 
+                                que quieren aprender bases de datos modernas sin complicaciones técnicas.
+                            </p>
+                            
+                            <div class="firestore-benefits">
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🚀</span>
+                                    <div class="benefit-content">
+                                        <h4>Fácil de empezar</h4>
+                                        <p>No necesitas instalar servidores ni configurar nada complejo</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">⚡</span>
+                                    <div class="benefit-content">
+                                        <h4>Tiempo real automático</h4>
+                                        <p>Los cambios se reflejan instantáneamente en todas las pantallas</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">💰</span>
+                                    <div class="benefit-content">
+                                        <h4>Gratis para aprender</h4>
+                                        <p>Cuota gratuita generosa, perfecta para proyectos estudiantiles</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🔒</span>
+                                    <div class="benefit-content">
+                                        <h4>Seguridad integrada</h4>
+                                        <p>Sistema de reglas intuitivo para proteger datos</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">📱</span>
+                                    <div class="benefit-content">
+                                        <h4>Multiplataforma</h4>
+                                        <p>Funciona igual en web, móvil y escritorio</p>
+                                    </div>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="benefit-icon">🌐</span>
+                                    <div class="benefit-content">
+                                        <h4>Escalado automático</h4>
+                                        <p>Crece con tu aplicación sin configuración extra</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="firestore-concepts">
+                            <h3>📚 Conceptos Clave de Firestore</h3>
+                            <div class="concepts-grid">
+                                <div class="concept-card">
+                                    <div class="concept-icon">📄</div>
+                                    <h4>Documentos</h4>
+                                    <p>Como archivos JSON que contienen datos. Cada documento tiene un ID único.</p>
+                                    <div class="concept-example">
+                                        <strong>Ejemplo:</strong> Un libro con título, autor, páginas, etc.
+                                    </div>
+                                </div>
+                                
+                                <div class="concept-card">
+                                    <div class="concept-icon">📁</div>
+                                    <h4>Colecciones</h4>
+                                    <p>Carpetas que agrupan documentos del mismo tipo.</p>
+                                    <div class="concept-example">
+                                        <strong>Ejemplo:</strong> Colección "libros" contiene todos los documentos de libros
+                                    </div>
+                                </div>
+                                
+                                <div class="concept-card">
+                                    <div class="concept-icon">🏗️</div>
+                                    <h4>Subcolecciones</h4>
+                                    <p>Colecciones dentro de documentos, para organizar datos relacionados.</p>
+                                    <div class="concept-example">
+                                        <strong>Ejemplo:</strong> Libro → subcolección "reseñas"
+                                    </div>
+                                </div>
+                                
+                                <div class="concept-card">
+                                    <div class="concept-icon">🔍</div>
+                                    <h4>Consultas</h4>
+                                    <p>Formas de buscar y filtrar datos específicos.</p>
+                                    <div class="concept-example">
+                                        <strong>Ejemplo:</strong> "Buscar libros de ciencia ficción publicados después de 2020"
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="firestore-structure">
+                            <h3>🏗️ Estructura Visual de Firestore</h3>
+                            <div class="structure-diagram">
+                                <div class="structure-level">
+                                    <div class="level-label">Base de Datos</div>
+                                    <div class="level-content">
+                                        <div class="database-box">
+                                            <span class="db-icon">🗄️</span>
+                                            <span>biblioteca-digital</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-arrow">⬇️</div>
+                                
+                                <div class="structure-level">
+                                    <div class="level-label">Colecciones</div>
+                                    <div class="level-content collections">
+                                        <div class="collection-box">
+                                            <span class="collection-icon">📁</span>
+                                            <span>libros</span>
+                                        </div>
+                                        <div class="collection-box">
+                                            <span class="collection-icon">📁</span>
+                                            <span>autores</span>
+                                        </div>
+                                        <div class="collection-box">
+                                            <span class="collection-icon">📁</span>
+                                            <span>usuarios</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-arrow">⬇️</div>
+                                
+                                <div class="structure-level">
+                                    <div class="level-label">Documentos</div>
+                                    <div class="level-content documents">
+                                        <div class="document-box">
+                                            <span class="document-icon">📄</span>
+                                            <span>libro_001</span>
+                                        </div>
+                                        <div class="document-box">
+                                            <span class="document-icon">📄</span>
+                                            <span>libro_002</span>
+                                        </div>
+                                        <div class="document-box">
+                                            <span class="document-icon">📄</span>
+                                            <span>libro_003</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="structure-arrow">⬇️</div>
+                                
+                                <div class="structure-level">
+                                    <div class="level-label">Campos y Subcolecciones</div>
+                                    <div class="level-content fields">
+                                        <div class="field-group">
+                                            <div class="fields-box">
+                                                <div class="field-title">📝 Campos</div>
+                                                <div class="field-list">
+                                                    <div>titulo: "1984"</div>
+                                                    <div>autor: "George Orwell"</div>
+                                                    <div>paginas: 328</div>
+                                                    <div>genero: "Distopía"</div>
+                                                </div>
+                                            </div>
+                                            <div class="subcollection-box">
+                                                <div class="subcollection-title">📁 Subcolecciones</div>
+                                                <div class="subcollection-list">
+                                                    <div>reseñas</div>
+                                                    <div>prestamos</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Proyecto: Sistema de Biblioteca -->
+                    <section id="project-setup" class="section">
+                        <h2>🚀 Proyecto Práctico: Sistema de Biblioteca Digital</h2>
+                        
+                        <div class="project-intro">
+                            <p>
+                                ¡Es hora de poner en práctica todo lo aprendido! Vamos a crear un sistema completo 
+                                de biblioteca digital usando Firestore. Este proyecto te enseñará cómo diseñar, 
+                                implementar y optimizar una base de datos real.
+                            </p>
+                            
+                            <div class="project-features">
+                                <h3>🎯 Funcionalidades que Implementaremos</h3>
+                                <div class="features-grid">
+                                    <div class="feature-item">
+                                        <span class="feature-icon">📚</span>
+                                        <div class="feature-content">
+                                            <h4>Gestión de Libros</h4>
+                                            <p>Crear, editar, eliminar y buscar libros</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">👤</span>
+                                        <div class="feature-content">
+                                            <h4>Sistema de Usuarios</h4>
+                                            <p>Registro, login y perfiles de usuario</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">✍️</span>
+                                        <div class="feature-content">
+                                            <h4>Gestión de Autores</h4>
+                                            <p>Información detallada de autores</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">🔍</span>
+                                        <div class="feature-content">
+                                            <h4>Búsqueda Avanzada</h4>
+                                            <p>Filtros por género, autor, año</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">⭐</span>
+                                        <div class="feature-content">
+                                            <h4>Sistema de Reseñas</h4>
+                                            <p>Calificaciones y comentarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="feature-item">
+                                        <span class="feature-icon">📊</span>
+                                        <div class="feature-content">
+                                            <h4>Estadísticas</h4>
+                                            <p>Dashboard con métricas importantes</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setup-requirements">
+                            <h3>📋 Requisitos del Proyecto</h3>
+                            <div class="requirements-grid">
+                                <div class="req-category">
+                                    <h4>🛠️ Herramientas Necesarias</h4>
+                                    <ul>
+                                        <li>Editor de código (VS Code recomendado)</li>
+                                        <li>Navegador web moderno</li>
+                                        <li>Cuenta de Google (para Firebase)</li>
+                                        <li>Cursor AI (para prompts)</li>
+                                    </ul>
+                                </div>
+                                <div class="req-category">
+                                    <h4>💻 Tecnologías</h4>
+                                    <ul>
+                                        <li>HTML5 semántico</li>
+                                        <li>CSS3 moderno</li>
+                                        <li>JavaScript ES6+</li>
+                                        <li>Firestore (base de datos)</li>
+                                        <li>Firebase Auth (autenticación)</li>
+                                    </ul>
+                                </div>
+                                <div class="req-category">
+                                    <h4>📚 Conocimientos</h4>
+                                    <ul>
+                                        <li>Conceptos básicos de bases de datos</li>
+                                        <li>JavaScript asíncrono (async/await)</li>
+                                        <li>Manipulación del DOM</li>
+                                        <li>Eventos en JavaScript</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-setup">
+                            <h3>🤖 Prompt Inicial para Cursor</h3>
+                            <p>Empezamos con un prompt completo para crear la estructura base del proyecto:</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Prompt para Cursor - Estructura del Proyecto</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea un sistema de biblioteca digital completo usando HTML, CSS y JavaScript con Firestore. Necesito:
+
+ESTRUCTURA DEL PROYECTO:
+biblioteca-digital/
+├── index.html (página principal con lista de libros)
+├── login.html (página de login/registro)
+├── dashboard.html (panel de administración)
+├── libro-detalle.html (vista detallada de un libro)
+├── css/
+│   ├── variables.css (variables CSS)
+│   ├── layout.css (layout general)
+│   ├── components.css (componentes reutilizables)
+│   └── pages.css (estilos específicos de páginas)
+├── js/
+│   ├── config.js (configuración Firebase con variables de entorno)
+│   ├── auth.js (autenticación)
+│   ├── database.js (operaciones CRUD)
+│   ├── search.js (funciones de búsqueda)
+│   └── utils.js (utilidades)
+└── .env (variables de entorno)
+
+FUNCIONALIDADES PRINCIPALES:
+1. Sistema de autenticación completo
+2. CRUD completo para libros (crear, leer, actualizar, eliminar)
+3. Sistema de búsqueda y filtros
+4. Reseñas y calificaciones
+5. Dashboard con estadísticas
+6. Diseño responsive y moderno
+
+CARACTERÍSTICAS TÉCNICAS:
+- Usar Firebase v10 modular SDK
+- Variables de entorno para credenciales
+- Código JavaScript moderno (ES6+)
+- CSS Grid y Flexbox para layouts
+- Validación de formularios
+- Manejo de errores completo
+- Tiempo real con Firestore listeners
+
+DISEÑO:
+- Interfaz moderna y limpia
+- Colores: azul (#3B82F6), verde (#10B981), gris (#6B7280)
+- Tipografía clara y legible
+- Cards para mostrar libros
+- Formularios intuitivos
+- Responsive design
+
+Genera todos los archivos con código completo y funcional. Incluye comentarios explicativos para estudiantes.</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="project-timeline">
+                            <h3>⏱️ Timeline del Proyecto</h3>
+                            <div class="timeline-container">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">1</div>
+                                    <div class="timeline-content">
+                                        <h4>Configuración Inicial (30 min)</h4>
+                                        <p>Estructura de archivos, Firebase setup, variables de entorno</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">2</div>
+                                    <div class="timeline-content">
+                                        <h4>Autenticación (45 min)</h4>
+                                        <p>Login, registro, protección de rutas</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">3</div>
+                                    <div class="timeline-content">
+                                        <h4>CRUD de Libros (60 min)</h4>
+                                        <p>Crear, leer, actualizar y eliminar libros</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">4</div>
+                                    <div class="timeline-content">
+                                        <h4>Búsqueda y Filtros (45 min)</h4>
+                                        <p>Sistema de búsqueda avanzada</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker">5</div>
+                                    <div class="timeline-content">
+                                        <h4>Reseñas y Dashboard (60 min)</h4>
+                                        <p>Sistema de calificaciones y estadísticas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Modelado de Datos -->
+                    <section id="data-modeling" class="section">
+                        <h2>🏗️ Modelado de Datos para Firestore</h2>
+                        
+                        <div class="modeling-intro">
+                            <p>
+                                Antes de escribir código, necesitamos diseñar cómo organizaremos los datos en Firestore. 
+                                Un buen diseño de base de datos es la clave del éxito de cualquier aplicación.
+                            </p>
+                        </div>
+
+                        <div class="data-structure">
+                            <h3>📊 Estructura de Datos Propuesta</h3>
+                            
+                            <div class="collection-design">
+                                <div class="collection-item">
+                                    <h4>📁 Colección: usuarios</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Usuario</span>
+                                        </div>
+                                        <pre><code>{
+  "uid": "user_12345",
+  "nombre": "Ana García",
+  "email": "ana@email.com",
+  "rol": "usuario", // "admin" | "usuario"
+  "fechaRegistro": "2024-01-15T10:30:00Z",
+  "avatar": "https://...",
+  "preferencias": {
+    "generosPreferidos": ["ficción", "misterio"],
+    "notificaciones": true,
+    "tema": "claro"
+  },
+  "estadisticas": {
+    "librosLeidos": 15,
+    "reseñasEscritas": 8,
+    "fechaUltimaActividad": "2024-01-20T15:45:00Z"
+  }
+}</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="collection-item">
+                                    <h4>📁 Colección: libros</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Libro</span>
+                                        </div>
+                                        <pre><code>{
+  "id": "libro_001",
+  "titulo": "Cien años de soledad",
+  "autor": {
+    "nombre": "Gabriel García Márquez",
+    "id": "autor_001"
+  },
+  "isbn": "978-0-307-38934-7",
+  "genero": ["realismo mágico", "literatura latinoamericana"],
+  "fechaPublicacion": "1967-05-30",
+  "paginas": 417,
+  "idioma": "español",
+  "editorial": "Editorial Sudamericana",
+  "descripcion": "Una novela del escritor colombiano...",
+  "portada": "https://imagen-url.com/portada.jpg",
+  "disponible": true,
+  "precio": 15.99,
+  "fechaAgregado": "2024-01-10T09:00:00Z",
+  "estadisticas": {
+    "vistas": 245,
+    "calificacionPromedio": 4.6,
+    "totalReseñas": 23,
+    "vecesLeido": 89
+  },
+  "etiquetas": ["clásico", "bestseller", "premio nobel"]
+}</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="collection-item">
+                                    <h4>📁 Colección: autores</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Autor</span>
+                                        </div>
+                                        <pre><code>{
+  "id": "autor_001",
+  "nombre": "Gabriel García Márquez",
+  "fechaNacimiento": "1927-03-06",
+  "fechaMuerte": "2014-04-17",
+  "nacionalidad": "Colombia",
+  "biografia": "Escritor, periodista, editor y premio Nobel...",
+  "foto": "https://imagen-url.com/autor.jpg",
+  "premios": ["Premio Nobel de Literatura (1982)", "Premio Cervantes (1982)"],
+  "generosPrincipales": ["realismo mágico", "literatura latinoamericana"],
+  "obrasPrincipales": ["Cien años de soledad", "El amor en los tiempos del cólera"],
+  "estadisticas": {
+    "totalLibros": 12,
+    "totalLectores": 1250,
+    "calificacionPromedio": 4.7
+  },
+  "fechaAgregado": "2024-01-10T09:00:00Z"
+}</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="collection-item">
+                                    <h4>📁 Subcolección: libros/{libroId}/reseñas</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Reseña</span>
+                                        </div>
+                                        <pre><code>{
+  "id": "reseña_001",
+  "usuarioId": "user_12345",
+  "usuarioNombre": "Ana García",
+  "usuarioAvatar": "https://...",
+  "calificacion": 5, // 1-5 estrellas
+  "titulo": "Una obra maestra",
+  "comentario": "Este libro cambió mi perspectiva sobre la literatura...",
+  "fechaCreacion": "2024-01-18T14:30:00Z",
+  "fechaActualizacion": "2024-01-18T14:30:00Z",
+  "likes": 12,
+  "reportes": 0,
+  "verificado": true // si el usuario realmente leyó el libro
+}</code></pre>
+                                    </div>
+                                </div>
+
+                                <div class="collection-item">
+                                    <h4>📁 Colección: categorias</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>📄 Documento de Categoría</span>
+                                        </div>
+                                        <pre><code>{
+  "id": "categoria_001",
+  "nombre": "Ciencia Ficción",
+  "descripcion": "Libros que exploran futuros posibles...",
+  "icono": "🚀",
+  "color": "#3B82F6",
+  "activa": true,
+  "orden": 1,
+  "estadisticas": {
+    "totalLibros": 156,
+    "popularidad": 8.5
+  }
+}</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="design-decisions">
+                            <h3>🤔 Decisiones de Diseño Explicadas</h3>
+                            <div class="decisions-grid">
+                                <div class="decision-item">
+                                    <h4>📄 ¿Por qué duplicar datos?</h4>
+                                    <p>
+                                        En NoSQL es común duplicar datos para optimizar lecturas. Por ejemplo, 
+                                        guardamos el nombre del usuario en cada reseña para no tener que hacer 
+                                        consultas adicionales.
+                                    </p>
+                                    <div class="decision-pros">
+                                        <strong>✅ Ventajas:</strong> Consultas más rápidas, menos peticiones
+                                    </div>
+                                    <div class="decision-cons">
+                                        <strong>⚠️ Desventajas:</strong> Hay que actualizar en varios lugares
+                                    </div>
+                                </div>
+
+                                <div class="decision-item">
+                                    <h4>📁 ¿Subcolecciones o referencias?</h4>
+                                    <p>
+                                        Usamos subcolecciones para reseñas porque están fuertemente relacionadas 
+                                        con cada libro específico y facilita consultas como "todas las reseñas 
+                                        de este libro".
+                                    </p>
+                                    <div class="decision-pros">
+                                        <strong>✅ Ventajas:</strong> Organización lógica, consultas eficientes
+                                    </div>
+                                    <div class="decision-cons">
+                                        <strong>⚠️ Desventajas:</strong> Más complejo para consultas globales
+                                    </div>
+                                </div>
+
+                                <div class="decision-item">
+                                    <h4>📊 ¿Estadísticas precalculadas?</h4>
+                                    <p>
+                                        Guardamos estadísticas como "calificación promedio" y "total reseñas" 
+                                        para evitar calcular estos valores en cada consulta.
+                                    </p>
+                                    <div class="decision-pros">
+                                        <strong>✅ Ventajas:</strong> Respuesta instantánea, menos procesamiento
+                                    </div>
+                                    <div class="decision-cons">
+                                        <strong>⚠️ Desventajas:</strong> Hay que mantenerlas actualizadas
+                                    </div>
+                                </div>
+
+                                <div class="decision-item">
+                                    <h4>🔍 ¿Arrays para búsquedas?</h4>
+                                    <p>
+                                        Usamos arrays para géneros y etiquetas porque Firestore permite 
+                                        consultas eficientes con "array-contains".
+                                    </p>
+                                    <div class="decision-pros">
+                                        <strong>✅ Ventajas:</strong> Búsquedas flexibles, fácil filtrado
+                                    </div>
+                                    <div class="decision-cons">
+                                        <strong>⚠️ Desventajas:</strong> Limitado a 10 elementos por array
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-modeling">
+                            <h3>🤖 Prompt para Cursor - Funciones de Base de Datos</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Prompt para Cursor - Database Operations</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea js/database.js con todas las operaciones CRUD para el sistema de biblioteca usando Firestore v10:
+
+FUNCIONES PARA LIBROS:
+- crearLibro(libroData) - Crear nuevo libro con validación
+- obtenerLibros(filtros, limite) - Obtener lista de libros con filtros
+- obtenerLibroPorId(id) - Obtener un libro específico
+- actualizarLibro(id, cambios) - Actualizar datos de libro
+- eliminarLibro(id) - Eliminar libro y sus reseñas
+- buscarLibros(termino, filtros) - Búsqueda por título, autor, género
+
+FUNCIONES PARA USUARIOS:
+- crearPerfilUsuario(uid, datos) - Crear perfil después del registro
+- obtenerPerfilUsuario(uid) - Obtener datos del usuario
+- actualizarPerfilUsuario(uid, cambios) - Actualizar perfil
+- actualizarEstadisticasUsuario(uid, cambios) - Actualizar estadísticas
+
+FUNCIONES PARA RESEÑAS:
+- crearReseña(libroId, usuarioId, reseñaData) - Crear nueva reseña
+- obtenerReseñasLibro(libroId, limite) - Obtener reseñas de un libro
+- actualizarReseña(libroId, reseñaId, cambios) - Actualizar reseña
+- eliminarReseña(libroId, reseñaId, usuarioId) - Eliminar reseña
+- calcularEstadisticasLibro(libroId) - Recalcular promedio y totales
+
+FUNCIONES PARA ESTADÍSTICAS:
+- obtenerEstadisticasGenerales() - Dashboard principal
+- obtenerLibrosMasPopulares(limite) - Top libros
+- obtenerAutoresMasLeidos(limite) - Top autores
+- obtenerEstadisticasUsuario(uid) - Estadísticas personales
+
+CARACTERÍSTICAS TÉCNICAS:
+- Usar async/await y try/catch
+- Validación de datos antes de guardar
+- Manejo de errores descriptivos
+- Optimización de consultas (usar índices)
+- Transacciones para operaciones críticas
+- Listeners para tiempo real cuando sea necesario
+- Paginación para listas grandes
+- Caché local cuando sea apropiado
+
+VALIDACIONES:
+- Campos requeridos
+- Formatos de datos (email, fechas, URLs)
+- Límites de texto
+- Permisos de usuario
+
+Incluye comentarios detallados explicando cada función y ejemplos de uso.</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Component -->
+                    <div id="footer-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script>
+    <script src="components/components.js"></script>
+    <script>
+        // Inicializar componentes cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Guía de Bases de Datos', '🗄️');
+        });
+
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '✅ Copiado';
+                button.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                    button.style.background = 'var(--accent)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>

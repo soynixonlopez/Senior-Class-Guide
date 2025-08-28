@@ -482,8 +482,51 @@ Usa comandos de terminal para crear toda la estructura de una vez.</code></pre>
                                         <li>Abre el archivo (debe estar vacío)</li>
                                     </ol>
 
-                                    <h4>🎯 Paso 3.2: Pegar la configuración</h4>
-                                    <p>Copia y pega este código en <code>js/firebase-config.js</code>:</p>
+                                    <h4>🔐 Paso 3.2: Configurar Variables de Entorno</h4>
+                                    <p><strong>IMPORTANTE:</strong> Antes de crear el archivo de configuración, vamos a configurar las variables de entorno para proteger tus credenciales:</p>
+                                    
+                                    <div class="env-setup">
+                                        <h5>📄 Crear archivo .env</h5>
+                                        <p>En la raíz de tu proyecto, crea un archivo <code>.env</code>:</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>.env</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code># Configuración de Firebase
+FIREBASE_API_KEY=tu_api_key_real
+FIREBASE_AUTH_DOMAIN=tu-proyecto.firebaseapp.com
+FIREBASE_PROJECT_ID=tu-proyecto-id
+FIREBASE_STORAGE_BUCKET=tu-proyecto.appspot.com
+FIREBASE_MESSAGING_SENDER_ID=123456789
+FIREBASE_APP_ID=1:123456789:web:abcdef123456
+
+# Configuración del entorno
+NODE_ENV=development</code></pre>
+                                        </div>
+                                        
+                                        <h5>🚫 Actualizar .gitignore</h5>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>.gitignore</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                            </div>
+                                            <pre><code># Variables de entorno
+.env
+.env.local
+.env.production
+
+# Dependencias
+node_modules/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db</code></pre>
+                                        </div>
+                                    </div>
+
+                                    <h4>🎯 Paso 3.3: Crear archivo de configuración</h4>
+                                    <p>Ahora crea el archivo <code>js/firebase-config.js</code> que lea las variables de forma segura:</p>
                                     
                                     <div class="code-block">
                                         <div class="code-header">

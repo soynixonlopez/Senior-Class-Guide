@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Chatbots con Hugging Face - IT CLASS SENIORS</title>
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/chatbot-guide.css" rel="stylesheet">
+</head>
+<body class="has-header">
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🤖 Chatbots IA</h2>
+                <p>Guía Completa con Hugging Face</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#intro" class="nav-link active"><span class="nav-icon">🚀</span><span class="nav-text">Introducción</span></a></li>
+                <li><a href="#ai-concepts" class="nav-link"><span class="nav-icon">🧠</span><span class="nav-text">Conceptos de IA</span></a></li>
+                <li><a href="#hugging-face-intro" class="nav-link"><span class="nav-icon">🤗</span><span class="nav-text">¿Qué es Hugging Face?</span></a></li>
+                <li><a href="#models-overview" class="nav-link"><span class="nav-icon">🎯</span><span class="nav-text">Modelos Disponibles</span></a></li>
+                <li><a href="#project-setup" class="nav-link"><span class="nav-icon">⚙️</span><span class="nav-text">Configuración</span></a></li>
+                <li><a href="#basic-chatbot" class="nav-link"><span class="nav-icon">💬</span><span class="nav-text">Chatbot Básico</span></a></li>
+                <li><a href="#advanced-features" class="nav-link"><span class="nav-icon">🔧</span><span class="nav-text">Funciones Avanzadas</span></a></li>
+                <li><a href="#personality-system" class="nav-link"><span class="nav-icon">🎭</span><span class="nav-text">Sistema de Personalidad</span></a></li>
+                <li><a href="#memory-context" class="nav-link"><span class="nav-icon">🧩</span><span class="nav-text">Memoria y Contexto</span></a></li>
+                <li><a href="#multi-model" class="nav-link"><span class="nav-icon">🌟</span><span class="nav-text">Multi-Modelo</span></a></li>
+                <li><a href="#deployment" class="nav-link"><span class="nav-icon">🚀</span><span class="nav-text">Despliegue</span></a></li>
+                <li><a href="#best-practices" class="nav-link"><span class="nav-icon">✅</span><span class="nav-text">Mejores Prácticas</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content">
+                <!-- Header Component -->
+                <div id="header-container"></div>
+                
+                <div class="content-wrapper">
+                    <!-- Introducción -->
+                    <section id="intro" class="section">
+                        <h1>🤖 Guía Completa: Chatbots Inteligentes con Hugging Face</h1>
+                        <p class="lead">
+                            Aprende a crear chatbots inteligentes usando los modelos de IA más avanzados del mundo. 
+                            Esta guía te llevará desde los conceptos básicos hasta la implementación de un chatbot 
+                            sofisticado con personalidad, memoria y capacidades multimodales.
+                        </p>
+
+                        <div class="intro-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🧠</span>
+                                <div class="highlight-content">
+                                    <h3>IA de Última Generación</h3>
+                                    <p>Usa modelos como GPT, BERT, y LLaMA directamente desde Hugging Face</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">💰</span>
+                                <div class="highlight-content">
+                                    <h3>Gratis para Empezar</h3>
+                                    <p>Hugging Face ofrece acceso gratuito a miles de modelos pre-entrenados</p>
+                                </div>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-icon">🚀</span>
+                                <div class="highlight-content">
+                                    <h3>Implementación Rápida</h3>
+                                    <p>Con nuestros prompts de Cursor, tendrás un chatbot funcionando en minutos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-showcase">
+                            <h3>🎬 Proyecto Final: ChatBot Inteligente Multimodal</h3>
+                            <p>Al completar esta guía, habrás creado un chatbot con estas características:</p>
+                            
+                            <div class="showcase-features">
+                                <div class="showcase-grid">
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">🧠</div>
+                                        <h4>IA Conversacional</h4>
+                                        <p>Respuestas naturales y contextuales usando modelos transformer</p>
+                                    </div>
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">🎭</div>
+                                        <h4>Personalidades Múltiples</h4>
+                                        <p>Asistente profesional, amigo casual, tutor educativo</p>
+                                    </div>
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">🧩</div>
+                                        <h4>Memoria Persistente</h4>
+                                        <p>Recuerda conversaciones anteriores y aprende del usuario</p>
+                                    </div>
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">🌐</div>
+                                        <h4>Multiidioma</h4>
+                                        <p>Conversa en español, inglés, francés y más idiomas</p>
+                                    </div>
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">📊</div>
+                                        <h4>Análisis de Sentimientos</h4>
+                                        <p>Detecta emociones y adapta las respuestas</p>
+                                    </div>
+                                    <div class="feature-showcase">
+                                        <div class="feature-icon">🔧</div>
+                                        <h4>Funciones Especiales</h4>
+                                        <p>Generación de código, traducción, resúmenes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="learning-path-chatbot">
+                            <h3>🗺️ Tu Ruta de Aprendizaje</h3>
+                            <div class="path-timeline">
+                                <div class="timeline-step">
+                                    <div class="step-marker">1</div>
+                                    <div class="step-info">
+                                        <h4>Fundamentos IA</h4>
+                                        <p>Conceptos de NLP, transformers y modelos de lenguaje</p>
+                                        <span class="time-estimate">⏱️ 20 min</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-marker">2</div>
+                                    <div class="step-info">
+                                        <h4>Hugging Face</h4>
+                                        <p>Plataforma, modelos disponibles y API</p>
+                                        <span class="time-estimate">⏱️ 30 min</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-marker">3</div>
+                                    <div class="step-info">
+                                        <h4>Chatbot Básico</h4>
+                                        <p>Implementación con un modelo simple</p>
+                                        <span class="time-estimate">⏱️ 45 min</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-marker">4</div>
+                                    <div class="step-info">
+                                        <h4>Funciones Avanzadas</h4>
+                                        <p>Personalidad, memoria y contexto</p>
+                                        <span class="time-estimate">⏱️ 60 min</span>
+                                    </div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="step-marker">5</div>
+                                    <div class="step-info">
+                                        <h4>Despliegue</h4>
+                                        <p>Publicar tu chatbot en la web</p>
+                                        <span class="time-estimate">⏱️ 30 min</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prerequisites-chatbot">
+                            <h3>📋 ¿Qué Necesitas Saber?</h3>
+                            <div class="prereq-grid">
+                                <div class="prereq-essential">
+                                    <h4>🔴 Esencial</h4>
+                                    <ul>
+                                        <li>JavaScript básico (variables, funciones, promesas)</li>
+                                        <li>HTML y CSS fundamentales</li>
+                                        <li>Conceptos básicos de APIs</li>
+                                        <li>Manejo de eventos en el navegador</li>
+                                    </ul>
+                                </div>
+                                <div class="prereq-recommended">
+                                    <h4>🟡 Recomendado</h4>
+                                    <ul>
+                                        <li>Experiencia con async/await</li>
+                                        <li>Conocimientos básicos de JSON</li>
+                                        <li>Haber completado la guía de Firebase (para persistencia)</li>
+                                        <li>Comprensión de REST APIs</li>
+                                    </ul>
+                                </div>
+                                <div class="prereq-optional">
+                                    <h4>🟢 Opcional</h4>
+                                    <ul>
+                                        <li>Conceptos básicos de Machine Learning</li>
+                                        <li>Experiencia con Python (para modelos custom)</li>
+                                        <li>Conocimiento de frameworks como React/Vue</li>
+                                        <li>Experiencia con Node.js</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Conceptos de IA -->
+                    <section id="ai-concepts" class="section">
+                        <h2>🧠 Fundamentos de Inteligencia Artificial para Chatbots</h2>
+                        
+                        <div class="ai-intro">
+                            <p>
+                                Antes de crear nuestro chatbot, es importante entender los conceptos fundamentales 
+                                de IA que hacen posible que las máquinas "entiendan" y generen lenguaje humano.
+                            </p>
+                        </div>
+
+                        <div class="concept-nlp">
+                            <h3>📝 ¿Qué es el Procesamiento de Lenguaje Natural (NLP)?</h3>
+                            <div class="nlp-explanation">
+                                <div class="nlp-definition">
+                                    <p>
+                                        El <strong>NLP (Natural Language Processing)</strong> es la rama de la IA que 
+                                        permite a las computadoras entender, interpretar y generar lenguaje humano 
+                                        de manera útil y significativa.
+                                    </p>
+                                </div>
+                                
+                                <div class="nlp-examples">
+                                    <h4>🌟 Ejemplos que Usas Todos los Días</h4>
+                                    <div class="examples-grid">
+                                        <div class="example-card">
+                                            <div class="example-icon">🗣️</div>
+                                            <h5>Asistentes de Voz</h5>
+                                            <p>Siri, Alexa, Google Assistant entienden tu voz y responden</p>
+                                        </div>
+                                        <div class="example-card">
+                                            <div class="example-icon">🌐</div>
+                                            <h5>Traductor de Google</h5>
+                                            <p>Traduce textos entre más de 100 idiomas automáticamente</p>
+                                        </div>
+                                        <div class="example-card">
+                                            <div class="example-icon">📧</div>
+                                            <h5>Gmail Smart Reply</h5>
+                                            <p>Sugiere respuestas automáticas para tus emails</p>
+                                        </div>
+                                        <div class="example-card">
+                                            <div class="example-icon">🛒</div>
+                                            <h5>Chatbots de Soporte</h5>
+                                            <p>Atienden tus consultas en páginas web 24/7</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="transformers-section">
+                            <h3>🔄 Transformers: La Revolución de la IA</h3>
+                            <div class="transformers-explanation">
+                                <div class="transformer-intro">
+                                    <p>
+                                        Los <strong>Transformers</strong> son una arquitectura de IA que revolucionó 
+                                        el procesamiento de lenguaje natural. Son la tecnología detrás de ChatGPT, 
+                                        BERT, y prácticamente todos los chatbots modernos.
+                                    </p>
+                                </div>
+
+                                <div class="transformer-analogy">
+                                    <h4>🧩 Analogía Simple: El Transformer como un Traductor Experto</h4>
+                                    <div class="analogy-content">
+                                        <div class="analogy-step">
+                                            <div class="step-icon">👁️</div>
+                                            <div class="step-content">
+                                                <h5>1. Atención</h5>
+                                                <p>Como un traductor que presta atención a todas las palabras de una oración simultáneamente</p>
+                                            </div>
+                                        </div>
+                                        <div class="analogy-step">
+                                            <div class="step-icon">🔗</div>
+                                            <div class="step-content">
+                                                <h5>2. Conexiones</h5>
+                                                <p>Entiende cómo cada palabra se relaciona con todas las demás</p>
+                                            </div>
+                                        </div>
+                                        <div class="analogy-step">
+                                            <div class="step-icon">🎯</div>
+                                            <div class="step-content">
+                                                <h5>3. Contexto</h5>
+                                                <p>Genera respuestas basadas en todo el contexto, no solo la última palabra</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="transformer-benefits">
+                                    <h4>✨ ¿Por qué son tan Poderosos?</h4>
+                                    <div class="benefits-grid">
+                                        <div class="benefit-card">
+                                            <span class="benefit-icon">⚡</span>
+                                            <h5>Procesamiento Paralelo</h5>
+                                            <p>Pueden procesar toda una oración al mismo tiempo, no palabra por palabra</p>
+                                        </div>
+                                        <div class="benefit-card">
+                                            <span class="benefit-icon">🎯</span>
+                                            <h5>Mecanismo de Atención</h5>
+                                            <p>Saben qué partes del texto son más importantes para cada respuesta</p>
+                                        </div>
+                                        <div class="benefit-card">
+                                            <span class="benefit-icon">📚</span>
+                                            <h5>Contexto Largo</h5>
+                                            <p>Pueden "recordar" conversaciones largas y mantener coherencia</p>
+                                        </div>
+                                        <div class="benefit-card">
+                                            <span class="benefit-icon">🌐</span>
+                                            <h5>Transferencia de Aprendizaje</h5>
+                                            <p>Un modelo entrenado en un idioma puede adaptarse a otros</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="model-types">
+                            <h3>🎭 Tipos de Modelos de Lenguaje</h3>
+                            <div class="model-categories">
+                                <div class="model-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">📖</div>
+                                        <h4>Modelos Generativos</h4>
+                                        <span class="category-badge generative">GPT, LLaMA</span>
+                                    </div>
+                                    <div class="category-content">
+                                        <p><strong>¿Qué hacen?</strong> Generan texto nuevo, como escribir historias o responder preguntas</p>
+                                        <p><strong>Perfecto para:</strong> Chatbots conversacionales, asistentes creativos</p>
+                                        <div class="category-examples">
+                                            <strong>Ejemplos:</strong> ChatGPT, GPT-4, Claude, LLaMA-2
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">🔍</div>
+                                        <h4>Modelos de Comprensión</h4>
+                                        <span class="category-badge understanding">BERT, RoBERTa</span>
+                                    </div>
+                                    <div class="category-content">
+                                        <p><strong>¿Qué hacen?</strong> Entienden y analizan texto existente</p>
+                                        <p><strong>Perfecto para:</strong> Análisis de sentimientos, clasificación, búsqueda</p>
+                                        <div class="category-examples">
+                                            <strong>Ejemplos:</strong> BERT, RoBERTa, DistilBERT
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="model-category">
+                                    <div class="category-header">
+                                        <div class="category-icon">⚖️</div>
+                                        <h4>Modelos Híbridos</h4>
+                                        <span class="category-badge hybrid">T5, BART</span>
+                                    </div>
+                                    <div class="category-content">
+                                        <p><strong>¿Qué hacen?</strong> Combinan generación y comprensión</p>
+                                        <p><strong>Perfecto para:</strong> Resúmenes, traducción, reformulación</p>
+                                        <div class="category-examples">
+                                            <strong>Ejemplos:</strong> T5, BART, Flan-T5
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="evolution-timeline">
+                            <h3>📈 Evolución de los Modelos de IA</h3>
+                            <div class="timeline-evolution">
+                                <div class="evolution-era">
+                                    <div class="era-year">2017</div>
+                                    <div class="era-content">
+                                        <h4>🔄 Transformers</h4>
+                                        <p>Google introduce la arquitectura Transformer</p>
+                                        <span class="era-impact">Impacto: Revolución en NLP</span>
+                                    </div>
+                                </div>
+                                <div class="evolution-era">
+                                    <div class="era-year">2018</div>
+                                    <div class="era-content">
+                                        <h4>🔍 BERT</h4>
+                                        <p>Google lanza BERT para comprensión de texto</p>
+                                        <span class="era-impact">Impacto: Mejor búsqueda en Google</span>
+                                    </div>
+                                </div>
+                                <div class="evolution-era">
+                                    <div class="era-year">2019</div>
+                                    <div class="era-content">
+                                        <h4>📝 GPT-2</h4>
+                                        <p>OpenAI presenta GPT-2 para generación de texto</p>
+                                        <span class="era-impact">Impacto: Textos casi indistinguibles de humanos</span>
+                                    </div>
+                                </div>
+                                <div class="evolution-era">
+                                    <div class="era-year">2020</div>
+                                    <div class="era-content">
+                                        <h4>🚀 GPT-3</h4>
+                                        <p>175 mil millones de parámetros</p>
+                                        <span class="era-impact">Impacto: Chatbots conversacionales</span>
+                                    </div>
+                                </div>
+                                <div class="evolution-era">
+                                    <div class="era-year">2022</div>
+                                    <div class="era-content">
+                                        <h4>💬 ChatGPT</h4>
+                                        <p>IA conversacional para el público general</p>
+                                        <span class="era-impact">Impacto: 100M usuarios en 2 meses</span>
+                                    </div>
+                                </div>
+                                <div class="evolution-era">
+                                    <div class="era-year">2024</div>
+                                    <div class="era-content">
+                                        <h4>🌟 Era Actual</h4>
+                                        <p>Modelos multimodales y especializados</p>
+                                        <span class="era-impact">Impacto: IA en todas partes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ¿Qué es Hugging Face? -->
+                    <section id="hugging-face-intro" class="section">
+                        <h2>🤗 Hugging Face: El GitHub de la Inteligencia Artificial</h2>
+                        
+                        <div class="hf-introduction">
+                            <div class="hf-definition">
+                                <h3>🌟 ¿Qué es Hugging Face?</h3>
+                                <p>
+                                    <strong>Hugging Face</strong> es la plataforma más grande del mundo para compartir 
+                                    modelos de inteligencia artificial. Es como GitHub, pero específicamente para IA. 
+                                    Aquí puedes encontrar miles de modelos pre-entrenados, datasets y aplicaciones 
+                                    de IA listas para usar.
+                                </p>
+                            </div>
+
+                            <div class="hf-numbers">
+                                <h3>📊 Números Impresionantes</h3>
+                                <div class="numbers-grid">
+                                    <div class="number-stat">
+                                        <div class="stat-number">500,000+</div>
+                                        <div class="stat-label">Modelos de IA</div>
+                                    </div>
+                                    <div class="number-stat">
+                                        <div class="stat-number">100,000+</div>
+                                        <div class="stat-label">Datasets</div>
+                                    </div>
+                                    <div class="number-stat">
+                                        <div class="stat-number">50,000+</div>
+                                        <div class="stat-label">Aplicaciones</div>
+                                    </div>
+                                    <div class="number-stat">
+                                        <div class="stat-number">1M+</div>
+                                        <div class="stat-label">Usuarios</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hf-benefits">
+                            <h3>🎯 ¿Por qué Elegir Hugging Face para Nuestro Chatbot?</h3>
+                            <div class="benefits-comparison">
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">💰</div>
+                                    <div class="benefit-content">
+                                        <h4>Gratis para Empezar</h4>
+                                        <p>
+                                            Miles de modelos gratuitos vs. pagar $20/mes por ChatGPT Plus. 
+                                            Perfecto para estudiantes y proyectos personales.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Alternativa:</strong> OpenAI API cuesta $0.002 por 1K tokens
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">🎛️</div>
+                                    <div class="benefit-content">
+                                        <h4>Control Total</h4>
+                                        <p>
+                                            Puedes personalizar completamente el comportamiento del modelo, 
+                                            algo imposible con APIs comerciales cerradas.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Alternativa:</strong> ChatGPT no permite modificar el modelo base
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">🔓</div>
+                                    <div class="benefit-content">
+                                        <h4>Open Source</h4>
+                                        <p>
+                                            Todos los modelos son de código abierto. Puedes ver exactamente 
+                                            cómo funcionan y modificarlos según tus necesidades.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Alternativa:</strong> GPT-4 es completamente cerrado
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">🌐</div>
+                                    <div class="benefit-content">
+                                        <h4>Variedad Increíble</h4>
+                                        <p>
+                                            Modelos especializados para cada tarea: conversación, código, 
+                                            traducción, análisis de sentimientos, y mucho más.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Ejemplos:</strong> CodeLlama para código, BERT para análisis
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">⚡</div>
+                                    <div class="benefit-content">
+                                        <h4>Fácil Integración</h4>
+                                        <p>
+                                            Con solo unas líneas de JavaScript puedes integrar cualquier modelo. 
+                                            No necesitas conocimientos profundos de Machine Learning.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Tiempo:</strong> 5 minutos vs. semanas de entrenamiento
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="benefit-item">
+                                    <div class="benefit-icon">🏢</div>
+                                    <div class="benefit-content">
+                                        <h4>Respaldo Empresarial</h4>
+                                        <p>
+                                            Usado por Google, Microsoft, Amazon y miles de startups. 
+                                            Es una habilidad muy valorada en el mercado laboral.
+                                        </p>
+                                        <div class="comparison-note">
+                                            <strong>Salario:</strong> Desarrolladores IA ganan 20-40% más
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hf-ecosystem">
+                            <h3>🏗️ Ecosistema Hugging Face</h3>
+                            <div class="ecosystem-components">
+                                <div class="component-item">
+                                    <div class="component-icon">🤗</div>
+                                    <h4>Hub</h4>
+                                    <p>Repositorio central con todos los modelos, datasets y aplicaciones</p>
+                                    <div class="component-url">huggingface.co</div>
+                                </div>
+
+                                <div class="component-item">
+                                    <div class="component-icon">🔧</div>
+                                    <h4>Transformers</h4>
+                                    <p>Librería principal para usar modelos pre-entrenados</p>
+                                    <div class="component-url">Más de 100M descargas</div>
+                                </div>
+
+                                <div class="component-item">
+                                    <div class="component-icon">📊</div>
+                                    <h4>Datasets</h4>
+                                    <p>Librería para cargar y procesar datasets de entrenamiento</p>
+                                    <div class="component-url">50,000+ datasets disponibles</div>
+                                </div>
+
+                                <div class="component-item">
+                                    <div class="component-icon">🚀</div>
+                                    <h4>Spaces</h4>
+                                    <p>Plataforma para crear y compartir aplicaciones de IA</p>
+                                    <div class="component-url">Deploy gratis con Gradio</div>
+                                </div>
+
+                                <div class="component-item">
+                                    <div class="component-icon">⚡</div>
+                                    <h4>Inference API</h4>
+                                    <p>API REST para usar modelos sin instalar nada</p>
+                                    <div class="component-url">Perfecto para JavaScript</div>
+                                </div>
+
+                                <div class="component-item">
+                                    <div class="component-icon">🏭</div>
+                                    <h4>AutoTrain</h4>
+                                    <p>Entrena modelos personalizados sin código</p>
+                                    <div class="component-url">No-code ML training</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-hf">
+                            <h3>🤖 Primer Prompt para Cursor</h3>
+                            <p>Vamos a empezar explorando Hugging Face con un ejemplo práctico:</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Prompt para Cursor - Explorar Hugging Face</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea una página web simple que demuestre cómo usar la Inference API de Hugging Face. Necesito:
+
+1. HTML con un formulario para probar diferentes modelos
+2. JavaScript que haga peticiones a la Inference API
+3. Ejemplos de diferentes tipos de modelos:
+   - Generación de texto (GPT-2)
+   - Análisis de sentimientos (BERT)
+   - Traducción (T5)
+   - Resumen de texto (BART)
+
+ESTRUCTURA:
+index.html - Página principal con interfaz
+js/huggingface-api.js - Funciones para interactuar con HF
+css/style.css - Estilos modernos
+
+CARACTERÍSTICAS:
+- Interfaz limpia y moderna
+- Botones para probar cada tipo de modelo
+- Área de resultados con formato
+- Manejo de errores y loading states
+- Ejemplos de texto predefinidos
+- Documentación de cada modelo
+
+IMPORTANTE:
+- Usar fetch() para las peticiones HTTP
+- Incluir headers de autorización para la API
+- Mostrar ejemplos prácticos de uso
+- Código comentado para estudiantes
+
+Genera código completo y funcional.</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Modelos Disponibles -->
+                    <section id="models-overview" class="section">
+                        <h2>🎯 Modelos Disponibles: Tu Caja de Herramientas IA</h2>
+                        
+                        <div class="models-intro">
+                            <p>
+                                Hugging Face ofrece miles de modelos, pero ¿cuáles son los mejores para chatbots? 
+                                Aquí tienes una guía curada de los modelos más útiles y populares, organizados 
+                                por categorías y casos de uso.
+                            </p>
+                        </div>
+
+                        <div class="models-categories">
+                            <div class="model-category-section">
+                                <h3>💬 Modelos Conversacionales (Para Chatbots)</h3>
+                                <div class="models-grid">
+                                    <div class="model-card featured">
+                                        <div class="model-header">
+                                            <div class="model-icon">🚀</div>
+                                            <div class="model-info">
+                                                <h4>microsoft/DialoGPT-large</h4>
+                                                <span class="model-badge featured">⭐ Recomendado</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Especializado en conversaciones. Entrenado específicamente para diálogos naturales.</p>
+                                            <div class="model-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Tamaño:</span>
+                                                    <span class="stat-value">774M parámetros</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Idioma:</span>
+                                                    <span class="stat-value">Inglés</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Velocidad:</span>
+                                                    <span class="stat-value">⚡ Rápido</span>
+                                                </div>
+                                            </div>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Chatbots casuales, asistentes amigables
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="model-card">
+                                        <div class="model-header">
+                                            <div class="model-icon">🧠</div>
+                                            <div class="model-info">
+                                                <h4>facebook/blenderbot-400M-distill</h4>
+                                                <span class="model-badge balanced">🎯 Equilibrado</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Excelente para conversaciones empáticas y con personalidad.</p>
+                                            <div class="model-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Tamaño:</span>
+                                                    <span class="stat-value">400M parámetros</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Idioma:</span>
+                                                    <span class="stat-value">Inglés</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Velocidad:</span>
+                                                    <span class="stat-value">⚡⚡ Muy Rápido</span>
+                                                </div>
+                                            </div>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Conversaciones empáticas, soporte emocional
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="model-card">
+                                        <div class="model-header">
+                                            <div class="model-icon">🌐</div>
+                                            <div class="model-info">
+                                                <h4>microsoft/DialoGPT-small</h4>
+                                                <span class="model-badge lightweight">🪶 Ligero</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Versión ligera, perfecta para comenzar y proyectos con recursos limitados.</p>
+                                            <div class="model-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Tamaño:</span>
+                                                    <span class="stat-value">117M parámetros</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Idioma:</span>
+                                                    <span class="stat-value">Inglés</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Velocidad:</span>
+                                                    <span class="stat-value">⚡⚡⚡ Ultra Rápido</span>
+                                                </div>
+                                            </div>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Prototipos, aprendizaje, aplicaciones móviles
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="model-category-section">
+                                <h3>🌍 Modelos Multiidioma</h3>
+                                <div class="models-grid">
+                                    <div class="model-card featured">
+                                        <div class="model-header">
+                                            <div class="model-icon">🌍</div>
+                                            <div class="model-info">
+                                                <h4>google/flan-t5-base</h4>
+                                                <span class="model-badge featured">🌟 Multiuso</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Increíble para múltiples idiomas y tareas. Puede conversar, traducir y resumir.</p>
+                                            <div class="model-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Idiomas:</span>
+                                                    <span class="stat-value">100+ idiomas</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Tareas:</span>
+                                                    <span class="stat-value">Múltiples</span>
+                                                </div>
+                                            </div>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Chatbots internacionales, asistentes multiidioma
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="model-card">
+                                        <div class="model-header">
+                                            <div class="model-icon">🇪🇸</div>
+                                            <div class="model-info">
+                                                <h4>bertin-project/bertin-gpt-j-6B</h4>
+                                                <span class="model-badge spanish">🇪🇸 Español</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Modelo específicamente entrenado para español, ideal para chatbots locales.</p>
+                                            <div class="model-stats">
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Idioma:</span>
+                                                    <span class="stat-value">Español nativo</span>
+                                                </div>
+                                                <div class="stat-item">
+                                                    <span class="stat-label">Calidad:</span>
+                                                    <span class="stat-value">⭐⭐⭐⭐⭐</span>
+                                                </div>
+                                            </div>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Chatbots en español, mercado hispanohablante
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="model-category-section">
+                                <h3>🔧 Modelos Especializados</h3>
+                                <div class="models-grid">
+                                    <div class="model-card specialized">
+                                        <div class="model-header">
+                                            <div class="model-icon">💻</div>
+                                            <div class="model-info">
+                                                <h4>Salesforce/codegen-350M-mono</h4>
+                                                <span class="model-badge code">💻 Código</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Especializado en generar y explicar código. Perfecto para chatbots técnicos.</p>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Asistentes de programación, tutoriales de código
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="model-card specialized">
+                                        <div class="model-header">
+                                            <div class="model-icon">😊</div>
+                                            <div class="model-info">
+                                                <h4>cardiffnlp/twitter-roberta-base-sentiment</h4>
+                                                <span class="model-badge sentiment">😊 Sentimientos</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Analiza emociones en texto. Ideal para chatbots empáticos.</p>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Chatbots de soporte, análisis emocional
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="model-card specialized">
+                                        <div class="model-header">
+                                            <div class="model-icon">📝</div>
+                                            <div class="model-info">
+                                                <h4>facebook/bart-large-cnn</h4>
+                                                <span class="model-badge summary">📝 Resúmenes</span>
+                                            </div>
+                                        </div>
+                                        <div class="model-description">
+                                            <p>Excelente para crear resúmenes de textos largos.</p>
+                                            <div class="model-use-cases">
+                                                <strong>Perfecto para:</strong> Chatbots informativos, asistentes de lectura
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="model-selection-guide">
+                            <h3>🎯 ¿Cómo Elegir el Modelo Perfecto?</h3>
+                            <div class="selection-flowchart">
+                                <div class="flowchart-step">
+                                    <div class="step-question">¿Qué tipo de chatbot quieres?</div>
+                                    <div class="step-options">
+                                        <div class="option-path">
+                                            <div class="option-choice">💬 Conversacional</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">DialoGPT o BlenderBot</div>
+                                        </div>
+                                        <div class="option-path">
+                                            <div class="option-choice">🛠️ Especializado</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">Modelos específicos por tarea</div>
+                                        </div>
+                                        <div class="option-path">
+                                            <div class="option-choice">🌐 Multiidioma</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">Flan-T5 o modelos locales</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flowchart-step">
+                                    <div class="step-question">¿Qué recursos tienes?</div>
+                                    <div class="step-options">
+                                        <div class="option-path">
+                                            <div class="option-choice">📱 Limitados</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">Modelos "small" o "distill"</div>
+                                        </div>
+                                        <div class="option-path">
+                                            <div class="option-choice">💻 Normales</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">Modelos "base"</div>
+                                        </div>
+                                        <div class="option-path">
+                                            <div class="option-choice">🖥️ Potentes</div>
+                                            <div class="option-arrow">→</div>
+                                            <div class="option-result">Modelos "large"</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-models">
+                            <h3>🤖 Prompt para Cursor - Comparador de Modelos</h3>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Prompt para Cursor - Herramienta de Comparación</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea una herramienta web interactiva para comparar modelos de Hugging Face. Necesito:
+
+FUNCIONALIDADES:
+1. Lista de modelos populares con sus características
+2. Comparador lado a lado de hasta 3 modelos
+3. Filtros por: idioma, tamaño, velocidad, tipo de tarea
+4. Calculadora de costos estimados
+5. Recomendaciones basadas en caso de uso
+6. Links directos a Hugging Face Hub
+
+MODELOS A INCLUIR:
+- DialoGPT (small, medium, large)
+- BlenderBot (90M, 400M, 3B)
+- Flan-T5 (small, base, large)
+- BERT variants para análisis
+- CodeGen para programación
+- Modelos en español
+
+INTERFAZ:
+- Cards atractivas para cada modelo
+- Tabla de comparación interactiva
+- Gráficos de rendimiento vs recursos
+- Sistema de puntuación por categorías
+- Recomendaciones personalizadas
+
+CARACTERÍSTICAS TÉCNICAS:
+- JavaScript vanilla (sin frameworks)
+- Responsive design
+- Filtrado en tiempo real
+- Datos almacenados en JSON
+- Animaciones suaves
+- Dark/light mode
+
+DATOS PARA CADA MODELO:
+- Nombre y descripción
+- Parámetros y tamaño
+- Idiomas soportados
+- Velocidad estimada
+- Casos de uso ideales
+- Pros y contras
+- Ejemplos de uso
+- Nivel de dificultad
+
+Genera código completo con datos reales de modelos populares.</code></pre>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Configuración del Proyecto -->
+                    <section id="project-setup" class="section">
+                        <h2>⚙️ Configuración del Proyecto: Chatbot Inteligente</h2>
+                        
+                        <div class="project-overview">
+                            <h3>🎯 Nuestro Proyecto: "AI Assistant Pro"</h3>
+                            <p>
+                                Vamos a crear un chatbot completo llamado <strong>"AI Assistant Pro"</strong> que combina 
+                                múltiples modelos de Hugging Face para ofrecer diferentes personalidades y capacidades. 
+                                Será como tener varios asistentes especializados en una sola aplicación.
+                            </p>
+                            
+                            <div class="project-features-detailed">
+                                <div class="feature-category">
+                                    <h4>🧠 Inteligencia Múltiple</h4>
+                                    <ul>
+                                        <li>Conversación natural con DialoGPT</li>
+                                        <li>Análisis de sentimientos en tiempo real</li>
+                                        <li>Generación de código con CodeGen</li>
+                                        <li>Traducción automática multiidioma</li>
+                                        <li>Resúmenes inteligentes de textos</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-category">
+                                    <h4>🎭 Personalidades Dinámicas</h4>
+                                    <ul>
+                                        <li><strong>Alex:</strong> Asistente profesional y formal</li>
+                                        <li><strong>Maya:</strong> Amiga casual y divertida</li>
+                                        <li><strong>Dr. Code:</strong> Experto en programación</li>
+                                        <li><strong>Sage:</strong> Tutor educativo paciente</li>
+                                        <li><strong>Poly:</strong> Traductor multiidioma</li>
+                                    </ul>
+                                </div>
+                                <div class="feature-category">
+                                    <h4>💾 Funciones Avanzadas</h4>
+                                    <ul>
+                                        <li>Memoria persistente de conversaciones</li>
+                                        <li>Contexto inteligente entre mensajes</li>
+                                        <li>Modo offline con modelos locales</li>
+                                        <li>Exportar conversaciones</li>
+                                        <li>Temas personalizables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack">
+                            <h3>🛠️ Stack Tecnológico</h3>
+                            <div class="tech-categories">
+                                <div class="tech-category">
+                                    <h4>🎨 Frontend</h4>
+                                    <div class="tech-items">
+                                        <div class="tech-item">
+                                            <span class="tech-icon">📄</span>
+                                            <span class="tech-name">HTML5</span>
+                                            <span class="tech-desc">Estructura semántica</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🎨</span>
+                                            <span class="tech-name">CSS3</span>
+                                            <span class="tech-desc">Diseño moderno y responsive</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">⚡</span>
+                                            <span class="tech-name">JavaScript ES6+</span>
+                                            <span class="tech-desc">Lógica e interactividad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-category">
+                                    <h4>🤖 IA y APIs</h4>
+                                    <div class="tech-items">
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🤗</span>
+                                            <span class="tech-name">Hugging Face</span>
+                                            <span class="tech-desc">Modelos de IA</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🌐</span>
+                                            <span class="tech-name">Inference API</span>
+                                            <span class="tech-desc">Conexión con modelos</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🔄</span>
+                                            <span class="tech-name">Fetch API</span>
+                                            <span class="tech-desc">Peticiones HTTP</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tech-category">
+                                    <h4>💾 Almacenamiento</h4>
+                                    <div class="tech-items">
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🏠</span>
+                                            <span class="tech-name">localStorage</span>
+                                            <span class="tech-desc">Memoria local</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">🔥</span>
+                                            <span class="tech-name">Firebase</span>
+                                            <span class="tech-desc">Sincronización cloud</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <span class="tech-icon">📊</span>
+                                            <span class="tech-name">IndexedDB</span>
+                                            <span class="tech-desc">Base de datos local</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-structure">
+                            <h3>📁 Estructura del Proyecto</h3>
+                            <div class="file-tree">
+                                <div class="tree-item folder">
+                                    <span class="tree-icon">📁</span>
+                                    <span class="tree-name">ai-assistant-pro/</span>
+                                </div>
+                                <div class="tree-level-1">
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">📄</span>
+                                        <span class="tree-name">index.html</span>
+                                        <span class="tree-desc">Interfaz principal</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🔧</span>
+                                        <span class="tree-name">settings.html</span>
+                                        <span class="tree-desc">Configuración del chatbot</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🔐</span>
+                                        <span class="tree-name">.env</span>
+                                        <span class="tree-desc">Variables de entorno</span>
+                                    </div>
+                                </div>
+                                <div class="tree-item folder">
+                                    <span class="tree-icon">📁</span>
+                                    <span class="tree-name">css/</span>
+                                </div>
+                                <div class="tree-level-1">
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🎨</span>
+                                        <span class="tree-name">variables.css</span>
+                                        <span class="tree-desc">Variables CSS globales</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">📐</span>
+                                        <span class="tree-name">layout.css</span>
+                                        <span class="tree-desc">Layout y estructura</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">💬</span>
+                                        <span class="tree-name">chat.css</span>
+                                        <span class="tree-desc">Estilos del chat</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🎭</span>
+                                        <span class="tree-name">personalities.css</span>
+                                        <span class="tree-desc">Temas de personalidades</span>
+                                    </div>
+                                </div>
+                                <div class="tree-item folder">
+                                    <span class="tree-icon">📁</span>
+                                    <span class="tree-name">js/</span>
+                                </div>
+                                <div class="tree-level-1">
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">⚙️</span>
+                                        <span class="tree-name">config.js</span>
+                                        <span class="tree-desc">Configuración general</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🤗</span>
+                                        <span class="tree-name">huggingface-api.js</span>
+                                        <span class="tree-desc">Conexión con HF</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">💬</span>
+                                        <span class="tree-name">chat-engine.js</span>
+                                        <span class="tree-desc">Motor de conversación</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🎭</span>
+                                        <span class="tree-name">personalities.js</span>
+                                        <span class="tree-desc">Sistema de personalidades</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🧠</span>
+                                        <span class="tree-name">memory.js</span>
+                                        <span class="tree-desc">Gestión de memoria</span>
+                                    </div>
+                                    <div class="tree-item file">
+                                        <span class="tree-icon">🛠️</span>
+                                        <span class="tree-name">utils.js</span>
+                                        <span class="tree-desc">Utilidades generales</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cursor-prompt-setup">
+                            <h3>🤖 Prompt Maestro para Cursor</h3>
+                            <p>Este prompt creará toda la estructura base de nuestro chatbot:</p>
+                            
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>📋 Prompt para Cursor - Proyecto Completo</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                                </div>
+                                <pre><code>Crea "AI Assistant Pro", un chatbot inteligente con múltiples personalidades usando Hugging Face. 
+
+ESTRUCTURA COMPLETA:
+ai-assistant-pro/
+├── index.html (interfaz principal del chat)
+├── settings.html (configuración y personalización)
+├── .env (variables de entorno)
+├── .env.example (plantilla de variables)
+├── .gitignore (archivos a ignorar)
+├── css/
+│   ├── variables.css (colores, fuentes, espaciados)
+│   ├── layout.css (estructura y responsive)
+│   ├── chat.css (burbujas de chat, animaciones)
+│   └── personalities.css (temas para cada personalidad)
+└── js/
+    ├── config.js (configuración y constantes)
+    ├── huggingface-api.js (conexión con HF API)
+    ├── chat-engine.js (lógica principal del chat)
+    ├── personalities.js (sistema de personalidades)
+    ├── memory.js (almacenamiento y contexto)
+    └── utils.js (funciones auxiliares)
+
+PERSONALIDADES A IMPLEMENTAR:
+1. Alex (Profesional) - DialoGPT + tono formal
+2. Maya (Casual) - BlenderBot + tono amigable
+3. Dr. Code (Programador) - CodeGen + explicaciones técnicas
+4. Sage (Educador) - Flan-T5 + estilo pedagógico
+5. Poly (Traductor) - Modelos multiidioma
+
+FUNCIONALIDADES CORE:
+- Chat en tiempo real con respuestas de IA
+- Cambio dinámico de personalidades
+- Memoria de conversaciones (localStorage + Firebase)
+- Análisis de sentimientos automático
+- Modo oscuro/claro
+- Exportar conversaciones
+- Configuración de modelos
+- Indicadores de escritura y estado
+- Manejo de errores elegante
+
+CARACTERÍSTICAS TÉCNICAS:
+- Usar Hugging Face Inference API
+- Variables de entorno para API keys
+- Async/await para todas las operaciones
+- Responsive design (mobile-first)
+- Animaciones CSS suaves
+- PWA (Progressive Web App)
+- Offline fallbacks
+- Lazy loading de modelos
+
+DISEÑO UI/UX:
+- Interfaz moderna tipo WhatsApp/Discord
+- Burbujas de chat diferenciadas por personalidad
+- Sidebar con lista de personalidades
+- Área de configuración intuitiva
+- Indicadores visuales de estado
+- Transiciones fluidas
+- Accesibilidad completa
+
+INTEGRACIONES:
+- Hugging Face Inference API
+- Firebase para sincronización
+- localStorage para datos locales
+- Notification API para alertas
+- Speech API (opcional)
+
+SEGURIDAD:
+- Variables de entorno para credenciales
+- Validación de inputs
+- Sanitización de respuestas
+- Rate limiting básico
+- Manejo seguro de errores
+
+Genera código completo, funcional y bien comentado. Incluye ejemplos de uso y documentación inline para estudiantes.</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="setup-steps">
+                            <h3>🚀 Pasos de Configuración</h3>
+                            <div class="steps-timeline">
+                                <div class="setup-step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Crear Estructura</h4>
+                                        <p>Usa el prompt maestro para generar todos los archivos</p>
+                                        <div class="step-time">⏱️ 2 minutos</div>
+                                    </div>
+                                </div>
+                                <div class="setup-step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Configurar Variables</h4>
+                                        <p>Obtén tu API key de Hugging Face y configura .env</p>
+                                        <div class="step-time">⏱️ 5 minutos</div>
+                                    </div>
+                                </div>
+                                <div class="setup-step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Probar Conexión</h4>
+                                        <p>Verifica que la API funciona con un modelo simple</p>
+                                        <div class="step-time">⏱️ 3 minutos</div>
+                                    </div>
+                                </div>
+                                <div class="setup-step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Personalizar</h4>
+                                        <p>Ajusta personalidades y configuraciones</p>
+                                        <div class="step-time">⏱️ 10 minutos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Footer Component -->
+                    <div id="footer-container"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script>
+    <script src="components/components.js"></script>
+    <script>
+        // Inicializar componentes cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Guía de Chatbots IA', '🤖');
+        });
+
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block').querySelector('code');
+            const text = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = '✅ Copiado';
+                button.style.background = 'var(--success)';
+                
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                    button.style.background = 'var(--accent)';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
