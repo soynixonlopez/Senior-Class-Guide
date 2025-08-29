@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Engineering Mastery - IT CLASS SENIORS</title>
+    
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/prompt-engineering-guide.css" rel="stylesheet">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>✍️ Prompt Master</h2>
+                <p>Guía Experta</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Resumen</span>
+                </a></li>
+                <li><a href="#fundamentals" class="nav-link">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">Fundamentos</span>
+                </a></li>
+                <li><a href="#basic-techniques" class="nav-link">
+                    <span class="nav-icon">🔧</span>
+                    <span class="nav-text">Técnicas Básicas</span>
+                </a></li>
+                <li><a href="#advanced-techniques" class="nav-link">
+                    <span class="nav-icon">⚡</span>
+                    <span class="nav-text">Técnicas Avanzadas</span>
+                </a></li>
+                <li><a href="#model-specific" class="nav-link">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">Por Modelo</span>
+                </a></li>
+                <li><a href="#development" class="nav-link">
+                    <span class="nav-icon">💻</span>
+                    <span class="nav-text">Para Desarrollo</span>
+                </a></li>
+                <li><a href="#creative-writing" class="nav-link">
+                    <span class="nav-icon">✨</span>
+                    <span class="nav-text">Escritura Creativa</span>
+                </a></li>
+                <li><a href="#analysis" class="nav-link">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Análisis</span>
+                </a></li>
+                <li><a href="#troubleshooting" class="nav-link">
+                    <span class="nav-icon">🔍</span>
+                    <span class="nav-text">Solución Problemas</span>
+                </a></li>
+                <li><a href="#best-practices" class="nav-link">
+                    <span class="nav-icon">⭐</span>
+                    <span class="nav-text">Mejores Prácticas</span>
+                </a></li>
+                <li><a href="#templates" class="nav-link">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Plantillas</span>
+                </a></li>
+                <li><a href="#exercises" class="nav-link">
+                    <span class="nav-icon">🏋️</span>
+                    <span class="nav-text">Ejercicios</span>
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Component -->
+            <div id="header-container"></div>
+            
+            <div class="content">
+                <div class="content-wrapper">
+                
+                <!-- Overview Section -->
+                <section id="overview" class="section">
+                    <h1>✍️ Prompt Engineering Mastery</h1>
+                    <p class="lead">Domina el arte de comunicarte con modelos de IA para obtener resultados extraordinarios en cualquier tarea.</p>
+                    
+                    <div class="info-box">
+                        <h3>🎯 Lo que dominarás:</h3>
+                        <ul>
+                            <li>✅ Fundamentos sólidos de Prompt Engineering</li>
+                            <li>✅ Técnicas básicas y avanzadas probadas</li>
+                            <li>✅ Estrategias específicas para cada modelo de IA</li>
+                            <li>✅ Prompts especializados para desarrollo de software</li>
+                            <li>✅ Técnicas de escritura creativa y análisis</li>
+                            <li>✅ Solución de problemas y debugging</li>
+                            <li>✅ Plantillas reutilizables para cualquier proyecto</li>
+                            <li>✅ Ejercicios prácticos con casos reales</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>🚀 Importante:</strong> Esta guía está diseñada para llevarte de principiante a experto en Prompt Engineering. Cada técnica incluye ejemplos prácticos que puedes usar inmediatamente.
+                    </div>
+
+                    <div class="difficulty-badge difficulty-expert">Nivel Experto</div>
+                </section>
+
+                <!-- Fundamentals Section -->
+                <section id="fundamentals" class="section">
+                    <h2>🎯 Fundamentos del Prompt Engineering</h2>
+                    
+                    <div class="content-card">
+                        <h3>¿Qué es Prompt Engineering?</h3>
+                        <p>
+                            El Prompt Engineering es el arte y la ciencia de diseñar instrucciones precisas y efectivas 
+                            para modelos de lenguaje de IA, con el objetivo de obtener respuestas específicas, útiles y de alta calidad.
+                        </p>
+                        
+                        <div class="concept-box">
+                            <h4>🧠 Conceptos Clave:</h4>
+                            <div class="concepts-grid">
+                                <div class="concept-item">
+                                    <h5>📝 Prompt</h5>
+                                    <p>La entrada de texto que le das al modelo de IA</p>
+                                </div>
+                                <div class="concept-item">
+                                    <h5>🎯 Contexto</h5>
+                                    <p>Información de fondo que ayuda al modelo a entender</p>
+                                </div>
+                                <div class="concept-item">
+                                    <h5>🎭 Rol</h5>
+                                    <p>La personalidad o expertise que le asignas al modelo</p>
+                                </div>
+                                <div class="concept-item">
+                                    <h5>📋 Tarea</h5>
+                                    <p>La acción específica que quieres que realice</p>
+                                </div>
+                                <div class="concept-item">
+                                    <h5>📊 Formato</h5>
+                                    <p>Cómo quieres que estructure la respuesta</p>
+                                </div>
+                                <div class="concept-item">
+                                    <h5>🎨 Estilo</h5>
+                                    <p>El tono y manera de comunicarse que prefieres</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🏗️ Anatomía de un Prompt Perfecto</h3>
+                        <div class="prompt-anatomy">
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">1. Rol/Contexto</div>
+                                <div class="anatomy-content">Actúa como un [EXPERTO] con [X] años de experiencia en [CAMPO]</div>
+                            </div>
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">2. Tarea Principal</div>
+                                <div class="anatomy-content">Tu tarea es [ACCIÓN ESPECÍFICA] para [OBJETIVO]</div>
+                            </div>
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">3. Contexto/Información</div>
+                                <div class="anatomy-content">Aquí está la información relevante: [DATOS/CONTEXTO]</div>
+                            </div>
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">4. Formato de Salida</div>
+                                <div class="anatomy-content">Presenta la respuesta en formato [ESTRUCTURA DESEADA]</div>
+                            </div>
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">5. Estilo/Tono</div>
+                                <div class="anatomy-content">Usa un tono [PROFESIONAL/CASUAL/TÉCNICO] y [CARACTERÍSTICAS]</div>
+                            </div>
+                            <div class="anatomy-section">
+                                <div class="anatomy-label">6. Restricciones</div>
+                                <div class="anatomy-content">Limitaciones: [NO HAGAS X], [MÁXIMO Y PALABRAS], etc.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🎨 Ejemplo de Prompt Perfecto</h3>
+                        <div class="perfect-prompt-example">
+                            <div class="prompt-section">
+                                <span class="prompt-label">ROL:</span>
+                                <span class="prompt-text">Actúa como un desarrollador senior de React con 8 años de experiencia en aplicaciones web modernas.</span>
+                            </div>
+                            <div class="prompt-section">
+                                <span class="prompt-label">TAREA:</span>
+                                <span class="prompt-text">Crea un componente de React para un sistema de autenticación que maneje login y registro.</span>
+                            </div>
+                            <div class="prompt-section">
+                                <span class="prompt-label">CONTEXTO:</span>
+                                <span class="prompt-text">El proyecto usa TypeScript, Tailwind CSS, y Firebase Auth. Debe ser responsive y accesible.</span>
+                            </div>
+                            <div class="prompt-section">
+                                <span class="prompt-label">FORMATO:</span>
+                                <span class="prompt-text">Proporciona el código completo con comentarios explicativos y ejemplos de uso.</span>
+                            </div>
+                            <div class="prompt-section">
+                                <span class="prompt-label">ESTILO:</span>
+                                <span class="prompt-text">Usa mejores prácticas de React, código limpio y explica decisiones de diseño importantes.</span>
+                            </div>
+                            <div class="prompt-section">
+                                <span class="prompt-label">RESTRICCIONES:</span>
+                                <span class="prompt-text">No uses librerías externas además de las mencionadas. Máximo 200 líneas de código.</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Basic Techniques Section -->
+                <section id="basic-techniques" class="section">
+                    <h2>🔧 Técnicas Básicas Esenciales</h2>
+                    
+                    <div class="content-card">
+                        <h3>1. 🎯 Zero-Shot Prompting</h3>
+                        <p>Dar una instrucción directa sin ejemplos previos. Ideal para tareas simples y directas.</p>
+                        
+                        <div class="technique-examples">
+                            <div class="example-bad">
+                                <h4>❌ Prompt Malo:</h4>
+                                <div class="prompt-box bad">
+                                    Traduce esto al inglés: "Hola mundo"
+                                </div>
+                            </div>
+                            
+                            <div class="example-good">
+                                <h4>✅ Prompt Mejorado:</h4>
+                                <div class="prompt-box good">
+                                    Actúa como un traductor profesional especializado en traducciones técnicas. 
+                                    Traduce el siguiente texto del español al inglés manteniendo el contexto y tono original:
+                                    
+                                    Texto: "Hola mundo"
+                                    
+                                    Proporciona también una breve explicación de por qué elegiste esa traducción específica.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>2. 📚 Few-Shot Prompting</h3>
+                        <p>Proporcionar ejemplos para guiar el comportamiento del modelo. Muy efectivo para patrones específicos.</p>
+                        
+                        <div class="technique-examples">
+                            <div class="example-showcase">
+                                <h4>✨ Ejemplo Completo:</h4>
+                                <div class="prompt-box showcase">
+                                    Eres un experto en clasificación de sentimientos. Analiza el sentimiento de textos de reseñas de productos.
+
+                                    Ejemplos:
+                                    Texto: "Este producto es increíble, lo recomiendo totalmente"
+                                    Sentimiento: Positivo (Confianza: 95%)
+                                    Razón: Uso de palabras muy positivas como "increíble" y recomendación activa
+
+                                    Texto: "No me gustó para nada, muy mala calidad"
+                                    Sentimiento: Negativo (Confianza: 90%)
+                                    Razón: Expresiones negativas claras y crítica directa a la calidad
+
+                                    Texto: "Está bien, cumple su función básica"
+                                    Sentimiento: Neutral (Confianza: 85%)
+                                    Razón: Lenguaje neutral sin emociones fuertes
+
+                                    Ahora analiza este texto:
+                                    "El producto llegó rápido pero la calidad podría ser mejor"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>3. 🧠 Chain-of-Thought (CoT)</h3>
+                        <p>Pedir al modelo que muestre su proceso de razonamiento paso a paso. Mejora significativamente la precisión.</p>
+                        
+                        <div class="technique-examples">
+                            <div class="example-showcase">
+                                <h4>🔍 Ejemplo de Razonamiento:</h4>
+                                <div class="prompt-box showcase">
+                                    Eres un analista financiero experto. Resuelve este problema paso a paso, mostrando tu razonamiento:
+
+                                    Problema: Una empresa tiene ingresos de $500,000 anuales. Sus gastos fijos son $200,000 y los gastos variables representan el 40% de los ingresos. Si quieren aumentar su margen de ganancia al 25%, ¿cuánto necesitan reducir los gastos?
+
+                                    Instrucciones:
+                                    1. Identifica todos los datos dados
+                                    2. Calcula los gastos actuales totales
+                                    3. Determina la ganancia actual
+                                    4. Calcula la ganancia objetivo (25% de ingresos)
+                                    5. Determina la reducción de gastos necesaria
+                                    6. Proporciona recomendaciones específicas
+
+                                    Muestra cada paso de tu cálculo y explica tu razonamiento.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>4. 🎭 Role-Playing</h3>
+                        <p>Asignar un rol específico al modelo para obtener respuestas más especializadas y contextualizadas.</p>
+                        
+                        <div class="role-examples">
+                            <div class="role-card">
+                                <h4>👨‍💻 Para Desarrollo:</h4>
+                                <div class="prompt-box">
+                                    Actúa como un arquitecto de software senior con 10 años de experiencia en sistemas distribuidos. 
+                                    Tienes expertise en microservicios, Docker, Kubernetes y mejores prácticas de DevOps...
+                                </div>
+                            </div>
+                            
+                            <div class="role-card">
+                                <h4>🎨 Para Diseño:</h4>
+                                <div class="prompt-box">
+                                    Eres un diseñador UX/UI con especialización en psicología del usuario y accesibilidad web. 
+                                    Has trabajado con empresas Fortune 500 y tienes profundo conocimiento en principios de diseño...
+                                </div>
+                            </div>
+                            
+                            <div class="role-card">
+                                <h4>📊 Para Análisis:</h4>
+                                <div class="prompt-box">
+                                    Actúa como un científico de datos con PhD en estadística y 8 años de experiencia en machine learning. 
+                                    Eres experto en Python, R, y herramientas de visualización de datos...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Advanced Techniques Section -->
+                <section id="advanced-techniques" class="section">
+                    <h2>⚡ Técnicas Avanzadas de Alto Impacto</h2>
+                    
+                    <div class="content-card">
+                        <h3>1. 🎯 Prompt Chaining</h3>
+                        <p>Dividir tareas complejas en múltiples prompts conectados para obtener resultados más precisos.</p>
+                        
+                        <div class="chain-example">
+                            <div class="chain-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Análisis Inicial</h4>
+                                    <div class="prompt-box">
+                                        Analiza este código JavaScript y identifica todos los problemas potenciales de rendimiento, 
+                                        seguridad y mejores prácticas. Lista cada problema con su severidad (Alta/Media/Baja).
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chain-arrow">↓</div>
+                            
+                            <div class="chain-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Priorización</h4>
+                                    <div class="prompt-box">
+                                        Basándote en el análisis anterior, prioriza los problemas identificados considerando:
+                                        - Impacto en el usuario final
+                                        - Dificultad de implementación
+                                        - Riesgo de seguridad
+                                        Crea un plan de acción con timeline.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chain-arrow">↓</div>
+                            
+                            <div class="chain-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Solución Implementada</h4>
+                                    <div class="prompt-box">
+                                        Ahora proporciona el código refactorizado que soluciona los problemas de alta prioridad 
+                                        identificados. Incluye comentarios explicando cada mejora y su impacto.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>2. 🔄 Self-Consistency</h3>
+                        <p>Generar múltiples respuestas para la misma pregunta y elegir la más consistente.</p>
+                        
+                        <div class="consistency-example">
+                            <div class="prompt-box showcase">
+                                Resuelve este problema de tres maneras diferentes y luego determina cuál es la respuesta más precisa:
+
+                                Problema: ¿Cuál es la mejor arquitectura para una aplicación web que espera 1 millón de usuarios concurrentes?
+
+                                Enfoque 1: Analiza desde la perspectiva de escalabilidad
+                                Enfoque 2: Analiza desde la perspectiva de costos
+                                Enfoque 3: Analiza desde la perspectiva de mantenibilidad
+
+                                Después de los tres análisis, proporciona una recomendación consolidada que considere todos los factores.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>3. 🎪 Tree of Thoughts</h3>
+                        <p>Explorar múltiples líneas de razonamiento simultáneamente para problemas complejos.</p>
+                        
+                        <div class="tree-example">
+                            <div class="prompt-box showcase">
+                                Necesito diseñar una estrategia de marketing digital para un startup. Explora estas tres ramas de pensamiento simultáneamente:
+
+                                RAMA A - Enfoque en Redes Sociales:
+                                - ¿Qué plataformas serían más efectivas?
+                                - ¿Qué tipo de contenido resonaría mejor?
+                                - ¿Cuál sería el presupuesto óptimo?
+
+                                RAMA B - Enfoque en SEO/Content Marketing:
+                                - ¿Qué palabras clave atacar primero?
+                                - ¿Qué tipo de contenido crear?
+                                - ¿Cómo medir el éxito?
+
+                                RAMA C - Enfoque en Paid Advertising:
+                                - ¿Google Ads vs Facebook Ads vs LinkedIn?
+                                - ¿Cómo optimizar el ROI?
+                                - ¿Qué métricas son más importantes?
+
+                                Después de explorar cada rama, crea una estrategia híbrida que combine los mejores elementos de cada enfoque.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>4. 🔍 Generated Knowledge Prompting</h3>
+                        <p>Hacer que el modelo genere conocimiento relevante antes de responder la pregunta principal.</p>
+                        
+                        <div class="knowledge-example">
+                            <div class="prompt-box showcase">
+                                Antes de responder mi pregunta principal, genera conocimiento relevante sobre estos temas:
+
+                                1. Principios fundamentales de arquitectura de microservicios
+                                2. Patrones comunes de comunicación entre servicios
+                                3. Estrategias de manejo de errores en sistemas distribuidos
+                                4. Mejores prácticas de monitoreo y observabilidad
+
+                                Una vez que hayas establecido esta base de conocimiento, responde:
+                                ¿Cómo diseñarías un sistema de e-commerce que pueda manejar picos de tráfico del Black Friday manteniendo alta disponibilidad y consistencia de datos?
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Model Specific Section -->
+                <section id="model-specific" class="section">
+                    <h2>🤖 Estrategias Específicas por Modelo</h2>
+                    
+                    <div class="content-card">
+                        <h3>🔥 ChatGPT/GPT-4 - Estrategias Optimizadas</h3>
+                        
+                        <div class="model-strategies">
+                            <div class="strategy-item">
+                                <h4>💪 Fortalezas de GPT-4:</h4>
+                                <ul>
+                                    <li>Excelente para razonamiento complejo y análisis</li>
+                                    <li>Muy bueno con código y problemas técnicos</li>
+                                    <li>Maneja bien el contexto largo</li>
+                                    <li>Creatividad y escritura de alta calidad</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy-item">
+                                <h4>🎯 Técnicas Específicas:</h4>
+                                <div class="gpt-techniques">
+                                    <div class="technique-box">
+                                        <h5>🔢 Para Matemáticas/Lógica:</h5>
+                                        <div class="prompt-box">
+                                            Resuelve este problema paso a paso. Para cada paso, explica tu razonamiento y verifica tu trabajo antes de continuar. Si encuentras un error, corrígelo y continúa desde ahí.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="technique-box">
+                                        <h5>💻 Para Código:</h5>
+                                        <div class="prompt-box">
+                                            Actúa como un desarrollador senior. Escribe código limpio, bien documentado y siguiendo mejores prácticas. Explica decisiones de diseño importantes y proporciona ejemplos de uso.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🧠 Claude - Técnicas Especializadas</h3>
+                        
+                        <div class="model-strategies">
+                            <div class="strategy-item">
+                                <h4>💪 Fortalezas de Claude:</h4>
+                                <ul>
+                                    <li>Excelente para análisis detallado y escritura</li>
+                                    <li>Muy bueno siguiendo instrucciones complejas</li>
+                                    <li>Enfoque en seguridad y ética</li>
+                                    <li>Manejo superior de documentos largos</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy-item">
+                                <h4>🎯 Técnicas Específicas:</h4>
+                                <div class="claude-techniques">
+                                    <div class="technique-box">
+                                        <h5>📊 Para Análisis:</h5>
+                                        <div class="prompt-box">
+                                            Realiza un análisis exhaustivo considerando múltiples perspectivas. Estructura tu respuesta con secciones claras, evidencia de apoyo y conclusiones bien fundamentadas.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="technique-box">
+                                        <h5>✍️ Para Escritura:</h5>
+                                        <div class="prompt-box">
+                                            Escribe con un estilo [específico]. Mantén consistencia en tono, estructura y terminología. Proporciona múltiples opciones si es apropiado.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🔷 Gemini - Aprovechando Capacidades Multimodales</h3>
+                        
+                        <div class="model-strategies">
+                            <div class="strategy-item">
+                                <h4>💪 Fortalezas de Gemini:</h4>
+                                <ul>
+                                    <li>Capacidades multimodales nativas</li>
+                                    <li>Integración con servicios de Google</li>
+                                    <li>Muy bueno con datos y análisis</li>
+                                    <li>Manejo eficiente de información factual</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="strategy-item">
+                                <h4>🎯 Técnicas Específicas:</h4>
+                                <div class="gemini-techniques">
+                                    <div class="technique-box">
+                                        <h5>🖼️ Para Imágenes + Texto:</h5>
+                                        <div class="prompt-box">
+                                            Analiza esta imagen en detalle y proporciona [tipo de análisis específico]. Considera tanto elementos visuales como contexto textual si está presente.
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="technique-box">
+                                        <h5>📈 Para Datos:</h5>
+                                        <div class="prompt-box">
+                                            Analiza estos datos y proporciona insights accionables. Incluye visualizaciones conceptuales y recomendaciones específicas basadas en los patrones identificados.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Development Section -->
+                <section id="development" class="section">
+                    <h2>💻 Prompts Especializados para Desarrollo</h2>
+                    
+                    <div class="content-card">
+                        <h3>🏗️ Arquitectura y Diseño de Software</h3>
+                        
+                        <div class="dev-prompts">
+                            <div class="prompt-category">
+                                <h4>🎯 Diseño de Arquitectura</h4>
+                                <div class="prompt-box">
+                                    Actúa como un arquitecto de software senior con 15 años de experiencia en sistemas distribuidos de alta escala.
+
+                                    Diseña la arquitectura completa para: [DESCRIPCIÓN DEL SISTEMA]
+
+                                    Considera:
+                                    - Escalabilidad: debe manejar [X] usuarios concurrentes
+                                    - Disponibilidad: 99.9% uptime mínimo
+                                    - Seguridad: [REQUISITOS ESPECÍFICOS]
+                                    - Presupuesto: [LIMITACIONES]
+                                    - Timeline: [TIEMPO DISPONIBLE]
+
+                                    Proporciona:
+                                    1. Diagrama de arquitectura (descripción textual detallada)
+                                    2. Stack tecnológico recomendado con justificación
+                                    3. Patrones de diseño a implementar
+                                    4. Estrategias de escalabilidad
+                                    5. Plan de implementación por fases
+                                    6. Consideraciones de monitoreo y observabilidad
+                                    7. Análisis de riesgos y mitigaciones
+                                </div>
+                            </div>
+                            
+                            <div class="prompt-category">
+                                <h4>🔍 Code Review</h4>
+                                <div class="prompt-box">
+                                    Eres un desarrollador senior experto en [LENGUAJE/FRAMEWORK]. Realiza un code review exhaustivo del siguiente código:
+
+                                    [CÓDIGO A REVISAR]
+
+                                    Evalúa:
+                                    ✅ Funcionalidad y correctitud
+                                    ✅ Rendimiento y eficiencia
+                                    ✅ Seguridad y vulnerabilidades
+                                    ✅ Mantenibilidad y legibilidad
+                                    ✅ Adherencia a mejores prácticas
+                                    ✅ Testing y cobertura
+                                    ✅ Documentación
+
+                                    Para cada problema identificado:
+                                    - Severidad (Crítica/Alta/Media/Baja)
+                                    - Explicación del problema
+                                    - Solución específica con código
+                                    - Impacto si no se corrige
+                                </div>
+                            </div>
+                            
+                            <div class="prompt-category">
+                                <h4>🐛 Debugging</h4>
+                                <div class="prompt-box">
+                                    Actúa como un experto debugger con años de experiencia resolviendo problemas complejos.
+
+                                    Problema: [DESCRIPCIÓN DEL ERROR]
+                                    Código: [CÓDIGO PROBLEMÁTICO]
+                                    Error/Logs: [MENSAJES DE ERROR]
+                                    Contexto: [INFORMACIÓN ADICIONAL]
+
+                                    Proceso de debugging:
+                                    1. Analiza el error y identifica posibles causas raíz
+                                    2. Prioriza las causas más probables
+                                    3. Proporciona pasos específicos de debugging
+                                    4. Sugiere soluciones para cada causa identificada
+                                    5. Incluye estrategias de prevención
+                                    6. Recomienda herramientas de debugging apropiadas
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>⚡ Optimización y Performance</h3>
+                        
+                        <div class="performance-prompts">
+                            <div class="prompt-box showcase">
+                                Eres un especialista en optimización de rendimiento con expertise en [TECNOLOGÍA].
+
+                                Analiza y optimiza: [CÓDIGO/SISTEMA]
+
+                                Métricas actuales:
+                                - Tiempo de carga: [X]ms
+                                - Memoria utilizada: [X]MB
+                                - CPU usage: [X]%
+                                - Throughput: [X] req/s
+
+                                Objetivos:
+                                - Reducir tiempo de carga en 50%
+                                - Optimizar uso de memoria
+                                - Mejorar escalabilidad
+
+                                Proporciona:
+                                1. Análisis de bottlenecks actuales
+                                2. Código optimizado con explicaciones
+                                3. Benchmarks esperados
+                                4. Herramientas de profiling recomendadas
+                                5. Métricas de monitoreo a implementar
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🧪 Testing y Quality Assurance</h3>
+                        
+                        <div class="testing-prompts">
+                            <div class="prompt-box showcase">
+                                Actúa como un QA Engineer senior especializado en testing automatizado.
+
+                                Crea una estrategia completa de testing para: [DESCRIPCIÓN DEL PROYECTO]
+
+                                Incluye:
+                                1. **Unit Tests**: Casos de prueba específicos con código
+                                2. **Integration Tests**: Escenarios de integración críticos
+                                3. **E2E Tests**: Flujos de usuario principales
+                                4. **Performance Tests**: Casos de carga y estrés
+                                5. **Security Tests**: Vulnerabilidades a probar
+                                6. **Accessibility Tests**: Compliance WCAG
+
+                                Para cada tipo de test:
+                                - Framework/herramientas recomendadas
+                                - Código de ejemplo
+                                - Criterios de éxito/fallo
+                                - Estrategia de automatización
+                                - Integración con CI/CD
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Creative Writing Section -->
+                <section id="creative-writing" class="section">
+                    <h2>✨ Prompts para Escritura Creativa y Contenido</h2>
+                    
+                    <div class="content-card">
+                        <h3>📝 Creación de Contenido Técnico</h3>
+                        
+                        <div class="writing-prompts">
+                            <div class="prompt-category">
+                                <h4>📚 Documentación Técnica</h4>
+                                <div class="prompt-box">
+                                    Eres un technical writer experto con 10 años de experiencia creando documentación clara y accesible.
+
+                                    Crea documentación completa para: [PROYECTO/API/SISTEMA]
+
+                                    Audiencia: [DESARROLLADORES/USUARIOS FINALES/ADMINISTRADORES]
+                                    Nivel técnico: [PRINCIPIANTE/INTERMEDIO/AVANZADO]
+
+                                    Estructura requerida:
+                                    1. **Overview**: Qué es y por qué es útil
+                                    2. **Quick Start**: Tutorial de 5 minutos
+                                    3. **Installation**: Pasos detallados con troubleshooting
+                                    4. **Configuration**: Todas las opciones explicadas
+                                    5. **Examples**: Casos de uso reales con código
+                                    6. **API Reference**: Endpoints/métodos documentados
+                                    7. **Best Practices**: Recomendaciones y patrones
+                                    8. **Troubleshooting**: Problemas comunes y soluciones
+                                    9. **FAQ**: Preguntas frecuentes
+
+                                    Estilo: Claro, conciso, con ejemplos prácticos y navegable.
+                                </div>
+                            </div>
+                            
+                            <div class="prompt-category">
+                                <h4>📖 Tutoriales Educativos</h4>
+                                <div class="prompt-box">
+                                    Actúa como un instructor experto en [TECNOLOGÍA] con habilidades pedagógicas excepcionales.
+
+                                    Crea un tutorial completo sobre: [TEMA]
+                                    
+                                    Nivel: [PRINCIPIANTE/INTERMEDIO/AVANZADO]
+                                    Duración estimada: [X] horas
+                                    Objetivos de aprendizaje: [LISTA DE OBJETIVOS]
+
+                                    Estructura:
+                                    1. **Introducción**: Por qué es importante aprender esto
+                                    2. **Prerequisitos**: Conocimientos necesarios
+                                    3. **Conceptos Fundamentales**: Teoría esencial
+                                    4. **Ejercicio Práctico 1**: Implementación básica
+                                    5. **Conceptos Intermedios**: Profundización
+                                    6. **Ejercicio Práctico 2**: Caso más complejo
+                                    7. **Mejores Prácticas**: Consejos profesionales
+                                    8. **Proyecto Final**: Aplicación real
+                                    9. **Recursos Adicionales**: Para continuar aprendiendo
+
+                                    Incluye checkpoints de comprensión y ejercicios hands-on.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🎨 Marketing y Comunicación</h3>
+                        
+                        <div class="marketing-prompts">
+                            <div class="prompt-box showcase">
+                                Eres un copywriter senior especializado en tecnología con track record en campañas exitosas.
+
+                                Crea una campaña de marketing completa para: [PRODUCTO/SERVICIO]
+
+                                Target audience: [DESCRIPCIÓN DETALLADA]
+                                Objetivos: [AWARENESS/CONVERSIÓN/RETENCIÓN]
+                                Canales: [SOCIAL MEDIA/EMAIL/WEB/PAID ADS]
+                                Budget: [LIMITACIONES]
+                                Timeline: [DURACIÓN DE LA CAMPAÑA]
+
+                                Entregables:
+                                1. **Messaging Strategy**: Propuesta de valor única
+                                2. **Headlines**: 10 variaciones para A/B testing
+                                3. **Email Sequences**: Serie de 5 emails
+                                4. **Social Media Content**: 20 posts variados
+                                5. **Landing Page Copy**: Estructura completa
+                                6. **Ad Copy**: Para diferentes plataformas
+                                7. **Success Metrics**: KPIs a medir
+                                8. **Optimization Plan**: Cómo iterar basado en datos
+
+                                Tono: [PROFESIONAL/CASUAL/TÉCNICO] pero siempre persuasivo y orientado a resultados.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Analysis Section -->
+                <section id="analysis" class="section">
+                    <h2>📊 Prompts para Análisis y Investigación</h2>
+                    
+                    <div class="content-card">
+                        <h3>🔍 Análisis de Datos y Business Intelligence</h3>
+                        
+                        <div class="analysis-prompts">
+                            <div class="prompt-box showcase">
+                                Actúa como un Data Scientist senior con PhD en estadística y 8 años de experiencia en análisis empresarial.
+
+                                Analiza el siguiente dataset: [DESCRIPCIÓN/DATOS]
+
+                                Contexto del negocio: [INFORMACIÓN DE LA EMPRESA/INDUSTRIA]
+                                Objetivos del análisis: [PREGUNTAS ESPECÍFICAS A RESPONDER]
+                                Stakeholders: [QUIÉN USARÁ ESTE ANÁLISIS]
+
+                                Proceso de análisis:
+                                1. **Exploración inicial**: Estadísticas descriptivas y patrones obvios
+                                2. **Limpieza de datos**: Identificar y tratar anomalías
+                                3. **Análisis estadístico**: Tests de hipótesis relevantes
+                                4. **Visualizaciones**: Gráficos que cuenten la historia
+                                5. **Insights clave**: Hallazgos más importantes
+                                6. **Recomendaciones**: Acciones específicas basadas en datos
+                                7. **Limitaciones**: Sesgos y restricciones del análisis
+                                8. **Next steps**: Análisis adicionales recomendados
+
+                                Presenta todo en formato ejecutivo con resumen de una página.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🏢 Análisis Competitivo y de Mercado</h3>
+                        
+                        <div class="competitive-prompts">
+                            <div class="prompt-box showcase">
+                                Eres un estratega de negocios con MBA y 12 años de experiencia en análisis competitivo.
+
+                                Realiza un análisis competitivo completo para: [EMPRESA/PRODUCTO]
+                                
+                                Industria: [SECTOR ESPECÍFICO]
+                                Mercado objetivo: [DEFINICIÓN DEL MERCADO]
+                                Competidores a analizar: [LISTA DE COMPETIDORES]
+
+                                Framework de análisis:
+                                1. **Market Overview**: Tamaño, crecimiento, tendencias
+                                2. **Competitive Landscape**: Mapeo de jugadores principales
+                                3. **Competitor Profiles**: Análisis detallado de cada competidor
+                                   - Fortalezas y debilidades
+                                   - Estrategia de pricing
+                                   - Propuesta de valor
+                                   - Market share
+                                   - Canales de distribución
+                                4. **SWOT Analysis**: Para nuestra empresa vs competidores
+                                5. **Gap Analysis**: Oportunidades no cubiertas
+                                6. **Strategic Recommendations**: Acciones específicas
+                                7. **Monitoring Plan**: KPIs para seguimiento continuo
+
+                                Incluye matriz competitiva y positioning map.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Troubleshooting Section -->
+                <section id="troubleshooting" class="section">
+                    <h2>🔍 Solución de Problemas con Prompts</h2>
+                    
+                    <div class="content-card">
+                        <h3>❌ Problemas Comunes y Sus Soluciones</h3>
+                        
+                        <div class="troubleshooting-grid">
+                            <div class="problem-solution">
+                                <div class="problem">
+                                    <h4>🚫 Problema: Respuestas Vagas</h4>
+                                    <p>El modelo da respuestas genéricas y poco específicas.</p>
+                                </div>
+                                <div class="solution">
+                                    <h4>✅ Solución: Especificidad Extrema</h4>
+                                    <div class="prompt-box">
+                                        En lugar de: "Explícame React"
+                                        
+                                        Usa: "Explícame cómo implementar un hook personalizado en React que maneje estado asíncrono con loading, error y success states. Incluye TypeScript types y ejemplo de uso en un componente de lista de productos."
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-solution">
+                                <div class="problem">
+                                    <h4>🚫 Problema: Código que no Funciona</h4>
+                                    <p>El código generado tiene errores o no compila.</p>
+                                </div>
+                                <div class="solution">
+                                    <h4>✅ Solución: Contexto Técnico Completo</h4>
+                                    <div class="prompt-box">
+                                        Proporciona:
+                                        - Versiones específicas de librerías/frameworks
+                                        - Estructura del proyecto existente
+                                        - Constraints y limitaciones
+                                        - Casos de uso específicos
+                                        - Formato de datos esperado
+                                        
+                                        Ejemplo: "Usando React 18.2, TypeScript 4.9, y Tailwind CSS 3.2, crea un componente..."
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-solution">
+                                <div class="problem">
+                                    <h4>🚫 Problema: Respuestas Inconsistentes</h4>
+                                    <p>El modelo da respuestas diferentes para la misma pregunta.</p>
+                                </div>
+                                <div class="solution">
+                                    <h4>✅ Solución: Prompts Determinísticos</h4>
+                                    <div class="prompt-box">
+                                        Usa estructura fija:
+                                        1. Rol específico y consistente
+                                        2. Contexto detallado idéntico
+                                        3. Formato de salida estructurado
+                                        4. Criterios de evaluación claros
+                                        5. Ejemplos de referencia
+                                        
+                                        Considera usar temperatura baja (0.1-0.3) para mayor consistencia.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="problem-solution">
+                                <div class="problem">
+                                    <h4>🚫 Problema: Información Desactualizada</h4>
+                                    <p>El modelo usa información obsoleta o incorrecta.</p>
+                                </div>
+                                <div class="solution">
+                                    <h4>✅ Solución: Contexto Actualizado</h4>
+                                    <div class="prompt-box">
+                                        Estrategias:
+                                        - Proporciona información actualizada en el prompt
+                                        - Especifica fechas: "Considerando las mejores prácticas de 2024..."
+                                        - Usa web search cuando esté disponible
+                                        - Verifica información crítica independientemente
+                                        - Menciona versiones específicas de tecnologías
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🔧 Debugging de Prompts</h3>
+                        
+                        <div class="debug-process">
+                            <div class="debug-step">
+                                <h4>1. 🎯 Identifica el Problema Específico</h4>
+                                <ul>
+                                    <li>¿La respuesta es incorrecta factualmente?</li>
+                                    <li>¿No sigue el formato solicitado?</li>
+                                    <li>¿Es demasiado genérica o específica?</li>
+                                    <li>¿No entiende el contexto?</li>
+                                    <li>¿Ignora parte de las instrucciones?</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="debug-step">
+                                <h4>2. 🔍 Analiza el Prompt Actual</h4>
+                                <div class="prompt-analysis">
+                                    <div class="analysis-item">
+                                        <strong>Claridad:</strong> ¿Es ambiguo algún término?
+                                    </div>
+                                    <div class="analysis-item">
+                                        <strong>Completitud:</strong> ¿Falta contexto importante?
+                                    </div>
+                                    <div class="analysis-item">
+                                        <strong>Estructura:</strong> ¿Está bien organizado?
+                                    </div>
+                                    <div class="analysis-item">
+                                        <strong>Longitud:</strong> ¿Es muy largo o muy corto?
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="debug-step">
+                                <h4>3. 🛠️ Aplica Correcciones Iterativas</h4>
+                                <div class="prompt-box">
+                                    Proceso de refinamiento:
+                                    
+                                    Versión 1: Prompt básico
+                                    → Problema identificado: Respuesta muy genérica
+                                    
+                                    Versión 2: Agregar contexto específico
+                                    → Problema identificado: No sigue formato
+                                    
+                                    Versión 3: Especificar formato de salida
+                                    → Problema identificado: Falta profundidad técnica
+                                    
+                                    Versión 4: Agregar rol de experto y ejemplos
+                                    → ✅ Resultado satisfactorio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Best Practices Section -->
+                <section id="best-practices" class="section">
+                    <h2>⭐ Mejores Prácticas y Principios Universales</h2>
+                    
+                    <div class="content-card">
+                        <h3>🎯 Los 10 Principios del Prompt Engineering Efectivo</h3>
+                        
+                        <div class="principles-grid">
+                            <div class="principle-card">
+                                <div class="principle-number">1</div>
+                                <h4>🎭 Asigna un Rol Específico</h4>
+                                <p>Siempre define quién es el modelo: "Actúa como un [EXPERTO] con [X] años de experiencia en [CAMPO]"</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">2</div>
+                                <h4>🎯 Define la Tarea Claramente</h4>
+                                <p>Especifica exactamente qué quieres: acción, objetivo, y resultado esperado.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">3</div>
+                                <h4>📚 Proporciona Contexto Relevante</h4>
+                                <p>Incluye toda la información necesaria para entender la situación completa.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">4</div>
+                                <h4>📊 Especifica el Formato</h4>
+                                <p>Define cómo quieres la respuesta: lista, tabla, código, párrafos, etc.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">5</div>
+                                <h4>🎨 Define el Estilo y Tono</h4>
+                                <p>Especifica si quieres formal, casual, técnico, creativo, etc.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">6</div>
+                                <h4>🚫 Establece Limitaciones</h4>
+                                <p>Define qué NO hacer, límites de longitud, restricciones técnicas.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">7</div>
+                                <h4>💡 Usa Ejemplos Cuando Sea Útil</h4>
+                                <p>Proporciona ejemplos de entrada y salida para guiar el comportamiento.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">8</div>
+                                <h4>🔄 Itera y Refina</h4>
+                                <p>Mejora el prompt basándote en los resultados obtenidos.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">9</div>
+                                <h4>✅ Verifica y Valida</h4>
+                                <p>Siempre verifica la información crítica independientemente.</p>
+                            </div>
+                            
+                            <div class="principle-card">
+                                <div class="principle-number">10</div>
+                                <h4>📝 Documenta Prompts Exitosos</h4>
+                                <p>Guarda y reutiliza prompts que funcionen bien para tareas similares.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🚀 Checklist Pre-Prompt</h3>
+                        
+                        <div class="checklist-container">
+                            <div class="checklist-section">
+                                <h4>📋 Antes de Enviar tu Prompt:</h4>
+                                <div class="checklist-items">
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="role">
+                                        <label for="role">¿He definido un rol específico y relevante?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="task">
+                                        <label for="task">¿La tarea está claramente especificada?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="context">
+                                        <label for="context">¿He proporcionado todo el contexto necesario?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="format">
+                                        <label for="format">¿He especificado el formato de salida deseado?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="style">
+                                        <label for="style">¿He definido el estilo y tono apropiados?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="constraints">
+                                        <label for="constraints">¿He establecido limitaciones claras?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="examples">
+                                        <label for="examples">¿Necesito ejemplos para clarificar mi solicitud?</label>
+                                    </div>
+                                    <div class="checklist-item">
+                                        <input type="checkbox" id="ambiguity">
+                                        <label for="ambiguity">¿He eliminado toda ambigüedad posible?</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Templates Section -->
+                <section id="templates" class="section">
+                    <h2>📝 Plantillas de Prompts Profesionales</h2>
+                    
+                    <div class="content-card">
+                        <h3>🏗️ Template Universal de Alto Rendimiento</h3>
+                        
+                        <div class="template-showcase">
+                            <div class="template-structure">
+                                <div class="template-section">
+                                    <div class="section-label">ROL & EXPERTISE</div>
+                                    <div class="template-content">
+                                        Actúa como un [TÍTULO PROFESIONAL] con [X] años de experiencia en [CAMPO ESPECÍFICO]. 
+                                        Tienes expertise particular en [ESPECIALIZACIÓN] y has trabajado con [CONTEXTO RELEVANTE].
+                                    </div>
+                                </div>
+                                
+                                <div class="template-section">
+                                    <div class="section-label">CONTEXTO & SITUACIÓN</div>
+                                    <div class="template-content">
+                                        Contexto: [INFORMACIÓN DE FONDO RELEVANTE]
+                                        Situación actual: [ESTADO PRESENTE]
+                                        Stakeholders: [QUIÉN ESTÁ INVOLUCRADO]
+                                        Constraints: [LIMITACIONES TÉCNICAS/PRESUPUESTARIAS/TEMPORALES]
+                                    </div>
+                                </div>
+                                
+                                <div class="template-section">
+                                    <div class="section-label">TAREA PRINCIPAL</div>
+                                    <div class="template-content">
+                                        Tu tarea es [ACCIÓN ESPECÍFICA] para [OBJETIVO CLARO].
+                                        
+                                        Criterios de éxito:
+                                        - [CRITERIO 1]
+                                        - [CRITERIO 2]
+                                        - [CRITERIO 3]
+                                    </div>
+                                </div>
+                                
+                                <div class="template-section">
+                                    <div class="section-label">FORMATO & ESTRUCTURA</div>
+                                    <div class="template-content">
+                                        Estructura tu respuesta de la siguiente manera:
+                                        1. [SECCIÓN 1]: [DESCRIPCIÓN]
+                                        2. [SECCIÓN 2]: [DESCRIPCIÓN]
+                                        3. [SECCIÓN 3]: [DESCRIPCIÓN]
+                                        
+                                        Formato: [LISTA/TABLA/CÓDIGO/PÁRRAFOS/ETC.]
+                                        Longitud: [ESPECIFICACIÓN DE LONGITUD]
+                                    </div>
+                                </div>
+                                
+                                <div class="template-section">
+                                    <div class="section-label">ESTILO & TONO</div>
+                                    <div class="template-content">
+                                        Estilo: [PROFESIONAL/TÉCNICO/CASUAL/ACADÉMICO]
+                                        Tono: [FORMAL/CONVERSACIONAL/AUTORITATIVO]
+                                        Audiencia: [DESCRIPCIÓN DE LA AUDIENCIA OBJETIVO]
+                                        Nivel técnico: [PRINCIPIANTE/INTERMEDIO/AVANZADO]
+                                    </div>
+                                </div>
+                                
+                                <div class="template-section">
+                                    <div class="section-label">RESTRICCIONES & GUIDELINES</div>
+                                    <div class="template-content">
+                                        NO hagas:
+                                        - [RESTRICCIÓN 1]
+                                        - [RESTRICCIÓN 2]
+                                        
+                                        SÍ incluye:
+                                        - [REQUERIMIENTO 1]
+                                        - [REQUERIMIENTO 2]
+                                        
+                                        Consideraciones especiales: [NOTAS ADICIONALES]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>📚 Biblioteca de Templates Específicos</h3>
+                        
+                        <div class="templates-library">
+                            <div class="template-item">
+                                <h4>💻 Template para Desarrollo de Software</h4>
+                                <div class="prompt-box">
+                                    Actúa como un [SENIOR DEVELOPER/ARCHITECT] especializado en [TECNOLOGÍA].
+
+                                    Proyecto: [DESCRIPCIÓN DEL PROYECTO]
+                                    Stack técnico: [TECNOLOGÍAS ESPECÍFICAS]
+                                    Requisitos: [FUNCIONALIDADES NECESARIAS]
+                                    Constraints: [LIMITACIONES TÉCNICAS]
+
+                                    Tarea: [DESARROLLAR/REVISAR/OPTIMIZAR/DEBUGGEAR] [COMPONENTE ESPECÍFICO]
+
+                                    Entrega:
+                                    1. Código completo con comentarios
+                                    2. Explicación de decisiones técnicas
+                                    3. Tests unitarios (si aplica)
+                                    4. Documentación de API (si aplica)
+                                    5. Consideraciones de performance y seguridad
+
+                                    Estilo: Código limpio siguiendo [CONVENCIONES ESPECÍFICAS]
+                                </div>
+                            </div>
+                            
+                            <div class="template-item">
+                                <h4>📊 Template para Análisis de Datos</h4>
+                                <div class="prompt-box">
+                                    Actúa como un Data Scientist con expertise en [DOMINIO ESPECÍFICO].
+
+                                    Dataset: [DESCRIPCIÓN DE LOS DATOS]
+                                    Objetivo del análisis: [PREGUNTA DE NEGOCIO]
+                                    Stakeholders: [AUDIENCIA OBJETIVO]
+                                    Métricas clave: [KPIs RELEVANTES]
+
+                                    Proceso requerido:
+                                    1. Exploración y limpieza de datos
+                                    2. Análisis estadístico descriptivo
+                                    3. Identificación de patrones y anomalías
+                                    4. Visualizaciones relevantes
+                                    5. Insights accionables
+                                    6. Recomendaciones específicas
+
+                                    Formato: Reporte ejecutivo con resumen de una página
+                                    Incluye: Metodología, limitaciones y next steps
+                                </div>
+                            </div>
+                            
+                            <div class="template-item">
+                                <h4>✍️ Template para Contenido y Marketing</h4>
+                                <div class="prompt-box">
+                                    Actúa como un [COPYWRITER/CONTENT STRATEGIST] con experiencia en [INDUSTRIA].
+
+                                    Producto/Servicio: [DESCRIPCIÓN]
+                                    Target audience: [DEMOGRAFÍA Y PSICOGRAFÍA]
+                                    Objetivo: [AWARENESS/CONVERSIÓN/RETENCIÓN]
+                                    Canal: [PLATAFORMA ESPECÍFICA]
+                                    Competencia: [PRINCIPALES COMPETIDORES]
+
+                                    Crear:
+                                    1. Hook principal (headline)
+                                    2. Propuesta de valor única
+                                    3. Beneficios clave (orientados al cliente)
+                                    4. Call-to-action específico
+                                    5. Variaciones para A/B testing
+
+                                    Tono: [PROFESIONAL/CASUAL/TÉCNICO/INSPIRACIONAL]
+                                    Longitud: [ESPECIFICACIÓN DE PALABRAS/CARACTERES]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Exercises Section -->
+                <section id="exercises" class="section">
+                    <h2>🏋️ Ejercicios Prácticos de Prompt Engineering</h2>
+                    
+                    <div class="content-card">
+                        <h3>🎯 Ejercicios Progresivos</h3>
+                        
+                        <div class="exercises-container">
+                            <div class="exercise-level">
+                                <h4>🟢 Nivel Principiante</h4>
+                                
+                                <div class="exercise-item">
+                                    <h5>Ejercicio 1: Mejorando Prompts Básicos</h5>
+                                    <div class="exercise-content">
+                                        <div class="exercise-bad">
+                                            <strong>Prompt Original (Malo):</strong>
+                                            <div class="prompt-box bad">Explícame JavaScript</div>
+                                        </div>
+                                        
+                                        <div class="exercise-task">
+                                            <strong>Tu Tarea:</strong>
+                                            <p>Reescribe este prompt para obtener una explicación específica sobre closures en JavaScript dirigida a desarrolladores con 6 meses de experiencia.</p>
+                                        </div>
+                                        
+                                        <div class="exercise-solution">
+                                            <strong>Solución Sugerida:</strong>
+                                            <div class="prompt-box good">
+                                                Actúa como un instructor de JavaScript con 5 años de experiencia enseñando a desarrolladores junior.
+
+                                                Explica el concepto de closures en JavaScript para un desarrollador con 6 meses de experiencia que ya conoce funciones básicas y scope.
+
+                                                Incluye:
+                                                1. Definición clara y simple
+                                                2. Por qué son útiles los closures
+                                                3. 3 ejemplos prácticos con código comentado
+                                                4. Un caso de uso real en desarrollo web
+                                                5. Errores comunes a evitar
+
+                                                Usa un tono didáctico pero no condescendiente.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="exercise-level">
+                                <h4>🟡 Nivel Intermedio</h4>
+                                
+                                <div class="exercise-item">
+                                    <h5>Ejercicio 2: Prompt Chaining para Desarrollo</h5>
+                                    <div class="exercise-content">
+                                        <div class="exercise-task">
+                                            <strong>Escenario:</strong>
+                                            <p>Necesitas crear un sistema de autenticación completo para una aplicación React. Diseña una secuencia de 4 prompts encadenados que cubran: 1) Arquitectura, 2) Backend API, 3) Frontend Components, 4) Testing Strategy.</p>
+                                        </div>
+                                        
+                                        <div class="exercise-solution">
+                                            <strong>Solución Sugerida:</strong>
+                                            <div class="chain-solution">
+                                                <div class="chain-prompt">
+                                                    <strong>Prompt 1 - Arquitectura:</strong>
+                                                    <div class="prompt-box">
+                                                        Actúa como un arquitecto de software senior. Diseña la arquitectura completa de un sistema de autenticación para una aplicación React con Node.js backend. Incluye diagrama de componentes, flujo de datos, y decisiones de seguridad. Enfócate en JWT, refresh tokens, y protección de rutas.
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="chain-prompt">
+                                                    <strong>Prompt 2 - Backend API:</strong>
+                                                    <div class="prompt-box">
+                                                        Basándote en la arquitectura anterior, crea la implementación completa del backend API usando Node.js y Express. Incluye endpoints de registro, login, refresh token, logout, y middleware de autenticación. Usa bcrypt para passwords y jsonwebtoken para JWT.
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="chain-prompt">
+                                                    <strong>Prompt 3 - Frontend Components:</strong>
+                                                    <div class="prompt-box">
+                                                        Ahora crea los componentes React que consuman la API anterior. Incluye formularios de login/registro, context para manejo de estado de autenticación, protected routes, y manejo de errores. Usa TypeScript y React Hooks.
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="chain-prompt">
+                                                    <strong>Prompt 4 - Testing Strategy:</strong>
+                                                    <div class="prompt-box">
+                                                        Finalmente, crea una estrategia completa de testing para el sistema anterior. Incluye unit tests para el backend, component tests para React, integration tests para la API, y E2E tests para flujos completos. Usa Jest, React Testing Library, y Cypress.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="exercise-level">
+                                <h4>🔴 Nivel Avanzado</h4>
+                                
+                                <div class="exercise-item">
+                                    <h5>Ejercicio 3: Prompt Complejo Multi-Dominio</h5>
+                                    <div class="exercise-content">
+                                        <div class="exercise-task">
+                                            <strong>Desafío:</strong>
+                                            <p>Crea un prompt que genere una estrategia completa de transformación digital para una empresa tradicional que quiere adoptar e-commerce. Debe cubrir aspectos técnicos, de negocio, marketing, y change management.</p>
+                                        </div>
+                                        
+                                        <div class="exercise-solution">
+                                            <strong>Solución Avanzada:</strong>
+                                            <div class="prompt-box showcase">
+                                                Actúa como un consultor senior de transformación digital con 15 años de experiencia ayudando a empresas tradicionales a adoptar tecnologías digitales.
+
+                                                Cliente: Empresa manufacturera de 50 años con $10M en ventas anuales, 100 empleados, que vende principalmente a través de distribuidores pero quiere lanzar e-commerce directo al consumidor.
+
+                                                Situación actual:
+                                                - Sin presencia digital significativa
+                                                - ERP legacy (sistema de 10 años)
+                                                - Equipo IT de 2 personas
+                                                - Resistencia al cambio en management
+                                                - Presupuesto: $500K primer año
+                                                - Timeline: 18 meses para lanzamiento
+
+                                                Crea una estrategia de transformación digital completa que incluya:
+
+                                                **ANÁLISIS INICIAL:**
+                                                1. Assessment de capacidades actuales
+                                                2. Gap analysis vs competencia digital
+                                                3. Identificación de quick wins
+                                                4. Risk assessment y mitigaciones
+
+                                                **ESTRATEGIA TÉCNICA:**
+                                                1. Arquitectura de e-commerce recomendada
+                                                2. Integración con sistemas existentes
+                                                3. Stack tecnológico y vendors
+                                                4. Plan de migración de datos
+                                                5. Estrategia de hosting y escalabilidad
+
+                                                **ESTRATEGIA DE NEGOCIO:**
+                                                1. Modelo de pricing para canal directo
+                                                2. Estrategia de channel conflict
+                                                3. Nuevos procesos operacionales
+                                                4. KPIs y métricas de éxito
+                                                5. Plan financiero y ROI esperado
+
+                                                **MARKETING DIGITAL:**
+                                                1. Estrategia de brand positioning online
+                                                2. Plan de content marketing
+                                                3. SEO/SEM strategy
+                                                4. Social media approach
+                                                5. Email marketing automation
+
+                                                **CHANGE MANAGEMENT:**
+                                                1. Stakeholder engagement plan
+                                                2. Training y upskilling roadmap
+                                                3. Communication strategy
+                                                4. Resistance management
+                                                5. Success celebration milestones
+
+                                                **IMPLEMENTACIÓN:**
+                                                1. Roadmap detallado de 18 meses
+                                                2. Resource allocation plan
+                                                3. Vendor selection criteria
+                                                4. Go-live strategy
+                                                5. Post-launch optimization plan
+
+                                                Presenta todo en formato de propuesta ejecutiva con:
+                                                - Executive summary (1 página)
+                                                - Detailed plan (secciones específicas)
+                                                - Budget breakdown
+                                                - Timeline visual
+                                                - Success metrics dashboard
+                                                - Risk mitigation matrix
+
+                                                Usa un tono profesional pero accesible para audiencia no técnica.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🎮 Desafíos Diarios</h3>
+                        
+                        <div class="daily-challenges">
+                            <div class="challenge-item">
+                                <h4>🌟 Lunes: Desafío de Precisión</h4>
+                                <p>Crea un prompt que genere exactamente 5 ideas de features para una app móvil, cada una con exactamente 50 palabras, dirigidas a millennials urbanos.</p>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h4>🔧 Martes: Desafío Técnico</h4>
+                                <p>Diseña un prompt que genere un plan de refactoring para código legacy, incluyendo estimaciones de tiempo y análisis de riesgo.</p>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h4>🎨 Miércoles: Desafío Creativo</h4>
+                                <p>Crea un prompt que genere una campaña de marketing viral para un producto tech B2B, con 3 variaciones para diferentes audiencias.</p>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h4>📊 Jueves: Desafío Analítico</h4>
+                                <p>Diseña un prompt que analice métricas de una startup y proporcione recomendaciones específicas para mejorar cada KPI.</p>
+                            </div>
+                            
+                            <div class="challenge-item">
+                                <h4>🚀 Viernes: Desafío Integral</h4>
+                                <p>Crea un prompt que combine múltiples técnicas avanzadas para resolver un problema de negocio complejo en menos de 1000 palabras.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                </div>
+            </div>
+            
+            <!-- Footer Component -->
+            <div id="footer-container"></div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/components.js"></script>
+    <script>
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight activo en navegación
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Copy code functionality
+        document.querySelectorAll('.prompt-box').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '📋 Copiar';
+            button.addEventListener('click', () => {
+                navigator.clipboard.writeText(block.textContent);
+                button.textContent = '✅ Copiado!';
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                }, 2000);
+            });
+            block.parentNode.insertBefore(button, block);
+        });
+
+        // Interactive checklist
+        document.querySelectorAll('.checklist-item input').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const label = this.nextElementSibling;
+                if (this.checked) {
+                    label.style.textDecoration = 'line-through';
+                    label.style.opacity = '0.7';
+                } else {
+                    label.style.textDecoration = 'none';
+                    label.style.opacity = '1';
+                }
+            });
+        });
+
+        // Inicializar componentes
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Prompt Engineering Mastery', '✍️');
+        });
+    </script>
+</body>
+</html>

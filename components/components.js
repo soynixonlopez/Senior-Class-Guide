@@ -39,6 +39,8 @@ function createFooter() {
                     <a href="imgbb-guide.html" class="footer-link">🖼️ IMGBB</a>
                     <a href="database-guide.html" class="footer-link">🗄️ Database</a>
                     <a href="chatbot-guide.html" class="footer-link">🤖 Chatbot</a>
+                    <a href="ai-guide.html" class="footer-link">🧠 IA Completa</a>
+                    <a href="prompt-engineering-guide.html" class="footer-link">✍️ Prompt Master</a>
                 </div>
             </div>
         </footer>

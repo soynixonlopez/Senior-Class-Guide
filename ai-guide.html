@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de Inteligencia Artificial - IT CLASS SENIORS</title>
+    
+    <!-- CSS Base -->
+    <link href="css/variables.css" rel="stylesheet">
+    <link href="css/typography.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    
+    <!-- CSS Componentes -->
+    <link href="components/header.css" rel="stylesheet">
+    <link href="components/footer.css" rel="stylesheet">
+    
+    <!-- CSS Específico -->
+    <link href="css/ai-guide.css" rel="stylesheet">
+</head>
+<body>
+    <div class="layout">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>🤖 IA Completa</h2>
+                <p>Guía Avanzada</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#overview" class="nav-link active">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-text">Resumen</span>
+                </a></li>
+                <li><a href="#quick-access" class="nav-link">
+                    <span class="nav-icon">🚀</span>
+                    <span class="nav-text">Herramientas IA</span>
+                </a></li>
+                <li><a href="#fundamentos" class="nav-link">
+                    <span class="nav-icon">🧠</span>
+                    <span class="nav-text">Fundamentos IA</span>
+                </a></li>
+                <li><a href="#llms" class="nav-link">
+                    <span class="nav-icon">🔤</span>
+                    <span class="nav-text">LLMs</span>
+                </a></li>
+                <li><a href="#prompt-engineering" class="nav-link">
+                    <span class="nav-icon">✍️</span>
+                    <span class="nav-text">Prompt Engineering</span>
+                </a></li>
+                <li><a href="#agentes-ia" class="nav-link">
+                    <span class="nav-icon">🤖</span>
+                    <span class="nav-text">Agentes IA</span>
+                </a></li>
+                <li><a href="#cursor-ai" class="nav-link">
+                    <span class="nav-icon">💻</span>
+                    <span class="nav-text">Cursor AI</span>
+                </a></li>
+                <li><a href="#claude" class="nav-link">
+                    <span class="nav-icon">🧠</span>
+                    <span class="nav-text">Claude AI</span>
+                </a></li>
+                <li><a href="#firebase-ia" class="nav-link">
+                    <span class="nav-icon">🔥</span>
+                    <span class="nav-text">Firebase + IA</span>
+                </a></li>
+                <li><a href="#rag" class="nav-link">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-text">RAG Systems</span>
+                </a></li>
+                <li><a href="#vlms" class="nav-link">
+                    <span class="nav-icon">👁️</span>
+                    <span class="nav-text">Vision Models</span>
+                </a></li>
+                <li><a href="#lora" class="nav-link">
+                    <span class="nav-icon">🔧</span>
+                    <span class="nav-text">LoRA & Fine-tuning</span>
+                </a></li>
+                <li><a href="#proyectos" class="nav-link">
+                    <span class="nav-icon">🚀</span>
+                    <span class="nav-text">Proyectos</span>
+                </a></li>
+                <li><a href="#expo-tech" class="nav-link">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">Expo Tech</span>
+                </a></li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header Component -->
+            <div id="header-container"></div>
+            
+            <div class="content">
+                <div class="content-wrapper">
+                
+                <!-- Overview Section -->
+                <section id="overview" class="section">
+                    <h1>🤖 Inteligencia Artificial para Desarrollo Web</h1>
+                    <p class="lead">Guía completa sobre IA, LLMs, Prompt Engineering y aplicaciones prácticas para estudiantes de desarrollo web.</p>
+                    
+                    <div class="info-box">
+                        <h3>¿Qué aprenderás?</h3>
+                        <ul>
+                            <li>✅ Fundamentos de Inteligencia Artificial</li>
+                            <li>✅ Large Language Models (LLMs) y su funcionamiento</li>
+                            <li>✅ Técnicas avanzadas de Prompt Engineering</li>
+                            <li>✅ Uso práctico de Cursor AI y Claude para desarrollo</li>
+                            <li>✅ Integración de IA con Firebase y servicios web</li>
+                            <li>✅ Sistemas RAG y Vision Language Models</li>
+                            <li>✅ Fine-tuning con LoRA para proyectos específicos</li>
+                            <li>✅ Proyectos prácticos para Expo Tech</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Importante:</strong> Esta guía está diseñada para estudiantes avanzados que quieren implementar IA en sus proyectos web. Incluye ejemplos prácticos y código que puedes usar directamente.
+                    </div>
+
+                    <div class="difficulty-badge difficulty-advanced">Nivel Avanzado</div>
+                </section>
+
+                <!-- Quick Access Section -->
+                <section id="quick-access" class="section">
+                    <h2>🚀 Acceso Rápido a Herramientas de IA</h2>
+                    
+                    <div class="content-card">
+                        <h3>🛠️ Herramientas Principales</h3>
+                        <p>Accede directamente a las mejores herramientas de IA para desarrollo y aprendizaje:</p>
+                        
+                        <div class="ai-tools-grid">
+                            <div class="tool-button-card">
+                                <div class="tool-icon">🤖</div>
+                                <h4>ChatGPT</h4>
+                                <p>Modelo de OpenAI para conversación y código</p>
+                                <a href="https://chat.openai.com" target="_blank" class="tool-button">Acceder a ChatGPT</a>
+                            </div>
+                            
+                            <div class="tool-button-card">
+                                <div class="tool-icon">🧠</div>
+                                <h4>Claude</h4>
+                                <p>IA de Anthropic, excelente para análisis</p>
+                                <a href="https://claude.ai" target="_blank" class="tool-button">Acceder a Claude</a>
+                            </div>
+                            
+                            <div class="tool-button-card">
+                                <div class="tool-icon">💻</div>
+                                <h4>Cursor</h4>
+                                <p>Editor de código con IA integrada</p>
+                                <a href="https://cursor.sh" target="_blank" class="tool-button">Descargar Cursor</a>
+                            </div>
+                            
+                            <div class="tool-button-card">
+                                <div class="tool-icon">🔷</div>
+                                <h4>Gemini</h4>
+                                <p>IA multimodal de Google</p>
+                                <a href="https://gemini.google.com" target="_blank" class="tool-button">Usar Gemini</a>
+                            </div>
+                            
+                            <div class="tool-button-card">
+                                <div class="tool-icon">🤗</div>
+                                <h4>Hugging Face</h4>
+                                <p>Plataforma de modelos de IA</p>
+                                <a href="https://huggingface.co" target="_blank" class="tool-button">Explorar Modelos</a>
+                            </div>
+                            
+                            <div class="tool-button-card">
+                                <div class="tool-icon">🔥</div>
+                                <h4>Perplexity</h4>
+                                <p>Buscador potenciado por IA</p>
+                                <a href="https://perplexity.ai" target="_blank" class="tool-button">Usar Perplexity</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🆕 Nuevos Modelos 2024</h3>
+                        <p>Descubre los modelos más recientes y prometedores:</p>
+                        
+                        <div class="new-models-grid">
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">🇨🇳</span>
+                                    <h4>DeepSeek</h4>
+                                    <span class="new-badge">NUEVO</span>
+                                </div>
+                                <p>Modelo chino eficiente y de bajo costo, rival de ChatGPT</p>
+                                <a href="https://chat.deepseek.com" target="_blank" class="model-button">Probar DeepSeek</a>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">❌</span>
+                                    <h4>Grok</h4>
+                                    <span class="new-badge">NUEVO</span>
+                                </div>
+                                <p>IA de xAI (Elon Musk) integrada en X, con humor y datos en tiempo real</p>
+                                <a href="https://x.ai" target="_blank" class="model-button">Ver Grok</a>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">🌟</span>
+                                    <h4>Mistral AI</h4>
+                                    <span class="new-badge">OPEN SOURCE</span>
+                                </div>
+                                <p>Modelo francés de código abierto, altamente personalizable</p>
+                                <a href="https://mistral.ai" target="_blank" class="model-button">Explorar Mistral</a>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">🏪</span>
+                                    <h4>Qwen (Alibaba)</h4>
+                                    <span class="new-badge">MULTILINGÜE</span>
+                                </div>
+                                <p>Familia de modelos de Alibaba, excelente para idioma chino</p>
+                                <a href="https://huggingface.co/Qwen" target="_blank" class="model-button">Ver en HF</a>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">🔄</span>
+                                    <h4>Auto-GPT</h4>
+                                    <span class="new-badge">AGENTE</span>
+                                </div>
+                                <p>Agente autónomo que puede ejecutar tareas complejas automáticamente</p>
+                                <a href="https://github.com/Significant-Gravitas/AutoGPT" target="_blank" class="model-button">Ver GitHub</a>
+                            </div>
+                            
+                            <div class="model-card">
+                                <div class="model-header">
+                                    <span class="model-icon">🎨</span>
+                                    <h4>Midjourney</h4>
+                                    <span class="new-badge">IMÁGENES</span>
+                                </div>
+                                <p>Generador de imágenes con IA de alta calidad</p>
+                                <a href="https://midjourney.com" target="_blank" class="model-button">Crear Imágenes</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>🔗 APIs y Servicios</h3>
+                        <p>Integra IA en tus proyectos con estas APIs:</p>
+                        
+                        <div class="api-services-grid">
+                            <div class="api-card">
+                                <h4>🔑 OpenAI API</h4>
+                                <p>Acceso programático a GPT-4, DALL-E y más</p>
+                                <a href="https://platform.openai.com" target="_blank" class="api-button">Documentación</a>
+                            </div>
+                            
+                            <div class="api-card">
+                                <h4>🏗️ Anthropic API</h4>
+                                <p>Integra Claude en tus aplicaciones</p>
+                                <a href="https://docs.anthropic.com" target="_blank" class="api-button">API Docs</a>
+                            </div>
+                            
+                            <div class="api-card">
+                                <h4>☁️ Google AI Studio</h4>
+                                <p>Herramientas de IA de Google Cloud</p>
+                                <a href="https://aistudio.google.com" target="_blank" class="api-button">AI Studio</a>
+                            </div>
+                            
+                            <div class="api-card">
+                                <h4>🤗 Inference API</h4>
+                                <p>Ejecuta modelos de Hugging Face fácilmente</p>
+                                <a href="https://huggingface.co/inference-api" target="_blank" class="api-button">Inference API</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fundamentos de IA -->
+            <section id="fundamentos" class="section">
+                <h2>🧠 Fundamentos de Inteligencia Artificial</h2>
+                
+                <div class="content-card">
+                    <h3>¿Qué es la Inteligencia Artificial?</h3>
+                    <p>
+                        La Inteligencia Artificial (IA) es la capacidad de las máquinas para realizar tareas que tradicionalmente 
+                        requieren inteligencia humana, como el reconocimiento de patrones, la toma de decisiones y el procesamiento 
+                        del lenguaje natural.
+                    </p>
+                    
+                    <div class="info-box">
+                        <h4>🎯 Tipos principales de IA:</h4>
+                        <ul>
+                            <li><strong>IA Estrecha (ANI):</strong> Especializada en tareas específicas (ChatGPT, reconocimiento de imágenes)</li>
+                            <li><strong>IA General (AGI):</strong> Capaz de realizar cualquier tarea intelectual humana (aún en desarrollo)</li>
+                            <li><strong>IA Súper (ASI):</strong> Supera la inteligencia humana en todos los aspectos (teórica)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🔬 Ramas principales de la IA</h3>
+                    <div class="ai-branches">
+                        <div class="branch-item">
+                            <h4>🔤 Procesamiento de Lenguaje Natural (NLP)</h4>
+                            <p>Permite a las máquinas entender, interpretar y generar lenguaje humano.</p>
+                        </div>
+                        <div class="branch-item">
+                            <h4>👁️ Visión por Computadora</h4>
+                            <p>Capacidad de interpretar y entender información visual del mundo real.</p>
+                        </div>
+                        <div class="branch-item">
+                            <h4>🤖 Machine Learning</h4>
+                            <p>Algoritmos que mejoran automáticamente a través de la experiencia.</p>
+                        </div>
+                        <div class="branch-item">
+                            <h4>🧠 Deep Learning</h4>
+                            <p>Redes neuronales profundas que imitan el funcionamiento del cerebro humano.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Large Language Models -->
+            <section id="llms" class="section">
+                <h2>🔤 Large Language Models (LLMs)</h2>
+                
+                <div class="content-card">
+                    <h3>¿Qué son los LLMs?</h3>
+                    <p>
+                        Los Large Language Models son modelos de IA entrenados con enormes cantidades de texto para 
+                        entender y generar lenguaje humano de manera coherente y contextual.
+                    </p>
+                    
+                    <div class="warning-box">
+                        <h4>⚡ Características clave:</h4>
+                        <ul>
+                            <li>Entrenados con billones de parámetros</li>
+                            <li>Capacidad de entender contexto y matices</li>
+                            <li>Generación de texto coherente y creativo</li>
+                            <li>Capacidades emergentes (razonamiento, código, matemáticas)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏆 Principales LLMs actuales (2024)</h3>
+                    <div class="llms-grid">
+                        <div class="llm-card">
+                            <h4>GPT-4 Turbo (OpenAI)</h4>
+                            <p><strong>Parámetros:</strong> ~1.7T</p>
+                            <p><strong>Fortalezas:</strong> Razonamiento, código, creatividad</p>
+                            <p><strong>Uso:</strong> ChatGPT, API</p>
+                            <a href="https://chat.openai.com" target="_blank" class="llm-link">Probar GPT-4</a>
+                        </div>
+                        <div class="llm-card">
+                            <h4>Claude 3.5 Sonnet (Anthropic)</h4>
+                            <p><strong>Parámetros:</strong> No revelado</p>
+                            <p><strong>Fortalezas:</strong> Análisis, escritura, seguridad</p>
+                            <p><strong>Uso:</strong> Claude.ai, API</p>
+                            <a href="https://claude.ai" target="_blank" class="llm-link">Probar Claude</a>
+                        </div>
+                        <div class="llm-card">
+                            <h4>Gemini Ultra (Google)</h4>
+                            <p><strong>Parámetros:</strong> No revelado</p>
+                            <p><strong>Fortalezas:</strong> Multimodal, matemáticas</p>
+                            <p><strong>Uso:</strong> Gemini, Vertex AI</p>
+                            <a href="https://gemini.google.com" target="_blank" class="llm-link">Usar Gemini</a>
+                        </div>
+                        <div class="llm-card">
+                            <h4>DeepSeek (China)</h4>
+                            <p><strong>Parámetros:</strong> 67B</p>
+                            <p><strong>Fortalezas:</strong> Eficiencia, bajo costo</p>
+                            <p><strong>Uso:</strong> Chat DeepSeek</p>
+                            <a href="https://chat.deepseek.com" target="_blank" class="llm-link">Probar DeepSeek</a>
+                        </div>
+                        <div class="llm-card">
+                            <h4>Mistral Large (Francia)</h4>
+                            <p><strong>Parámetros:</strong> No revelado</p>
+                            <p><strong>Fortalezas:</strong> Open source, multilingüe</p>
+                            <p><strong>Uso:</strong> Mistral AI, Hugging Face</p>
+                            <a href="https://mistral.ai" target="_blank" class="llm-link">Explorar Mistral</a>
+                        </div>
+                        <div class="llm-card">
+                            <h4>Llama 3.1 (Meta)</h4>
+                            <p><strong>Parámetros:</strong> 8B-405B</p>
+                            <p><strong>Fortalezas:</strong> Open source, personalizable</p>
+                            <p><strong>Uso:</strong> Hugging Face, local</p>
+                            <a href="https://huggingface.co/meta-llama" target="_blank" class="llm-link">Ver en HF</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prompt Engineering -->
+            <section id="prompt-engineering" class="section">
+                <h2>✍️ Prompt Engineering</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 ¿Qué es Prompt Engineering?</h3>
+                    <p>
+                        Es el arte y la ciencia de diseñar instrucciones (prompts) efectivas para obtener los mejores 
+                        resultados de los modelos de IA. Es una habilidad fundamental en la era de la IA.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🛠️ Técnicas principales</h3>
+                    
+                    <div class="technique-card">
+                        <h4>1. Zero-Shot Prompting</h4>
+                        <p>Dar una instrucción directa sin ejemplos.</p>
+                        <div class="code-example">
+                            <h5>Ejemplo:</h5>
+                            <pre><code>Traduce el siguiente texto al inglés: "Hola, ¿cómo estás?"</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>2. Few-Shot Prompting</h4>
+                        <p>Proporcionar algunos ejemplos para guiar la respuesta.</p>
+                        <div class="code-example">
+                            <h5>Ejemplo:</h5>
+                            <pre><code>Clasifica el sentimiento de estos textos:
+
+Texto: "Me encanta este producto"
+Sentimiento: Positivo
+
+Texto: "No me gusta nada"
+Sentimiento: Negativo
+
+Texto: "El servicio fue increíble"
+Sentimiento: ?</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>3. Chain-of-Thought (CoT)</h4>
+                        <p>Pedir al modelo que muestre su razonamiento paso a paso.</p>
+                        <div class="code-example">
+                            <h5>Ejemplo:</h5>
+                            <pre><code>Resuelve este problema paso a paso:
+Si tengo 15 manzanas y regalo 1/3 a mi hermana y 1/5 a mi primo, ¿cuántas me quedan?
+
+Piensa paso a paso:</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>4. Role-Playing</h4>
+                        <p>Asignar un rol específico al modelo.</p>
+                        <div class="code-example">
+                            <h5>Ejemplo:</h5>
+                            <pre><code>Actúa como un desarrollador senior de JavaScript. 
+Explícame las diferencias entre var, let y const de manera técnica pero clara.</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="technique-card">
+                        <h4>5. Template Prompting</h4>
+                        <p>Usar plantillas estructuradas para consistencia.</p>
+                        <div class="code-example">
+                            <h5>Ejemplo:</h5>
+                            <pre><code>Contexto: [Descripción del problema]
+Tarea: [Lo que necesitas hacer]
+Formato de salida: [Cómo quieres la respuesta]
+Restricciones: [Limitaciones o reglas]</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💡 Mejores prácticas</h3>
+                    <div class="best-practices">
+                        <div class="practice-item">
+                            <h4>✅ SÍ hacer:</h4>
+                            <ul>
+                                <li>Ser específico y claro en las instrucciones</li>
+                                <li>Proporcionar contexto relevante</li>
+                                <li>Usar ejemplos cuando sea necesario</li>
+                                <li>Definir el formato de salida deseado</li>
+                                <li>Iterar y refinar los prompts</li>
+                            </ul>
+                        </div>
+                        <div class="practice-item">
+                            <h4>❌ NO hacer:</h4>
+                            <ul>
+                                <li>Ser demasiado vago o ambiguo</li>
+                                <li>Asumir conocimiento implícito</li>
+                                <li>Hacer prompts excesivamente largos</li>
+                                <li>Usar lenguaje contradictorio</li>
+                                <li>Ignorar las limitaciones del modelo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agentes de IA -->
+            <section id="agentes-ia" class="section">
+                <h2>🤖 Agentes de IA</h2>
+                
+                <div class="content-card">
+                    <h3>¿Qué son los Agentes de IA?</h3>
+                    <p>
+                        Los agentes de IA son sistemas autónomos que pueden percibir su entorno, tomar decisiones 
+                        y realizar acciones para alcanzar objetivos específicos. Van más allá de los chatbots simples.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🔧 Tipos de Agentes</h3>
+                    <div class="agents-grid">
+                        <div class="agent-card">
+                            <h4>🎯 Agentes Reactivos</h4>
+                            <p>Responden directamente a estímulos del entorno sin planificación compleja.</p>
+                            <strong>Ejemplo:</strong> Chatbots básicos
+                        </div>
+                        <div class="agent-card">
+                            <h4>🧠 Agentes Cognitivos</h4>
+                            <p>Mantienen un modelo interno del mundo y planifican acciones.</p>
+                            <strong>Ejemplo:</strong> Asistentes de código como Cursor
+                        </div>
+                        <div class="agent-card">
+                            <h4>🤝 Agentes Colaborativos</h4>
+                            <p>Trabajan junto con humanos o otros agentes para completar tareas.</p>
+                            <strong>Ejemplo:</strong> GitHub Copilot
+                        </div>
+                        <div class="agent-card">
+                            <h4>🔄 Agentes Autónomos</h4>
+                            <p>Pueden operar independientemente durante largos períodos.</p>
+                            <strong>Ejemplo:</strong> AutoGPT, AgentGPT
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏗️ Arquitectura de Agentes</h3>
+                    <div class="architecture-diagram">
+                        <div class="arch-component">
+                            <h4>👁️ Percepción</h4>
+                            <p>Recibe información del entorno (texto, imágenes, datos)</p>
+                        </div>
+                        <div class="arch-arrow">→</div>
+                        <div class="arch-component">
+                            <h4>🧠 Razonamiento</h4>
+                            <p>Procesa la información y toma decisiones</p>
+                        </div>
+                        <div class="arch-arrow">→</div>
+                        <div class="arch-component">
+                            <h4>⚡ Acción</h4>
+                            <p>Ejecuta tareas en el entorno</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cursor AI -->
+            <section id="cursor-ai" class="section">
+                <h2>💻 Cursor AI para Desarrollo</h2>
+                
+                <div class="content-card">
+                    <h3>🚀 ¿Qué es Cursor?</h3>
+                    <p>
+                        Cursor es un editor de código potenciado por IA que actúa como tu compañero de programación. 
+                        Utiliza modelos avanzados como GPT-4 y Claude para ayudarte a escribir, editar y debuggear código.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>⚡ Características principales</h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <h4>🎯 Autocompletado Inteligente</h4>
+                            <p>Predicciones de código contextuales y precisas</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>💬 Chat con tu Código</h4>
+                            <p>Haz preguntas sobre tu proyecto directamente</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🔧 Edición por Comandos</h4>
+                            <p>Modifica código con instrucciones en lenguaje natural</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>🐛 Debug Asistido</h4>
+                            <p>Encuentra y corrige errores automáticamente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📝 Prompts efectivos para Cursor</h3>
+                    
+                    <div class="prompt-example">
+                        <h4>🎨 Para crear componentes:</h4>
+                        <pre><code>Crea un componente React para una tarjeta de producto que incluya:
+- Imagen del producto
+- Título y descripción
+- Precio con descuento
+- Botón de agregar al carrito
+- Diseño responsive con Tailwind CSS</code></pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <h4>🔧 Para refactorizar código:</h4>
+                        <pre><code>Refactoriza esta función para:
+- Usar async/await en lugar de Promises
+- Añadir manejo de errores
+- Mejorar la legibilidad
+- Añadir comentarios JSDoc</code></pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <h4>🐛 Para debugging:</h4>
+                        <pre><code>Este código está dando error [pegar error]. 
+Analiza el problema y sugiere una solución con explicación paso a paso.</code></pre>
+                    </div>
+
+                    <div class="prompt-example">
+                        <h4>📚 Para documentación:</h4>
+                        <pre><code>Genera documentación completa para esta API incluyendo:
+- Descripción de cada endpoint
+- Parámetros de entrada
+- Ejemplos de respuesta
+- Códigos de error posibles</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Claude -->
+            <section id="claude" class="section">
+                <h2>🧠 Claude y Anthropic</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 ¿Qué es Claude?</h3>
+                    <p>
+                        Claude es un asistente de IA desarrollado por Anthropic, diseñado para ser útil, inofensivo y honesto. 
+                        Destaca en análisis, escritura, matemáticas y programación con un enfoque en la seguridad.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏆 Versiones de Claude (2024)</h3>
+                    <div class="claude-versions">
+                        <div class="version-card">
+                            <h4>Claude 3.5 Sonnet</h4>
+                            <p><strong>Velocidad:</strong> ⚡⚡⚡⚡</p>
+                            <p><strong>Capacidad:</strong> 🧠🧠🧠🧠🧠</p>
+                            <p><strong>Mejor para:</strong> Programación, análisis, escritura creativa</p>
+                        </div>
+                        <div class="version-card">
+                            <h4>Claude 3 Opus</h4>
+                            <p><strong>Velocidad:</strong> ⚡⚡⚡</p>
+                            <p><strong>Capacidad:</strong> 🧠🧠🧠🧠🧠</p>
+                            <p><strong>Mejor para:</strong> Tareas complejas, investigación profunda</p>
+                        </div>
+                        <div class="version-card">
+                            <h4>Claude 3 Haiku</h4>
+                            <p><strong>Velocidad:</strong> ⚡⚡⚡⚡⚡</p>
+                            <p><strong>Capacidad:</strong> 🧠🧠🧠</p>
+                            <p><strong>Mejor para:</strong> Tareas rápidas, respuestas concisas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💡 Prompts avanzados para Claude</h3>
+                    
+                    <div class="claude-prompt">
+                        <h4>🏗️ Arquitectura de Software:</h4>
+                        <pre><code>Actúa como un arquitecto de software senior. Diseña la arquitectura completa para una aplicación de e-commerce incluyendo:
+
+1. Diagrama de arquitectura de microservicios
+2. Base de datos (schema y relaciones)
+3. APIs REST y GraphQL
+4. Sistema de autenticación y autorización
+5. Estrategia de caching
+6. Consideraciones de escalabilidad
+7. Stack tecnológico recomendado
+
+Proporciona diagramas en texto ASCII y código de ejemplo.</code></pre>
+                    </div>
+
+                    <div class="claude-prompt">
+                        <h4>🔍 Code Review:</h4>
+                        <pre><code>Realiza un code review exhaustivo del siguiente código considerando:
+
+- Mejores prácticas
+- Seguridad
+- Performance
+- Mantenibilidad
+- Testing
+- Documentación
+
+Proporciona feedback constructivo con ejemplos de mejora.</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Firebase + IA -->
+            <section id="firebase-ia" class="section">
+                <h2>🔥 Firebase + IA</h2>
+                
+                <div class="content-card">
+                    <h3>🤖 Firebase ML y Vertex AI</h3>
+                    <p>
+                        Firebase se integra perfectamente con los servicios de IA de Google Cloud, permitiendo 
+                        agregar capacidades de machine learning a tus aplicaciones web fácilmente.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🛠️ Servicios disponibles</h3>
+                    <div class="firebase-ai-services">
+                        <div class="service-card">
+                            <h4>👁️ Vision API</h4>
+                            <p>Reconocimiento de imágenes, OCR, detección de objetos</p>
+                            <div class="code-example">
+                                <pre><code>// Detectar texto en imagen
+const vision = require('@google-cloud/vision');
+const client = new vision.ImageAnnotatorClient();
+
+const [result] = await client.textDetection('imagen.jpg');
+const detections = result.textAnnotations;
+console.log('Texto detectado:', detections[0].description);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <h4>🔤 Translation API</h4>
+                            <p>Traducción automática entre más de 100 idiomas</p>
+                            <div class="code-example">
+                                <pre><code>// Traducir texto
+const {Translate} = require('@google-cloud/translate').v2;
+const translate = new Translate();
+
+const [translation] = await translate.translate(texto, 'en');
+console.log('Traducción:', translation);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <h4>🗣️ Speech-to-Text</h4>
+                            <p>Conversión de audio a texto con alta precisión</p>
+                            <div class="code-example">
+                                <pre><code>// Convertir audio a texto
+const speech = require('@google-cloud/speech');
+const client = new speech.SpeechClient();
+
+const request = {
+  audio: { content: audioBytes },
+  config: {
+    encoding: 'WEBM_OPUS',
+    sampleRateHertz: 48000,
+    languageCode: 'es-ES',
+  },
+};
+
+const [response] = await client.recognize(request);</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="service-card">
+                            <h4>💭 Natural Language API</h4>
+                            <p>Análisis de sentimientos y entidades en texto</p>
+                            <div class="code-example">
+                                <pre><code>// Análisis de sentimientos
+const language = require('@google-cloud/language');
+const client = new language.LanguageServiceClient();
+
+const document = {
+  content: texto,
+  type: 'PLAIN_TEXT',
+};
+
+const [result] = await client.analyzeSentiment({document});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🚀 Proyecto práctico: Chatbot con Firebase</h3>
+                    <div class="project-example">
+                        <h4>📋 Estructura del proyecto:</h4>
+                        <pre><code>proyecto-chatbot/
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── app.js
+├── functions/
+│   ├── index.js
+│   └── package.json
+└── firebase.json</code></pre>
+
+                        <h4>🔧 Configuración en functions/index.js:</h4>
+                        <div class="code-example">
+                            <pre><code>const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const { Configuration, OpenAIApi } = require('openai');
+
+admin.initializeApp();
+
+const configuration = new Configuration({
+  apiKey: functions.config().openai.key,
+});
+const openai = new OpenAIApi(configuration);
+
+exports.chatbot = functions.https.onCall(async (data, context) => {
+  try {
+    const { message, userId } = data;
+    
+    // Guardar mensaje del usuario
+    await admin.firestore()
+      .collection('conversations')
+      .doc(userId)
+      .collection('messages')
+      .add({
+        role: 'user',
+        content: message,
+        timestamp: admin.firestore.FieldValue.serverTimestamp()
+      });
+
+    // Obtener respuesta de OpenAI
+    const response = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system", 
+          content: "Eres un asistente útil para estudiantes de programación."
+        },
+        {
+          role: "user", 
+          content: message
+        }
+      ],
+      max_tokens: 500
+    });
+
+    const aiResponse = response.data.choices[0].message.content;
+
+    // Guardar respuesta de la IA
+    await admin.firestore()
+      .collection('conversations')
+      .doc(userId)
+      .collection('messages')
+      .add({
+        role: 'assistant',
+        content: aiResponse,
+        timestamp: admin.firestore.FieldValue.serverTimestamp()
+      });
+
+    return { response: aiResponse };
+    
+  } catch (error) {
+    console.error('Error:', error);
+    throw new functions.https.HttpsError('internal', 'Error al procesar la solicitud');
+  }
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RAG -->
+            <section id="rag" class="section">
+                <h2>📚 RAG (Retrieval-Augmented Generation)</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 ¿Qué es RAG?</h3>
+                    <p>
+                        RAG es una técnica que combina la recuperación de información con la generación de texto. 
+                        Permite a los LLMs acceder a información actualizada y específica de tu dominio sin reentrenamiento.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏗️ Arquitectura RAG</h3>
+                    <div class="rag-diagram">
+                        <div class="rag-step">
+                            <h4>1. 📄 Preparación</h4>
+                            <p>Dividir documentos en chunks y crear embeddings</p>
+                        </div>
+                        <div class="rag-arrow">↓</div>
+                        <div class="rag-step">
+                            <h4>2. 🗄️ Almacenamiento</h4>
+                            <p>Guardar embeddings en base de datos vectorial</p>
+                        </div>
+                        <div class="rag-arrow">↓</div>
+                        <div class="rag-step">
+                            <h4>3. 🔍 Búsqueda</h4>
+                            <p>Encontrar documentos relevantes por similitud</p>
+                        </div>
+                        <div class="rag-arrow">↓</div>
+                        <div class="rag-step">
+                            <h4>4. 🤖 Generación</h4>
+                            <p>Usar contexto recuperado para generar respuesta</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💻 Implementación RAG con JavaScript</h3>
+                    <div class="code-example">
+                        <h4>🔧 Configuración básica:</h4>
+                        <pre><code>// Instalar dependencias
+npm install @xenova/transformers openai pinecone-client
+
+// rag-system.js
+import { pipeline } from '@xenova/transformers';
+import OpenAI from 'openai';
+import { PineconeClient } from 'pinecone-client';
+
+class RAGSystem {
+  constructor() {
+    this.openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    this.pinecone = new PineconeClient({ apiKey: process.env.PINECONE_API_KEY });
+    this.embedder = null;
+  }
+
+  async initialize() {
+    // Cargar modelo de embeddings
+    this.embedder = await pipeline('feature-extraction', 
+      'sentence-transformers/all-MiniLM-L6-v2');
+  }
+
+  async createEmbedding(text) {
+    const embedding = await this.embedder(text);
+    return Array.from(embedding.data);
+  }
+
+  async addDocument(text, metadata = {}) {
+    // Dividir documento en chunks
+    const chunks = this.splitText(text, 500);
+    
+    for (let i = 0; i < chunks.length; i++) {
+      const embedding = await this.createEmbedding(chunks[i]);
+      
+      // Almacenar en Pinecone
+      await this.pinecone.upsert({
+        vectors: [{
+          id: `${metadata.id || 'doc'}_${i}`,
+          values: embedding,
+          metadata: {
+            text: chunks[i],
+            ...metadata
+          }
+        }]
+      });
+    }
+  }
+
+  async query(question, topK = 3) {
+    // Crear embedding de la pregunta
+    const questionEmbedding = await this.createEmbedding(question);
+    
+    // Buscar documentos similares
+    const searchResults = await this.pinecone.query({
+      vector: questionEmbedding,
+      topK,
+      includeMetadata: true
+    });
+
+    // Extraer contexto relevante
+    const context = searchResults.matches
+      .map(match => match.metadata.text)
+      .join('\n\n');
+
+    // Generar respuesta con contexto
+    const response = await this.openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: `Eres un asistente experto. Usa el siguiente contexto para responder la pregunta del usuario. Si la información no está en el contexto, dilo claramente.
+
+Contexto:
+${context}`
+        },
+        {
+          role: "user",
+          content: question
+        }
+      ],
+      max_tokens: 500
+    });
+
+    return {
+      answer: response.choices[0].message.content,
+      sources: searchResults.matches.map(match => match.metadata)
+    };
+  }
+
+  splitText(text, chunkSize) {
+    const chunks = [];
+    for (let i = 0; i < text.length; i += chunkSize) {
+      chunks.push(text.slice(i, i + chunkSize));
+    }
+    return chunks;
+  }
+}
+
+// Uso del sistema
+const rag = new RAGSystem();
+await rag.initialize();
+
+// Agregar documentos
+await rag.addDocument("Firebase es una plataforma de desarrollo...", {
+  id: "firebase-doc",
+  category: "tutorial"
+});
+
+// Hacer consultas
+const result = await rag.query("¿Cómo funciona Firebase?");
+console.log(result.answer);</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🛠️ Herramientas para RAG</h3>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h4>📊 Bases de Datos Vectoriales</h4>
+                            <ul>
+                                <li><strong>Pinecone:</strong> Servicio en la nube, fácil de usar</li>
+                                <li><strong>Weaviate:</strong> Open source, muy flexible</li>
+                                <li><strong>Qdrant:</strong> Rápido y eficiente</li>
+                                <li><strong>Chroma:</strong> Simple para desarrollo local</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h4>🔤 Modelos de Embeddings</h4>
+                            <ul>
+                                <li><strong>OpenAI ada-002:</strong> Muy bueno, pero de pago</li>
+                                <li><strong>Sentence Transformers:</strong> Open source, eficiente</li>
+                                <li><strong>Cohere:</strong> Especializado en búsqueda</li>
+                                <li><strong>E5:</strong> Modelo multilingual</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Vision Language Models -->
+            <section id="vlms" class="section">
+                <h2>👁️ Vision Language Models (VLMs)</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 ¿Qué son los VLMs?</h3>
+                    <p>
+                        Los Vision Language Models son modelos de IA que pueden procesar y entender tanto texto como imágenes, 
+                        permitiendo tareas como descripción de imágenes, respuesta a preguntas visuales y análisis multimodal.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>🏆 Principales VLMs (2024)</h3>
+                    <div class="vlms-grid">
+                        <div class="vlm-card">
+                            <h4>GPT-4 Vision (GPT-4V)</h4>
+                            <p><strong>Capacidades:</strong> Análisis de imágenes, OCR, diagramas</p>
+                            <p><strong>Uso:</strong> API de OpenAI</p>
+                        </div>
+                        <div class="vlm-card">
+                            <h4>Claude 3 (Anthropic)</h4>
+                            <p><strong>Capacidades:</strong> Análisis detallado, gráficos, documentos</p>
+                            <p><strong>Uso:</strong> Claude.ai, API</p>
+                        </div>
+                        <div class="vlm-card">
+                            <h4>Gemini Pro Vision</h4>
+                            <p><strong>Capacidades:</strong> Multimodal nativo, video</p>
+                            <p><strong>Uso:</strong> Google AI Studio</p>
+                        </div>
+                        <div class="vlm-card">
+                            <h4>LLaVA (Open Source)</h4>
+                            <p><strong>Capacidades:</strong> Conversación visual, personalizable</p>
+                            <p><strong>Uso:</strong> Hugging Face, local</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>💻 Implementación con GPT-4 Vision</h3>
+                    <div class="code-example">
+                        <pre><code>// Análisis de imagen con GPT-4 Vision
+import OpenAI from 'openai';
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+async function analyzeImage(imageUrl, prompt) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-4-vision-preview",
+    messages: [
+      {
+        role: "user",
+        content: [
+          {
+            type: "text",
+            text: prompt
+          },
+          {
+            type: "image_url",
+            image_url: {
+              url: imageUrl,
+              detail: "high" // "low", "high", o "auto"
+            }
+          }
+        ]
+      }
+    ],
+    max_tokens: 500
+  });
+
+  return response.choices[0].message.content;
+}
+
+// Ejemplos de uso
+const imageUrl = "https://ejemplo.com/imagen.jpg";
+
+// Descripción general
+const description = await analyzeImage(
+  imageUrl, 
+  "Describe detalladamente esta imagen"
+);
+
+// Análisis técnico
+const analysis = await analyzeImage(
+  imageUrl,
+  "Analiza el código en esta imagen y explica qué hace"
+);
+
+// OCR (reconocimiento de texto)
+const text = await analyzeImage(
+  imageUrl,
+  "Extrae todo el texto visible en esta imagen"
+);
+
+// Análisis de UI/UX
+const uiAnalysis = await analyzeImage(
+  imageUrl,
+  "Analiza el diseño de esta interfaz y sugiere mejoras de UX"
+);</code></pre>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🚀 Casos de uso prácticos</h3>
+                    <div class="use-cases-grid">
+                        <div class="use-case-card">
+                            <h4>📊 Análisis de Gráficos</h4>
+                            <p>Extraer datos de gráficos y crear resúmenes automáticos</p>
+                        </div>
+                        <div class="use-case-card">
+                            <h4>🔍 Moderación de Contenido</h4>
+                            <p>Detectar contenido inapropiado en imágenes automáticamente</p>
+                        </div>
+                        <div class="use-case-card">
+                            <h4>🛍️ E-commerce</h4>
+                            <p>Generar descripciones de productos a partir de imágenes</p>
+                        </div>
+                        <div class="use-case-card">
+                            <h4>📚 Educación</h4>
+                            <p>Explicar diagramas y conceptos visuales a estudiantes</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LoRA y Fine-tuning -->
+            <section id="lora" class="section">
+                <h2>🔧 LoRA y Fine-tuning</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 ¿Qué es LoRA?</h3>
+                    <p>
+                        LoRA (Low-Rank Adaptation) es una técnica eficiente para personalizar modelos de IA grandes 
+                        sin necesidad de reentrenar todo el modelo. Permite crear versiones especializadas con menos recursos.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h3>💡 Ventajas de LoRA</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-item">
+                            <h4>💰 Costo Eficiente</h4>
+                            <p>Requiere 10-100x menos recursos que el fine-tuning tradicional</p>
+                        </div>
+                        <div class="advantage-item">
+                            <h4>⚡ Entrenamiento Rápido</h4>
+                            <p>Horas en lugar de días para entrenar adaptaciones</p>
+                        </div>
+                        <div class="advantage-item">
+                            <h4>🎯 Especialización</h4>
+                            <p>Adapta el modelo a tu dominio específico</p>
+                        </div>
+                        <div class="advantage-item">
+                            <h4>🔄 Intercambiable</h4>
+                            <p>Puedes cambiar entre diferentes adaptaciones fácilmente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🛠️ Herramientas para LoRA</h3>
+                    <div class="lora-tools">
+                        <div class="tool-section">
+                            <h4>🤗 Hugging Face PEFT</h4>
+                            <p>Librería principal para Parameter-Efficient Fine-Tuning</p>
+                            <div class="code-example">
+                                <pre><code>pip install peft transformers datasets
+
+from peft import LoraConfig, get_peft_model, TaskType
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+# Configurar LoRA
+lora_config = LoraConfig(
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    r=16,  # rango de la adaptación
+    lora_alpha=32,
+    lora_dropout=0.1,
+    target_modules=["q_proj", "v_proj"]
+)
+
+# Cargar modelo base
+model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
+model = get_peft_model(model, lora_config)
+
+# Entrenar solo los parámetros LoRA
+model.print_trainable_parameters()
+# Salida: trainable params: 294,912 || all params: 117,489,408 || trainable%: 0.25</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="tool-section">
+                            <h4>🚀 Servicios en la Nube</h4>
+                            <ul>
+                                <li><strong>Replicate:</strong> Fine-tuning sin código</li>
+                                <li><strong>Modal:</strong> Infraestructura para ML</li>
+                                <li><strong>RunPod:</strong> GPUs económicas</li>
+                                <li><strong>Google Colab Pro:</strong> Para experimentación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📝 Casos de uso para estudiantes</h3>
+                    <div class="student-cases">
+                        <div class="case-item">
+                            <h4>🤖 Chatbot Especializado</h4>
+                            <p>Crear un asistente para tu área de estudio específica</p>
+                            <div class="example-prompt">
+                                <strong>Ejemplo:</strong> Chatbot para ayudar con problemas de programación en JavaScript
+                            </div>
+                        </div>
+                        <div class="case-item">
+                            <h4>✍️ Generador de Código</h4>
+                            <p>Adaptar un modelo para generar código en tu stack tecnológico</p>
+                            <div class="example-prompt">
+                                <strong>Ejemplo:</strong> Modelo especializado en React + Firebase
+                            </div>
+                        </div>
+                        <div class="case-item">
+                            <h4>📚 Tutor Personalizado</h4>
+                            <p>Crear un tutor que explique conceptos en tu estilo preferido</p>
+                            <div class="example-prompt">
+                                <strong>Ejemplo:</strong> Tutor que explica con analogías y ejemplos prácticos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Proyectos Prácticos -->
+            <section id="proyectos" class="section">
+                <h2>🚀 Proyectos Prácticos</h2>
+                
+                <div class="content-card">
+                    <h3>🎯 Proyecto 1: Asistente de Código con RAG</h3>
+                    <div class="project-description">
+                        <p>Crea un asistente que puede responder preguntas sobre tu código base usando RAG.</p>
+                        
+                        <h4>📋 Funcionalidades:</h4>
+                        <ul>
+                            <li>Indexar archivos de código en una base de datos vectorial</li>
+                            <li>Búsqueda semántica de funciones y componentes</li>
+                            <li>Generación de documentación automática</li>
+                            <li>Sugerencias de mejoras de código</li>
+                        </ul>
+
+                        <h4>🛠️ Stack tecnológico:</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">OpenAI API</span>
+                            <span class="tech-tag">Pinecone</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Proyecto 2: Generador de Contenido Visual</h3>
+                    <div class="project-description">
+                        <p>Aplicación que genera descripciones, alt-text y metadatos para imágenes automáticamente.</p>
+                        
+                        <h4>📋 Funcionalidades:</h4>
+                        <ul>
+                            <li>Upload de imágenes con drag & drop</li>
+                            <li>Análisis automático con GPT-4 Vision</li>
+                            <li>Generación de títulos SEO-friendly</li>
+                            <li>Detección de texto en imágenes (OCR)</li>
+                            <li>Clasificación automática por categorías</li>
+                        </ul>
+
+                        <h4>🛠️ Stack tecnológico:</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Firebase Storage</span>
+                            <span class="tech-tag">GPT-4 Vision</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>🎯 Proyecto 3: Sistema de Recomendaciones Inteligente</h3>
+                    <div class="project-description">
+                        <p>E-commerce con sistema de recomendaciones usando embeddings y análisis de comportamiento.</p>
+                        
+                        <h4>📋 Funcionalidades:</h4>
+                        <ul>
+                            <li>Recomendaciones basadas en historial de navegación</li>
+                            <li>Búsqueda semántica de productos</li>
+                            <li>Análisis de sentimientos en reseñas</li>
+                            <li>Chatbot para atención al cliente</li>
+                        </ul>
+
+                        <h4>🛠️ Stack tecnológico:</h4>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Sentence Transformers</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Para Expo Tech -->
+            <section id="expo-tech" class="section">
+                <h2>🎯 Para Expo Tech</h2>
+                
+                <div class="content-card">
+                    <h3>🏆 Ideas de Proyectos para Expo Tech</h3>
+                    <div class="expo-projects">
+                        <div class="expo-project">
+                            <h4>🎓 EduAI - Tutor Personalizado</h4>
+                            <p><strong>Problema:</strong> Estudiantes necesitan ayuda personalizada 24/7</p>
+                            <p><strong>Solución:</strong> Tutor IA que se adapta al estilo de aprendizaje de cada estudiante</p>
+                            <div class="features-list">
+                                <h5>Características:</h5>
+                                <ul>
+                                    <li>Análisis del estilo de aprendizaje</li>
+                                    <li>Generación de ejercicios personalizados</li>
+                                    <li>Explicaciones adaptativas</li>
+                                    <li>Seguimiento del progreso</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="expo-project">
+                            <h4>🌱 EcoScan - Análisis Ambiental</h4>
+                            <p><strong>Problema:</strong> Falta de conciencia sobre el impacto ambiental</p>
+                            <p><strong>Solución:</strong> App que analiza productos y sugiere alternativas ecológicas</p>
+                            <div class="features-list">
+                                <h5>Características:</h5>
+                                <ul>
+                                    <li>Escaneo de códigos de barras</li>
+                                    <li>Análisis de ingredientes con IA</li>
+                                    <li>Puntuación de sostenibilidad</li>
+                                    <li>Recomendaciones de productos eco-friendly</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="expo-project">
+                            <h4>🏥 HealthBot - Asistente Médico</h4>
+                            <p><strong>Problema:</strong> Acceso limitado a información médica confiable</p>
+                            <p><strong>Solución:</strong> Chatbot médico con RAG entrenado en literatura médica</p>
+                            <div class="features-list">
+                                <h5>Características:</h5>
+                                <ul>
+                                    <li>Consultas médicas básicas</li>
+                                    <li>Análisis de síntomas</li>
+                                    <li>Recordatorios de medicamentos</li>
+                                    <li>Información respaldada por fuentes médicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📊 Criterios de Evaluación</h3>
+                    <div class="evaluation-criteria">
+                        <div class="criterion">
+                            <h4>🚀 Innovación (25%)</h4>
+                            <ul>
+                                <li>Uso creativo de tecnologías de IA</li>
+                                <li>Solución original a un problema real</li>
+                                <li>Implementación de técnicas avanzadas</li>
+                            </ul>
+                        </div>
+                        <div class="criterion">
+                            <h4>⚡ Funcionalidad (25%)</h4>
+                            <ul>
+                                <li>La aplicación funciona correctamente</li>
+                                <li>Interfaz intuitiva y responsive</li>
+                                <li>Manejo adecuado de errores</li>
+                            </ul>
+                        </div>
+                        <div class="criterion">
+                            <h4>🎯 Impacto (25%)</h4>
+                            <ul>
+                                <li>Soluciona un problema significativo</li>
+                                <li>Potencial de escalabilidad</li>
+                                <li>Beneficio para la comunidad</li>
+                            </ul>
+                        </div>
+                        <div class="criterion">
+                            <h4>🛠️ Implementación Técnica (25%)</h4>
+                            <ul>
+                                <li>Calidad del código</li>
+                                <li>Arquitectura bien diseñada</li>
+                                <li>Uso apropiado de APIs y servicios</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <h3>📝 Tips para la Presentación</h3>
+                    <div class="presentation-tips">
+                        <div class="tip-category">
+                            <h4>🎯 Estructura de la Presentación</h4>
+                            <ol>
+                                <li><strong>Problema (2 min):</strong> Define claramente el problema que resuelves</li>
+                                <li><strong>Solución (3 min):</strong> Explica tu enfoque y por qué es innovador</li>
+                                <li><strong>Demo (4 min):</strong> Muestra tu aplicación en funcionamiento</li>
+                                <li><strong>Tecnología (2 min):</strong> Explica las tecnologías de IA utilizadas</li>
+                                <li><strong>Impacto (2 min):</strong> Discute el potencial y próximos pasos</li>
+                                <li><strong>Q&A (2 min):</strong> Responde preguntas del jurado</li>
+                            </ol>
+                        </div>
+                        <div class="tip-category">
+                            <h4>💡 Consejos Clave</h4>
+                            <ul>
+                                <li>Practica tu demo múltiples veces</li>
+                                <li>Prepara un plan B si falla la conexión</li>
+                                <li>Enfócate en el valor, no solo en la tecnología</li>
+                                <li>Usa visualizaciones para explicar conceptos complejos</li>
+                                <li>Mantén un ritmo dinámico y energético</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                </div>
+            </div>
+            
+            <!-- Footer Component -->
+            <div id="footer-container"></div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="components/components.js"></script>
+    <script>
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Highlight activo en navegación
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('.section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Copy code functionality
+        document.querySelectorAll('.code-example pre').forEach(block => {
+            const button = document.createElement('button');
+            button.className = 'copy-btn';
+            button.textContent = '📋 Copiar';
+            button.addEventListener('click', () => {
+                navigator.clipboard.writeText(block.textContent);
+                button.textContent = '✅ Copiado!';
+                setTimeout(() => {
+                    button.textContent = '📋 Copiar';
+                }, 2000);
+            });
+            block.parentNode.insertBefore(button, block);
+        });
+
+        // Inicializar componentes
+        document.addEventListener('DOMContentLoaded', function() {
+            GuideComponents.initializeComponents('Inteligencia Artificial Completa', '🤖');
+        });
+    </script>
+</body>
+</html>
