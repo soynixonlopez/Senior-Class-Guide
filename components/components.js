@@ -6,16 +6,14 @@ function createHeader(guideTitle, guideIcon = "📚") {
         <header class="guide-header">
             <div class="header-content">
                 <div class="header-left">
+                    <!-- Espacio vacío para mantener el layout -->
+                </div>
+                
+                <div class="header-right">
                     <a href="index.html" class="back-btn" title="Volver al inicio">
                         <span class="back-icon">←</span>
                         <span class="back-text">Inicio</span>
                     </a>
-                </div>
-                
-                <div class="header-right">
-                    <button class="logout-btn" onclick="handleLogout()" title="Cerrar sesión">
-                        🚪 Logout
-                    </button>
                 </div>
             </div>
         </header>
@@ -115,6 +113,12 @@ function initializeComponents(guideTitle, guideIcon) {
         footerContainer.innerHTML = createFooter();
     }
     
+    // Insertar botón scroll to top
+    const scrollToTopContainer = document.getElementById('scroll-to-top-container');
+    if (scrollToTopContainer) {
+        scrollToTopContainer.innerHTML = createScrollToTopButton();
+    }
+    
     // Agregar botón de toggle al sidebar
     const sidebar = document.querySelector('.sidebar');
     if (sidebar && !sidebar.querySelector('.sidebar-toggle')) {
@@ -125,6 +129,9 @@ function initializeComponents(guideTitle, guideIcon) {
         toggleBtn.title = 'Colapsar/Expandir sidebar';
         sidebar.appendChild(toggleBtn);
     }
+    
+    // Inicializar scroll to top
+    initScrollToTop();
     
     // Agregar event listeners
     document.addEventListener('keydown', function(e) {
@@ -140,13 +147,45 @@ function initializeComponents(guideTitle, guideIcon) {
     });
 }
 
+// Scroll to Top Button Component
+function createScrollToTopButton() {
+    return `
+        <button class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()" title="Volver arriba">
+            ↑
+        </button>
+    `;
+}
+
+// Scroll to Top Function
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Show/Hide Scroll to Top Button
+function initScrollToTop() {
+    window.addEventListener('scroll', function() {
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        if (scrollToTopBtn && window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else if (scrollToTopBtn) {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+}
+
 // Exportar funciones para uso global
 window.GuideComponents = {
     createHeader,
     createFooter,
+    createScrollToTopButton,
     toggleSidebar,
     toggleSidebarCollapse,
     closeSidebar,
     handleLogout,
+    scrollToTop,
+    initScrollToTop,
     initializeComponents
 };
